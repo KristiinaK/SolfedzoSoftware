@@ -18,19 +18,19 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@color/colorPrimary"
             android:gravity="center"
+            android:onClick="onClick_OpiNoote"
             android:text="@string/cat_OpiNoote"
             android:textColor="@android:color/background_light"
-            android:textSize="36sp"
-            android:onClick="onClick_OpiNoote"/>
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/background_dark"
             android:gravity="center"
             android:text="@string/cat_OpiRutme"
             android:textColor="@android:color/background_light"
@@ -41,10 +41,10 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@android:color/background_light"
             android:gravity="center"
             android:text="@string/cat_Diktaadid"
-            android:textColor="@android:color/background_light"
+            android:textColor="@android:color/background_dark"
             android:textSize="36sp" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@string/cat_TuvastaNoote"
             android:textColor="@android:color/background_light"

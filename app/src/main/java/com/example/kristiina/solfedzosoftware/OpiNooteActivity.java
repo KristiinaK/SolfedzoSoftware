@@ -11,12 +11,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class OpiNooteActivity extends AppCompatActivity {
 
 
-    private final int[] images ={R.drawable.note, R.drawable.note, R.drawable.note, R.drawable.note};
+    private final int[] images ={R.drawable.ic_volume_img, R.drawable.ic_note_img, R.drawable.ic_book_img, R.drawable.ic_quiz_img};
 
     private final String[] titles = {"ÕPI NOOTE KUULMISE JÄRGI", "ÕPI NOOTE PILDI JÄRGI", "TEOORIA", "TESTI TEADMISI"};
 
@@ -39,7 +38,7 @@ public class OpiNooteActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(OpiNooteActivity.this, "You clicked on: "+ position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(OpiNooteActivity.this, "You clicked on: "+ position, Toast.LENGTH_SHORT).show();
 
                 if(position==0){
                     Intent intent= new Intent(view.getContext(), OpiNooteKuulmiseJargiActivity.class);
