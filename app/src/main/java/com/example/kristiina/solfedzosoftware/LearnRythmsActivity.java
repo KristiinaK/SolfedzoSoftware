@@ -12,17 +12,16 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class OpiNooteActivity extends AppCompatActivity {
+public class LearnRythmsActivity extends AppCompatActivity {
 
+    private final int[] images ={R.drawable.ic_volume_img, R.drawable.ic_note_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
 
-    private final int[] images ={R.drawable.ic_volume_img, R.drawable.ic_note_img, R.drawable.ic_recognize_note_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
-
-    private final String[] titles = {"ÕPI NOOTE KUULMISE JÄRGI", "ÕPI NOOTE PILDI JÄRGI","TUVASTA NOOT KÕLA JÄRGI", "TEOORIA", "TESTI TEADMISI"};
+    private final String[] titles = {"ÕPI RÜTME KUULMISE JÄRGI", "ÕPI RÜTME PILDI JÄRGI", "TEOORIA", "TESTI TEADMISI"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opi_noote);
+        setContentView(R.layout.activity_learn_rythms);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,28 +29,24 @@ public class OpiNooteActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listViewLearnRythms);
 
-        CustomAdapter customAdapter= new CustomAdapter();
+        LearnRythmsActivity.CustomAdapter customAdapter= new LearnRythmsActivity.CustomAdapter();
         listView.setAdapter(customAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(OpiNooteActivity.this, "You clicked on: "+ position, Toast.LENGTH_SHORT).show();
 
                 if(position==0){
-                    Intent intent= new Intent(view.getContext(), OpiNooteKuulmiseJargiActivity.class);
+                    Intent intent= new Intent(view.getContext(), LearnRythmsByListening.class);
                     startActivity(intent);
                 } else if (position==1){
                     Intent intent= new Intent(view.getContext(), LearnNotesByPictureActivity.class);
                     startActivity(intent);
                 } else if (position==2){
-                    Intent intent= new Intent(view.getContext(), RecognizeNoteBySound.class);
-                    startActivity(intent);
-                } else if (position==3){
 
-                } else if (position==4){
+                } else if (position==3){
 
                 }
 
@@ -60,8 +55,7 @@ public class OpiNooteActivity extends AppCompatActivity {
         });
 
     }
-
-    private class CustomAdapter extends BaseAdapter{
+    private class CustomAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {

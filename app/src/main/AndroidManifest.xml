@@ -4,6 +4,8 @@
 
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -46,6 +48,42 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LearnNotesByPictureActivity"
+            android:label="@string/title_activity_learn_notes_by_picture"
+            android:parentActivityName=".OpiNooteActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+        </activity>
+        <activity
+            android:name=".RecognizeNoteBySound"
+            android:label="@string/title_activity_recognize_note_by_sound"
+            android:parentActivityName=".OpiNooteActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+        </activity>
+        <activity
+            android:name=".LearnRythmsActivity"
+            android:label="@string/title_activity_learn_rythms"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LearnRythmsByListening"
+            android:label="@string/title_activity_learn_rythms_by_listening"
+            android:parentActivityName=".LearnRythmsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsActivity" />
         </activity>
     </application>
 

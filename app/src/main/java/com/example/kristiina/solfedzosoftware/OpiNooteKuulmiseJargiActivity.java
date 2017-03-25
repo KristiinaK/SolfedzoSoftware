@@ -1,18 +1,16 @@
 package com.example.kristiina.solfedzosoftware;
 
-import android.graphics.Color;
+
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.Random;
 
 
@@ -24,8 +22,9 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
     AudioAttributes attributes;
     AudioAttributes.Builder attributeBuilder;
 
-    TextView playbutton;
-    LinearLayout linearLayout;
+    TextView answer_textview;
+    TextView nextbutton;
+    LinearLayout playbutton;
 
     int note_C;
     int note_D;
@@ -45,11 +44,18 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        playbutton = (TextView) findViewById(R.id.playButton);
-        linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        answer_textview = (TextView) findViewById(R.id.answerTextView);
+        playbutton = (LinearLayout) findViewById(R.id.playButton);
+        nextbutton= (TextView) findViewById(R.id.ButtonNext);
 
         //To connect mobile volume button with app
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+        playbutton.setVisibility(View.VISIBLE);
+        nextbutton.setVisibility(View.GONE);
+
+
+        right_aswer=1;
 
         createSoundPool();
         loadNotes();
@@ -81,28 +87,13 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
         note_H = soundPool.load(this, R.raw.h,1);
     }
 
-    int user_answer;
-    int right_aswer;
-    boolean playbutton_pressed;
 
+    int right_aswer;
+    boolean playbuttonpressed;
 
     public void onClick_btn_play(final View view){
 
-        if(!playbutton_pressed){
-            //Generate random number to choose note
-            Random random= new Random();
-            right_aswer=random.nextInt(7)+1;
-        }
-
-        if(user_answer==right_aswer) {
-            //Generate random number to choose note
-            Random random= new Random();
-            right_aswer=random.nextInt(7)+1;
-            linearLayout.setBackgroundColor(Color.parseColor("#ff99cc00"));
-            playbutton.setBackgroundResource(R.drawable.ic_play_arrow_img);
-            playbutton.setText("");
-
-        }else{
+        playbuttonpressed=true;
 
         switch (right_aswer){
             case 1: soundPool.play(note_C, 1, 1, 0, 0, 1);
@@ -122,8 +113,93 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
             default: soundPool.play(note_C, 1, 1, 0, 0, 1);
                     break;
         }
+
+
+    }
+
+    public  void onClickButtonNext(final View view){
+        playbuttonpressed=false;
+        Random random= new Random();
+        right_aswer=random.nextInt(7)+1;
+
+        answer_textview.setText("");
+        playbutton.setVisibility(View.VISIBLE);
+        nextbutton.setVisibility(View.INVISIBLE);
+    }
+
+    public void onClick_C(final View view) {
+        soundPool.play(note_C, 1, 1, 0, 0, 1);
+
+        if(right_aswer==1 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON C!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
         }
-        playbutton_pressed=true;
+
+    }
+
+    public void onClick_D(final View view) {
+        soundPool.play(note_D, 1, 1, 0, 0, 1);
+        if(right_aswer==2 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON D!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        }
+    }
+    public void onClick_E(final View view) {
+        soundPool.play(note_E, 1, 1, 0, 0, 1);
+        if(right_aswer==3 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON E!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        }
+    }
+    public void onClick_F(final View view) {
+        soundPool.play(note_F, 1, 1, 0, 0, 1);
+        if(right_aswer==4 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON F!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        }
+    }
+    public void onClick_G(final View view) {
+        soundPool.play(note_G, 1, 1, 0, 0, 1);
+        if(right_aswer==5 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON G!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        }
+    }
+    public void onClick_A(final View view) {
+        soundPool.play(note_A, 1, 1, 0, 0, 1);
+        if(right_aswer==6 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON A!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        }
+    }
+    public void onClick_H(final View view) {
+        soundPool.play(note_H, 1, 1, 0, 0, 1);
+        if(right_aswer==7 && playbuttonpressed){
+            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON H!");
+            playbutton.setVisibility(View.GONE);
+            nextbutton.setVisibility(View.VISIBLE);
+        } else if (playbuttonpressed){
+            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        }
+
 
     }
 
@@ -139,106 +215,6 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
         createSoundPool();
         loadNotes();
     }
-
-
-    public void onClick_C(final View view) {
-        soundPool.play(note_C, 1, 1, 0, 0, 1);
-        user_answer=1;
-
-        if(playbutton_pressed && right_aswer==1) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON C", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-
-    private void btn_next(){
-        linearLayout.setBackgroundColor(Color.parseColor("#00BbFF"));
-        playbutton.setText("JÄRGMINE");
-        playbutton.setBackgroundResource(0);
-    }
-
-    public void onClick_D(final View view) {
-        soundPool.play(note_D, 1, 1, 0, 0, 1);
-        user_answer=2;
-        if(playbutton_pressed && right_aswer==2) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON D", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-    public void onClick_E(final View view) {
-        soundPool.play(note_E, 1, 1, 0, 0, 1);
-        user_answer=3;
-
-        if(playbutton_pressed && right_aswer==3) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON E", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-    public void onClick_F(final View view) {
-        soundPool.play(note_F, 1, 1, 0, 0, 1);
-        user_answer=4;
-
-        if(playbutton_pressed && right_aswer==4) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON F", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-    public void onClick_G(final View view) {
-        soundPool.play(note_G, 1, 1, 0, 0, 1);
-        user_answer=5;
-
-        if(playbutton_pressed && right_aswer==5) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON G", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-    public void onClick_A(final View view) {
-        soundPool.play(note_A, 1, 1, 0, 0, 1);
-        user_answer=6;
-
-        if(playbutton_pressed && right_aswer==6) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON A", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-    public void onClick_H(final View view) {
-        soundPool.play(note_H, 1, 1, 0, 0, 1);
-        user_answer=7;
-
-        if(playbutton_pressed && right_aswer==7) {
-            Snackbar.make(view, "TUBLI :) ÕIGE VASTUS ON H", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            btn_next();
-        } else if(playbutton_pressed){
-            Snackbar.make(view, "VALE VASTUS :( PROOVI VEEL", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-    }
-
 
 
 

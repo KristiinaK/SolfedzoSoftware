@@ -1,15 +1,12 @@
 package com.example.kristiina.solfedzosoftware;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
-        String useraName=preferences.getString("example_text","xxx");
-        Toast.makeText(this,"Tere "+useraName,Toast.LENGTH_LONG).show();
+        //SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
+        //String useraName=preferences.getString("example_text","xxx");
+        //Toast.makeText(this,"Tere "+useraName,Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -49,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClick_OpiNoote(View view){
         Intent newActivity = new Intent(this,OpiNooteActivity.class);
+        startActivity(newActivity);
+    }
+
+    public void onClick_LearnRythms(View view){
+        Intent newActivity = new Intent(this,LearnRythmsActivity.class);
         startActivity(newActivity);
     }
 }
