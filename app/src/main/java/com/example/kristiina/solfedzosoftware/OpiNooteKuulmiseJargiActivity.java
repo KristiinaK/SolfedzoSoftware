@@ -26,6 +26,8 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
     TextView nextbutton;
     LinearLayout playbutton;
 
+    int button_voice;
+
     int note_C3;
     int note_Cis3;
     int note_D3;
@@ -110,6 +112,8 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
 
     protected void loadNotes(){
 
+        button_voice = soundPool.load(this, R.raw.rythm_button,1);
+
         note_C3 = soundPool.load(this, R.raw.c_3,1);
         note_Cis3 = soundPool.load(this, R.raw.cis_3,1);
         note_D3 = soundPool.load(this, R.raw.d_3,1);
@@ -186,6 +190,7 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
         right_aswer=random.nextInt(7)+1;
 
         answer_textview.setText("");
+        soundPool.play(button_voice, 1, 1, 0, 0, 1);
         playbutton.setVisibility(View.VISIBLE);
         nextbutton.setVisibility(View.INVISIBLE);
     }

@@ -45,7 +45,8 @@ public class LearnRythmsActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), LearnRythmsByPicture.class);
                     startActivity(intent);
                 } else if (position==2){
-
+                    Intent intent= new Intent(view.getContext(), LearnNotesTheoryActivity.class);
+                    startActivity(intent);
                 } else if (position==3){
 
                 }
@@ -58,8 +59,7 @@ public class LearnRythmsActivity extends AppCompatActivity {
     private class CustomAdapter extends BaseAdapter {
 
         @Override
-        public int getCount() {
-            return images.length;
+        public int getCount() {return images.length;
         }
 
         @Override
