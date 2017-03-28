@@ -50,7 +50,8 @@ public class OpiNooteActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), RecognizeNoteBySound.class);
                     startActivity(intent);
                 } else if (position==3){
-
+                    Intent intent= new Intent(view.getContext(), LearnNotesTheoryActivity.class);
+                    startActivity(intent);
                 } else if (position==4){
 
                 }

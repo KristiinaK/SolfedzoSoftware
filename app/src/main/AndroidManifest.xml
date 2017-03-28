@@ -85,6 +85,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.LearnRythmsActivity" />
         </activity>
+        <activity
+            android:name=".LearnRythmsByPicture"
+            android:label="@string/title_activity_learn_rythms_by_picture"
+            android:parentActivityName=".LearnRythmsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsActivity" />
+        </activity>
+        <activity
+            android:name=".LearnNotesTheoryActivity"
+            android:label="@string/title_activity_learn_notes_theory"
+            android:parentActivityName=".OpiNooteActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+        </activity>
     </application>
 
 </manifest>

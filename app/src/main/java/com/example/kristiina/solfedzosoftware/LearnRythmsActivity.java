@@ -42,7 +42,7 @@ public class LearnRythmsActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), LearnRythmsByListening.class);
                     startActivity(intent);
                 } else if (position==1){
-                    Intent intent= new Intent(view.getContext(), LearnNotesByPictureActivity.class);
+                    Intent intent= new Intent(view.getContext(), LearnRythmsByPicture.class);
                     startActivity(intent);
                 } else if (position==2){
 

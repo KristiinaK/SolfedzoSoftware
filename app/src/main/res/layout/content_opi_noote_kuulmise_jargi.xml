@@ -49,14 +49,12 @@
             android:id="@+id/playButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="40dp"
             android:layout_weight="1"
             android:background="@android:color/holo_green_light"
             android:gravity="center"
             android:onClick="onClick_btn_play"
             android:paddingBottom="20dp"
-            android:paddingTop="20dp"
-            >
+            android:paddingTop="20dp">
 
             <TextView
                 android:layout_width="wrap_content"

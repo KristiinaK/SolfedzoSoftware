@@ -86,6 +86,8 @@
     <string name="title_activity_learn_rythms_activuty">ÕPI RÜTME</string>
     <string name="title_activity_learn_rythms">ÕPI RÜTME</string>
     <string name="title_activity_learn_rythms_by_listening">ÕPI RÜTME</string>
+    <string name="title_activity_learn_rythms_by_picture">ÕPI RÜTME</string>
+    <string name="title_activity_learn_notes_theory">ÕPI NOOTE</string>
 
 
 </resources>
