@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.Random;
@@ -92,6 +93,8 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
 
         createSoundPool();
         loadNotes();
+
+
     }
 
     protected void createSoundPool(){
