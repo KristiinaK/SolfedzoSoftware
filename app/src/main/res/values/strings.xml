@@ -88,6 +88,10 @@
     <string name="title_activity_learn_rythms_by_listening">ÕPI RÜTME</string>
     <string name="title_activity_learn_rythms_by_picture">ÕPI RÜTME</string>
     <string name="title_activity_learn_notes_theory">ÕPI NOOTE</string>
+    <string name="title_activity_learn_notes_tests">ÕPI NOOTE</string>
+    <string name="title_activity_test__learn_notes">Test_LearnNotes</string>
+    <string name="title_activity_learn_notes_tests2">TEST</string>
+    <string name="title_activity_learn_notes_tests3">TEST</string>
 
 
 </resources>

@@ -119,7 +119,7 @@ public class LearnRythmsByListening extends AppCompatActivity {
         playbuttonRythms.setEnabled(false);
         playbuttonpressed=true;
 
-        time=0;
+        time=1000;
         add_time=1000;
         in_the_loop=0;
         condition_time=6000;
@@ -135,7 +135,15 @@ public class LearnRythmsByListening extends AppCompatActivity {
                 if(time <= 4000){
 
                     int number= (int)time/1000;
-                    numbersTextview.setText(number + "");
+
+                    switch (number){
+                        case 2: numbersTextview.setText("3");
+                            break;
+                        case 3: numbersTextview.setText("2");
+                            break;
+                        case 4: numbersTextview.setText("1");
+                            break;
+                    }
 
                     soundPool.play(metronom, 1, 1, 0, 0, 1);
                     handler.postDelayed(this,1000);
@@ -246,7 +254,10 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     }
 
                     numbersTextview.setText("");
-                    soundPool.play(metronom, 1, 1, 0, 0, 1);
+                    if((time%1000)==0){
+                        soundPool.play(metronom, 1, 1, 0, 0, 1);
+                    }
+
                     handler.postDelayed(this,add_time);
                     playbuttonRythms.setEnabled(false);
                 }else{

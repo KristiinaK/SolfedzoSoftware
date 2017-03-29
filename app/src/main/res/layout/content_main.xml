@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="3">
+        android:weightSum="2">
 
         <TextView
             android:id="@+id/textView1"
@@ -37,17 +37,6 @@
             android:onClick="onClick_LearnRythms"
             android:text="@string/cat_OpiRutme"
             android:textColor="@android:color/background_light"
-            android:textSize="36sp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/background_light"
-            android:gravity="center"
-            android:text="@string/cat_Diktaadid"
-            android:textColor="@android:color/darker_gray"
             android:textSize="36sp" />
 
     </LinearLayout>

@@ -15,9 +15,9 @@ import android.widget.TextView;
 public class OpiNooteActivity extends AppCompatActivity {
 
 
-    private final int[] images ={R.drawable.ic_volume_img, R.drawable.ic_note_img, R.drawable.ic_recognize_note_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
+    private final int[] images ={ R.drawable.ic_note_img, R.drawable.ic_volume_img, R.drawable.ic_recognize_note_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
 
-    private final String[] titles = {"ÕPI NOOTE KUULMISE JÄRGI", "ÕPI NOOTE PILDI JÄRGI","TUVASTA NOOT KÕLA JÄRGI", "TEOORIA", "TESTI TEADMISI"};
+    private final String[] titles = {"ÕPI NOOTE PILDI JÄRGI","ÕPI NOOTE KUULMISE JÄRGI","TUVASTA NOOT KÕLA JÄRGI", "TEOORIA", "TESTI TEADMISI"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +41,10 @@ public class OpiNooteActivity extends AppCompatActivity {
                 //Toast.makeText(OpiNooteActivity.this, "You clicked on: "+ position, Toast.LENGTH_SHORT).show();
 
                 if(position==0){
-                    Intent intent= new Intent(view.getContext(), OpiNooteKuulmiseJargiActivity.class);
+                    Intent intent= new Intent(view.getContext(), LearnNotesByPictureActivity.class);
                     startActivity(intent);
                 } else if (position==1){
-                    Intent intent= new Intent(view.getContext(), LearnNotesByPictureActivity.class);
+                    Intent intent= new Intent(view.getContext(), OpiNooteKuulmiseJargiActivity.class);
                     startActivity(intent);
                 } else if (position==2){
                     Intent intent= new Intent(view.getContext(), RecognizeNoteBySound.class);
@@ -53,7 +53,8 @@ public class OpiNooteActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), LearnNotesTheoryActivity.class);
                     startActivity(intent);
                 } else if (position==4){
-
+                    Intent intent= new Intent(view.getContext(), LearnNotesTestsActivity.class);
+                    startActivity(intent);
                 }
 
             }

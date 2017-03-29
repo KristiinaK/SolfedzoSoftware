@@ -103,6 +103,39 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
         </activity>
+        <activity
+            android:name=".LearnNotesTestsActivity"
+            android:label="@string/title_activity_learn_notes_tests"
+            android:parentActivityName=".OpiNooteActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+        </activity>
+        <activity
+            android:name=".LearnNotesTests2Activity"
+            android:label="@string/title_activity_learn_notes_tests2"
+            android:parentActivityName=".LearnNotesTestsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesTestsActivity" />
+        </activity>
+        <activity
+            android:name=".LearnNotesTests3Activity"
+            android:label="@string/title_activity_learn_notes_tests3"
+            android:parentActivityName=".LearnNotesTestsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesTestsActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
