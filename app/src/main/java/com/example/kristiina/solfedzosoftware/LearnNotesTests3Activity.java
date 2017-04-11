@@ -31,7 +31,7 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
         int bestScore= preferences.getInt("scoreNotes",0);
 
         resultTextView = (TextView) findViewById(R.id.resultN);
-        resultTextView.setText("ÕIGETE VASTUSTE ARV: " + LearnNotesTests2Activity.right + "\n VALEDE VASTUSTE ARV: "+ "" + "\n PARIM TULEMUS: "+ bestScore);
+        resultTextView.setText("ÕIGETE VASTUSTE ARV: " + LearnNotesTests2Activity.right + "\n VALEDE VASTUSTE ARV: "+ (2-LearnNotesTests2Activity.right) + "\n PARIM TULEMUS: "+ bestScore);
 
 
 

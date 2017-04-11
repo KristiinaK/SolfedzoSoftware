@@ -26,9 +26,9 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
     RadioButton radioButton3;
     RadioGroup radioGroup;
 
-    String questions [] = { "Mis on Krissu lemmikspordiala?", "Mis on Krissu lemmikvärv?"};
-    String options [][] = {{"ujumine", "ratas","jooks"},{"sinine", "punane", "kollane"}};
-    String answer [] = {"ujumine", "sinine"};
+    String questions [] = { "NOODIJOONESTIK KOOSNEB ..... JOONEST.", "............ NÄITAB, MITU LÖÖKI ON ÜHES TAKTIS."};
+    String options [][] = {{"4", "5","6"},{"TAKTIMÕÕT", "PAUS", "VIIULIVÕTI"}};
+    String answer [] = {"5", "TAKTIMÕÕT"};
 
     int questionNumber=0;
    public static int right;
