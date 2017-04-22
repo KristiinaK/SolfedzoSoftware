@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OpiNooteActivity"
+            android:name=".LearnNotesMainActivity"
             android:label="@string/title_activity_opi_noote"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -33,16 +33,16 @@
                 android:value="com.example.kristiina.solfedzosoftware.MainActivity" />
         </activity>
         <activity
-            android:name=".OpiNooteKuulmiseJargiActivity"
+            android:name=".LearnNotesByListeningActivity"
             android:label="@string/title_activity_opi_noote_kuulmise_jargi"
-            android:parentActivityName=".OpiNooteActivity"
+            android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
-            android:name=".SeadedActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_seaded"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -52,23 +52,23 @@
         <activity
             android:name=".LearnNotesByPictureActivity"
             android:label="@string/title_activity_learn_notes_by_picture"
-            android:parentActivityName=".OpiNooteActivity"
+            android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
             android:name=".RecognizeNoteBySound"
             android:label="@string/title_activity_recognize_note_by_sound"
-            android:parentActivityName=".OpiNooteActivity"
+            android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
-            android:name=".LearnRythmsActivity"
+            android:name=".LearnRythmsMainActivity"
             android:label="@string/title_activity_learn_rythms"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -79,38 +79,38 @@
         <activity
             android:name=".LearnRythmsByListening"
             android:label="@string/title_activity_learn_rythms_by_listening"
-            android:parentActivityName=".LearnRythmsActivity"
+            android:parentActivityName=".LearnRythmsMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsMainActivity" />
         </activity>
         <activity
             android:name=".LearnRythmsByPicture"
             android:label="@string/title_activity_learn_rythms_by_picture"
-            android:parentActivityName=".LearnRythmsActivity"
+            android:parentActivityName=".LearnRythmsMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsMainActivity" />
         </activity>
         <activity
             android:name=".LearnNotesTheoryActivity"
             android:label="@string/title_activity_learn_notes_theory"
-            android:parentActivityName=".OpiNooteActivity"
+            android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
             android:name=".LearnNotesTestsActivity"
             android:label="@string/title_activity_learn_notes_tests"
-            android:parentActivityName=".OpiNooteActivity"
+            android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.OpiNooteActivity" />
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
             android:name=".LearnNotesTests2Activity"

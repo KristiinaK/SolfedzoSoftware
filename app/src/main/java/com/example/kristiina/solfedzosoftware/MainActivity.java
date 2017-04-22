@@ -38,19 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent=new Intent(this,SeadedActivity.class);
+            Intent intent=new Intent(this,SettingsActivity.class);
             startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
     }
     public void onClick_OpiNoote(View view){
-        Intent newActivity = new Intent(this,OpiNooteActivity.class);
+        Intent newActivity = new Intent(this,LearnNotesMainActivity.class);
         startActivity(newActivity);
     }
 
     public void onClick_LearnRythms(View view){
-        Intent newActivity = new Intent(this,LearnRythmsActivity.class);
+        Intent newActivity = new Intent(this,LearnRythmsMainActivity.class);
         startActivity(newActivity);
     }
 }

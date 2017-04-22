@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kristiina.solfedzosoftware.OpiNooteKuulmiseJargiActivity"
-    tools:showIn="@layout/activity_opi_noote_kuulmise_jargi"
+    tools:context="com.example.kristiina.solfedzosoftware.LearnNotesByListeningActivity"
+    tools:showIn="@layout/activity_learn_notes_by_listening"
     android:fillViewport="true">
 
 

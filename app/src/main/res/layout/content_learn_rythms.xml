@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kristiina.solfedzosoftware.LearnRythmsActivity"
-    tools:showIn="@layout/activity_opi_noote"
+    tools:context="com.example.kristiina.solfedzosoftware.LearnRythmsMainActivity"
+    tools:showIn="@layout/activity_learn_notes_main"
     >
 
     <ListView

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 
-public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
+public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     SoundPool soundPool;
     SoundPool.Builder soundPoolBuilder;
@@ -69,7 +69,7 @@ public class OpiNooteKuulmiseJargiActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opi_noote_kuulmise_jargi);
+        setContentView(R.layout.activity_learn_notes_by_listening);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

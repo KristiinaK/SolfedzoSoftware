@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kristiina.solfedzosoftware.OpiNooteKuulmiseJargiActivity">
+    tools:context="com.example.kristiina.solfedzosoftware.LearnNotesByListeningActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,6 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_opi_noote_kuulmise_jargi" />
+    <include layout="@layout/content_learn_notes_by_listening" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -3,17 +3,17 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.example.kristiina.solfedzosoftware.SeadedActivity$GeneralPreferenceFragment"
+        android:fragment="com.example.kristiina.solfedzosoftware.SettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="com.example.kristiina.solfedzosoftware.SeadedActivity$NotificationPreferenceFragment"
+        android:fragment="com.example.kristiina.solfedzosoftware.SettingsActivity$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="com.example.kristiina.solfedzosoftware.SeadedActivity$DataSyncPreferenceFragment"
+        android:fragment="com.example.kristiina.solfedzosoftware.SettingsActivity$DataSyncPreferenceFragment"
         android:icon="@drawable/ic_sync_black_24dp"
         android:title="@string/pref_header_data_sync" />
 

@@ -12,13 +12,15 @@ import android.widget.HorizontalScrollView;
 
 public class PianoFragment extends Fragment{
 
-
+    HorizontalScrollView horizontalScrollView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_piano, container, false);
+
+
         return view;
     }
 

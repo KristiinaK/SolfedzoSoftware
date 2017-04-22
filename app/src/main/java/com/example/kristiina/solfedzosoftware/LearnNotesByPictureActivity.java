@@ -1,5 +1,6 @@
 package com.example.kristiina.solfedzosoftware;
 
+import android.graphics.Color;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -7,8 +8,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import java.util.Random;
 
@@ -66,7 +71,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     TextView aswer_textview;
     LinearLayout upper;
     LinearLayout bottom;
-
+    HorizontalScrollView myScroll ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +96,22 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         aswer_textview= (TextView) findViewById(R.id.answer_textview);
         upper= (LinearLayout) findViewById(R.id.upper_linearlayout);
         bottom= (LinearLayout) findViewById(R.id.bottom_linearlayout);
+        myScroll = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview2);
 
         nextButton.setEnabled(false);
+
+        myScroll.post(new Runnable() {
+
+            @Override
+            public void run() {
+
+                myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
+
+            }
+        });
+
     }
+
 
     protected void createSoundPool(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
@@ -156,11 +174,16 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_next(final View view){
+
+        right_btn_id.setBackgroundResource(R.drawable.piano_white_key);
         Random random= new Random();
         right_answer=random.nextInt(7)+1;
         nextButton.setEnabled(false);
         aswer_textview.setText("");
         soundPool.play(button_voice, 1, 1, 0, 0, 1);
+        right_ans_clicked=false;
+        aswer_textview.setBackgroundResource(0);
+
 
         switch (right_answer){
             case 1:
@@ -309,18 +332,28 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     }
 
+    private boolean right_ans_clicked=false;
+    Button right_btn_id;
 
     public void onClick_Cis_4(final View view) {
         soundPool.play(note_Cis4, 1, 1, 0, 0, 1);
     }
 
     public void onClick_D_4(final View view) {
+        Button button = (Button)findViewById(R.id.btn_D4);
         soundPool.play(note_D4, 1, 1, 0, 0, 1);
-        if (right_answer == 2){
+
+        if (right_answer == 2 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+"\uD83D\uDE00");
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
 
     }
@@ -331,22 +364,37 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
 
     public void onClick_E_4(final View view) {
+        Button button = (Button)findViewById(R.id.btn_E4);
         soundPool.play(note_E4, 1, 1, 0, 0, 1);
-        if (right_answer == 3){
+
+        if (right_answer == 3 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+"\uD83D\uDE00");
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
 
     }
     public void onClick_F_4(final View view) {
+        Button button = (Button)findViewById(R.id.btn_F4);
         soundPool.play(note_F4, 1, 1, 0, 0, 1);
-        if (right_answer == 4){
+
+        if (right_answer == 4 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
 
     }
@@ -356,12 +404,20 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_G_4(final View view) {
+        Button button = (Button)findViewById(R.id.btn_G4);
         soundPool.play(note_G4, 1, 1, 0, 0, 1);
-        if (right_answer == 5){
+
+        if (right_answer == 5 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
 
     }
@@ -371,12 +427,20 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_A_4(final View view) {
+        Button button = (Button)findViewById(R.id.btn_A4);
         soundPool.play(note_A4, 1, 1, 0, 0, 1);
-        if (right_answer == 6){
+
+        if (right_answer == 6 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
 
     }
@@ -386,12 +450,20 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_H_4(final View view) {
+        Button button = (Button)findViewById(R.id.btn_H4);
         soundPool.play(note_H4, 1, 1, 0, 0, 1);
-        if (right_answer == 7){
+
+        if (right_answer == 7 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
 
     }
@@ -399,12 +471,20 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
 
     public void onClick_C_5(final View view) {
+        Button button = (Button)findViewById(R.id.btn_C5);
         soundPool.play(note_C5, 1, 1, 0, 0, 1);
-        if (right_answer == 1){
+
+        if (right_answer == 1 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("TUBLI :) ÕIGE VASTUS!");
-        }else{
-            aswer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+            right_ans_clicked=true;
+            right_btn_id=button;
+            button.setBackgroundResource(R.drawable.piano_green_key);
+            aswer_textview.setBackgroundResource(R.color.green);
+
+        }else if(!(right_ans_clicked)){
+            aswer_textview.setText("PROOVI VEEL");
+            aswer_textview.setBackgroundResource(R.color.pink);
         }
     }
     public void onClick_Cis_5(final View view) {
