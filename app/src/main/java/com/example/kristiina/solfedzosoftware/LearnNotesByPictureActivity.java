@@ -344,7 +344,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
         if (right_answer == 2 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("ÕIGE VASTUS "+"\uD83D\uDE00");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
             right_ans_clicked=true;
             right_btn_id=button;
             button.setBackgroundResource(R.drawable.piano_green_key);
@@ -368,7 +368,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
         if (right_answer == 3 && !(right_ans_clicked)){
             nextButton.setEnabled(true);
-            aswer_textview.setText("ÕIGE VASTUS "+"\uD83D\uDE00");
+            aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
             right_ans_clicked=true;
             right_btn_id=button;
             button.setBackgroundResource(R.drawable.piano_green_key);
