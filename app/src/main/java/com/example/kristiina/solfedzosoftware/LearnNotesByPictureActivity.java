@@ -89,7 +89,6 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         createSoundPool();
         loadNotes();
 
-
         right_answer=4;
 
         nextButton= (TextView) findViewById(R.id.nextbutton);
