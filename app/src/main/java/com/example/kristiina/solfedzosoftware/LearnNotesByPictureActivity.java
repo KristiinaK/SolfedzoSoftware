@@ -37,44 +37,11 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     int button_voice;
 
-    int note_C3;
-    int note_Cis3;
-    int note_D3;
-    int note_Dis3;
-    int note_E3;
-    int note_F3;
-    int note_Fis3;
-    int note_G3;
-    int note_Gis3;
-    int note_A3;
-    int note_Ais3;
-    int note_H3;
+    int note_C3, note_Cis3, note_D3, note_Dis3, note_E3, note_F3, note_Fis3, note_G3, note_Gis3, note_A3, note_Ais3, note_H3;
 
-    int note_C4;
-    int note_Cis4;
-    int note_D4;
-    int note_Dis4;
-    int note_E4;
-    int note_F4;
-    int note_Fis4;
-    int note_G4;
-    int note_Gis4;
-    int note_A4;
-    int note_Ais4;
-    int note_H4;
+    int note_C4, note_Cis4, note_D4, note_Dis4, note_E4, note_F4, note_Fis4, note_G4, note_Gis4, note_A4, note_Ais4, note_H4;
 
-    int note_C5;
-    int note_Cis5;
-    int note_D5;
-    int note_Dis5;
-    int note_E5;
-    int note_F5;
-    int note_Fis5;
-    int note_G5;
-    int note_Gis5;
-    int note_A5;
-    int note_Ais5;
-    int note_H5;
+    int note_C5, note_Cis5, note_D5, note_Dis5, note_E5, note_F5, note_Fis5, note_G5, note_Gis5, note_A5, note_Ais5, note_H5;
 
 
     @Override
@@ -362,7 +329,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
 
     public void onClick_E_4(final View view) {
-        Button button = (Button)findViewById(R.id.btn_E4);
+        clickedButton = (Button)findViewById(R.id.btn_E4);
         soundPool.play(note_E4, 1, 1, 0, 0, 1);
 
         if (right_answer == 3 && !(right_ans_clicked)){
@@ -373,7 +340,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     }
     public void onClick_F_4(final View view) {
-        Button button = (Button)findViewById(R.id.btn_F4);
+        clickedButton = (Button)findViewById(R.id.btn_F4);
         soundPool.play(note_F4, 1, 1, 0, 0, 1);
 
         if (right_answer == 4 && !(right_ans_clicked)){
@@ -390,7 +357,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_G_4(final View view) {
-        Button button = (Button)findViewById(R.id.btn_G4);
+        clickedButton  = (Button)findViewById(R.id.btn_G4);
         soundPool.play(note_G4, 1, 1, 0, 0, 1);
 
         if (right_answer == 5 && !(right_ans_clicked)){
@@ -406,7 +373,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_A_4(final View view) {
-        Button button = (Button)findViewById(R.id.btn_A4);
+        clickedButton = (Button)findViewById(R.id.btn_A4);
         soundPool.play(note_A4, 1, 1, 0, 0, 1);
 
         if (right_answer == 6 && !(right_ans_clicked)){
@@ -423,7 +390,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_H_4(final View view) {
-        Button button = (Button)findViewById(R.id.btn_H4);
+        clickedButton = (Button)findViewById(R.id.btn_H4);
         soundPool.play(note_H4, 1, 1, 0, 0, 1);
 
         if (right_answer == 7 && !(right_ans_clicked)){
@@ -437,7 +404,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
 
     public void onClick_C_5(final View view) {
-        Button button = (Button)findViewById(R.id.btn_C5);
+        clickedButton = (Button)findViewById(R.id.btn_C5);
         soundPool.play(note_C5, 1, 1, 0, 0, 1);
 
         if (right_answer == 1 && !(right_ans_clicked)){
