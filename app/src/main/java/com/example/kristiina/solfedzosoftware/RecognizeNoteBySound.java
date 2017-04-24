@@ -25,121 +25,74 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import org.jtransforms.fft.DoubleFFT_1D;
 
 public class RecognizeNoteBySound extends Activity {
 
-    String[] freqText = {"11.025 KHz", "16.000 KHz", "22.050 KHz", "44.100 KHz"};
-    Integer[] freqset = {11025, 16000, 22050, 44100};
-    private ArrayAdapter<String> adapter;
 
-    Spinner spFrequency;
-    Button startRec, stopRec, playBack;
+    Boolean isRecording;
+    TextView answerTW;
 
-    Boolean recording;
-
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recognize_note_by_sound);
 
-        startRec = (Button)findViewById(R.id.startrec);
-        stopRec = (Button)findViewById(R.id.stoprec);
-        playBack = (Button)findViewById(R.id.playback);
-
-        startRec.setOnClickListener(startRecOnClickListener);
-        stopRec.setOnClickListener(stopRecOnClickListener);
-        playBack.setOnClickListener(playBackOnClickListener);
-
-        spFrequency = (Spinner)findViewById(R.id.frequency);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, freqText);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spFrequency.setAdapter(adapter);
-
-        stopRec.setEnabled(false);
+        answerTW = (TextView) findViewById(R.id.answerTW);
     }
 
-    OnClickListener startRecOnClickListener
-            = new OnClickListener(){
+    public void startRecording(final View view){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                isRecording=true;
+                startRecord();
+            }
+        });
 
-        @Override
-        public void onClick(View arg0) {
+        thread.start();
 
-            Thread recordThread = new Thread(new Runnable(){
+    }
 
-                @Override
-                public void run() {
-                    recording = true;
-                    startRecord();
-                }
+    public void stopRecording(final View view){
+        isRecording=false;
+    }
 
-            });
+    public void playRecording(final View view){
+        playRecord();
+    }
 
-            recordThread.start();
-            startRec.setEnabled(false);
-            stopRec.setEnabled(true);
-
-        }};
-
-    OnClickListener stopRecOnClickListener
-            = new OnClickListener(){
-
-        @Override
-        public void onClick(View arg0) {
-            recording = false;
-            startRec.setEnabled(true);
-            stopRec.setEnabled(false);
-        }};
-
-    OnClickListener playBackOnClickListener
-            = new OnClickListener(){
-
-        @Override
-        public void onClick(View v) {
-            playRecord();
-        }
-
-    };
 
     private void startRecord(){
 
-        File file = new File(Environment.getExternalStorageDirectory(), "test.pcm");
-
-        int selectedPos = spFrequency.getSelectedItemPosition();
-        int sampleFreq = freqset[selectedPos];
-
-        final String promptStartRecord =
-                "startRecord()\n"
-                        + file.getAbsolutePath() + "\n"
-                        + (String)spFrequency.getSelectedItem();
-
-
+        File file = new File(Environment.getExternalStorageDirectory(), "recordedFile.pcm");
 
         try {
             file.createNewFile();
+            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
 
-            OutputStream outputStream = new FileOutputStream(file);
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-            DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
-
-            int minBufferSize = AudioRecord.getMinBufferSize(sampleFreq,
+            int minBufferSize = AudioRecord.getMinBufferSize(
+                    44100,
                     AudioFormat.CHANNEL_CONFIGURATION_MONO,
                     AudioFormat.ENCODING_PCM_16BIT);
 
             short[] audioData = new short[minBufferSize];
 
-            AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
-                    sampleFreq,
+            AudioRecord audioRecord = new AudioRecord(
+                    MediaRecorder.AudioSource.MIC,
+                    44100,
                     AudioFormat.CHANNEL_CONFIGURATION_MONO,
                     AudioFormat.ENCODING_PCM_16BIT,
                     minBufferSize);
 
             audioRecord.startRecording();
 
-            while(recording){
+            while(isRecording){
                 int numberOfShort = audioRecord.read(audioData, 0, minBufferSize);
                 for(int i = 0; i < numberOfShort; i++){
                     dataOutputStream.writeShort(audioData[i]);
@@ -157,7 +110,7 @@ public class RecognizeNoteBySound extends Activity {
 
     void playRecord(){
 
-        File file = new File(Environment.getExternalStorageDirectory(), "test.pcm");
+        File file = new File(Environment.getExternalStorageDirectory(), "recordedFile.pcm");
 
         int shortSizeInBytes = Short.SIZE/Byte.SIZE;
 
@@ -166,15 +119,12 @@ public class RecognizeNoteBySound extends Activity {
         double[] audioData2 = new double[bufferSizeInBytes];
 
         try {
-            InputStream inputStream = new FileInputStream(file);
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-            DataInputStream dataInputStream = new DataInputStream(bufferedInputStream);
+            DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
 
             int i = 0;
             while(dataInputStream.available() > 0){
-
                 audioData[i] = dataInputStream.readShort();
-                audioData2[i] =(double)( audioData[i] / 100.0);
+                audioData2[i] = audioData[i] / 100.0;
                 i++;
             }
 
@@ -207,22 +157,18 @@ public class RecognizeNoteBySound extends Activity {
             }
 
 
-            Toast.makeText(this,
-                    ""+(max_ind*44100/audioData.length),
-                    Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,
+              //      ""+(max_ind*44100/audioData.length),
+              //      Toast.LENGTH_LONG).show();
             //for(double d : fft){
             //    Log.d("VIVZ", ""+d);
             //}
-
-            int selectedPos = spFrequency.getSelectedItemPosition();
-            int sampleFreq = freqset[selectedPos];
-
-
+            answerTW.setText(""+(max_ind*44100/audioData.length));
 
 
             AudioTrack audioTrack = new AudioTrack(
                     AudioManager.STREAM_MUSIC,
-                    sampleFreq,
+                    44100,
                     AudioFormat.CHANNEL_CONFIGURATION_MONO,
                     AudioFormat.ENCODING_PCM_16BIT,
                     bufferSizeInBytes,
