@@ -43,7 +43,7 @@
                 android:gravity="center_horizontal">
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/btn__ta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -51,7 +51,7 @@
                     android:text="TA" />
 
                 <Button
-                    android:id="@+id/button14"
+                    android:id="@+id/btn__taa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -59,7 +59,7 @@
                     android:text="TA-A" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/btn__taaa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -67,7 +67,7 @@
                     android:text="TA-A-A" />
 
                 <Button
-                    android:id="@+id/button17"
+                    android:id="@+id/btn__taaaa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -82,7 +82,7 @@
                 android:gravity="center_horizontal">
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btn__titi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -90,7 +90,7 @@
                     android:text="TI-TI" />
 
                 <Button
-                    android:id="@+id/button18"
+                    android:id="@+id/btn__tiri__tiri"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -98,7 +98,7 @@
                     android:text="TIRI-TIRI" />
 
                 <Button
-                    android:id="@+id/button15"
+                    android:id="@+id/btn__ti__tiri"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -106,7 +106,7 @@
                     android:text="TI-TIRI" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/btn__tiri__ti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -120,7 +120,7 @@
                 android:gravity="center_horizontal">
 
                 <Button
-                    android:id="@+id/button16"
+                    android:id="@+id/btn__tai__ri"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"
@@ -128,7 +128,7 @@
                     android:text="TAI-RI" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/btn__ta__i__ti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/piano_white_key"

@@ -101,7 +101,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
     }
 
     public void onClick_TI_TI(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_titi);
 
         if (right_answer == 2 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -110,7 +110,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TIRI_TIRI(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_tiri_tiri);
 
         if (right_answer == 3 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -119,7 +119,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TI_TIRI(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_ti_tiri);
 
         if (right_answer == 4 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -128,7 +128,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TIRI_TI(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_tiri_ti);
 
         if (right_answer == 5 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -137,7 +137,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TAI_RI(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_tai_ri);
 
         if (right_answer == 6 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -146,7 +146,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TA_A(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_taa);
 
         if (right_answer == 7 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -155,7 +155,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TA_A_A(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_taaa);
 
         if (right_answer == 8 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -164,7 +164,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TA_A_A_A(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_taaaa);
 
         if (right_answer == 9 && !(right_ans_clicked)){
             rightAnswerClicked();
@@ -173,7 +173,7 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         }
     }
     public void onClick_TA_I_TI(View v){
-        clickedBtnId = (Button)findViewById(R.id.btn_ta);
+        clickedBtnId = (Button)findViewById(R.id.btn_ta_i_ti);
 
         if (right_answer == 10 && !(right_ans_clicked)){
             rightAnswerClicked();

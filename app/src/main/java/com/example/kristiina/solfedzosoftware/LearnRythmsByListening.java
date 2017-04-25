@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -80,7 +81,7 @@ public class LearnRythmsByListening extends AppCompatActivity {
     }
 
     int right_aswer;
-    boolean playbuttonpressed;
+    private boolean playbuttonpressed;
 
     protected void createSoundPool(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
@@ -108,7 +109,6 @@ public class LearnRythmsByListening extends AppCompatActivity {
         voice = soundPool2.load(this, R.raw.button_voice, 1);
         metronom = soundPool.load(this, R.raw.rythm_button, 1);
     }
-
 
 
     int add_time;
@@ -273,108 +273,120 @@ public class LearnRythmsByListening extends AppCompatActivity {
     }
 
     public  void onClickButtonNext(final View view){
-        playbuttonpressed=false;
+
         Random random= new Random();
         right_aswer=random.nextInt(10)+1;
-
-        answer_textview.setText("");
         playbuttonRythms.setVisibility(View.VISIBLE);
         nextbutton.setVisibility(View.INVISIBLE);
+        right_ans_clicked=false;
+        right_btn_id.setBackgroundResource(R.drawable.piano_white_key);
+        answer_textview.setBackgroundResource(0);
+        playbuttonpressed=false;
+        answer_textview.setText("");
+
     }
 
 
+    private Button userClickedButtonId;
+    private boolean right_ans_clicked=false;
+    private Button right_btn_id;
 
     public void onClick_TA(View v){
-        if(right_aswer==1 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TA!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__ta);
+        if(right_aswer==1 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
 
     public void onClick_TI_TI(View v){
-        if(right_aswer==2 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TI-TI!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__titi);
+        if(right_aswer==2 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TIRI_TIRI(View v){
-        if(right_aswer==3 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TIRI-TIRI!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__tiri__tiri);
+        if(right_aswer==3 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TI_TIRI(View v){
-        if(right_aswer==4 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TI-TIRI!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__ti__tiri);
+        if(right_aswer==4 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TIRI_TI(View v){
-        if(right_aswer==5 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TIRI-TI!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__tiri__ti);
+        if(right_aswer==5 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TAI_RI(View v){
-        if(right_aswer==6 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TAI-RI!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__tai__ri);
+        if(right_aswer==6 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TA_A(View v){
-        if(right_aswer==7 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TA-A!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__taa);
+        if(right_aswer==7 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TA_A_A(View v){
-        if(right_aswer==8 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TA-A-A!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__taaa);
+        if(right_aswer==8 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TA_A_A_A(View v){
-        if(right_aswer==9 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TA-A-A-A!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__taaaa);
+        if(right_aswer==9 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
     public void onClick_TA_I_TI(View v){
-        if(right_aswer==10 && playbuttonpressed){
-            answer_textview.setText("TUBLI :) ÕIGE VASTUS ON TA-I-TI!");
-            playbuttonRythms.setVisibility(View.GONE);
-            nextbutton.setVisibility(View.VISIBLE);
-        } else if (playbuttonpressed){
-            answer_textview.setText("VALE VASTUS :( PROOVI VEEL");
+        userClickedButtonId = (Button)findViewById(R.id.btn__ta__i__ti);
+        if(right_aswer==10 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
         }
     }
+
+    private void rightAnswer(){
+        right_ans_clicked=true;
+        answer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+        playbuttonRythms.setVisibility(View.GONE);
+        nextbutton.setVisibility(View.VISIBLE);
+        userClickedButtonId.setBackgroundResource(R.drawable.piano_green_key);
+        answer_textview.setBackgroundResource(R.color.green);
+        right_btn_id=userClickedButtonId;
+    }
+    private void falseAnswer(){
+        answer_textview.setText("PROOVI VEEL");
+        answer_textview.setBackgroundResource(R.color.pink);
+    }
+
     @Override
     protected void onPause(){
         super.onPause();
