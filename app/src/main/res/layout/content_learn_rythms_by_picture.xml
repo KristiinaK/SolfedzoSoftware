@@ -44,7 +44,7 @@ android:fillViewport="true">
             android:gravity="center_horizontal">
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/btn_ta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -52,7 +52,7 @@ android:fillViewport="true">
                 android:text="TA" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/btn_taa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -60,7 +60,7 @@ android:fillViewport="true">
                 android:text="TA-A" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/btn_taaa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -68,7 +68,7 @@ android:fillViewport="true">
                 android:text="TA-A-A" />
 
             <Button
-                android:id="@+id/button17"
+                android:id="@+id/btn_taaaa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -83,7 +83,7 @@ android:fillViewport="true">
             android:gravity="center_horizontal">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_titi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -91,7 +91,7 @@ android:fillViewport="true">
                 android:text="TI-TI" />
 
             <Button
-                android:id="@+id/button18"
+                android:id="@+id/btn_tiri_tiri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -99,7 +99,7 @@ android:fillViewport="true">
                 android:text="TIRI-TIRI" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/btn_ti_tiri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -107,7 +107,7 @@ android:fillViewport="true">
                 android:text="TI-TIRI" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btn_tiri_ti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -121,7 +121,7 @@ android:fillViewport="true">
             android:gravity="center_horizontal">
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/btn_tai_ri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -129,7 +129,7 @@ android:fillViewport="true">
                 android:text="TAI-RI" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/btn_ta_i_ti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/piano_white_key"
@@ -152,10 +152,12 @@ android:fillViewport="true">
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/custom_button_learn_rythms"
         android:gravity="center"
         android:onClick="onClick_next_Rythms"
-        android:text="JÄRGMINE" />
+        android:text="JÄRGMINE"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 </LinearLayout>
 </ScrollView>

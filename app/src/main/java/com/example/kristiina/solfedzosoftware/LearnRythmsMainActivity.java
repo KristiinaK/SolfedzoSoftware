@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 public class LearnRythmsMainActivity extends AppCompatActivity {
 
-    private final int[] images ={R.drawable.ic_volume_img, R.drawable.ic_note_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
+    private final int[] images ={ R.drawable.ic_note_img,R.drawable.ic_volume_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
 
-    private final String[] titles = {"ÕPI RÜTME KUULMISE JÄRGI", "ÕPI RÜTME PILDI JÄRGI", "TEOORIA", "TESTI TEADMISI"};
+    private final String[] titles = {"ÕPI RÜTME PILDI JÄRGI","ÕPI RÜTME KUULMISE JÄRGI", "TEOORIA", "TESTI TEADMISI"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class LearnRythmsMainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if(position==0){
-                    Intent intent= new Intent(view.getContext(), LearnRythmsByListening.class);
+                    Intent intent= new Intent(view.getContext(), LearnRythmsByPicture.class);
                     startActivity(intent);
                 } else if (position==1){
-                    Intent intent= new Intent(view.getContext(), LearnRythmsByPicture.class);
+                    Intent intent= new Intent(view.getContext(), LearnRythmsByListening.class);
                     startActivity(intent);
                 } else if (position==2){
                     Intent intent= new Intent(view.getContext(), LearnNotesTheoryActivity.class);

@@ -152,7 +152,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@android:color/holo_green_light"
+        android:background="@drawable/custom_button_green"
         android:gravity="center"
         android:onClick="onClick_btn_play_rythms"
         android:paddingBottom="20dp"
@@ -164,14 +164,17 @@
             android:background="@drawable/ic_play_arrow_img" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/ButtonNextRythms"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@drawable/custom_button_learn_rythms"
         android:gravity="center"
-        android:text="JÄRGMINE"
-        android:background="@color/colorPrimary"
         android:onClick="onClickButtonNext"
-        android:visibility="gone"/>
+        android:text="JÄRGMINE"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone" />
 </LinearLayout>

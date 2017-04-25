@@ -13,31 +13,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="2">
+        android:weightSum="4">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@color/my_gray"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="SOLFEDŽO ÕPITARKVARA"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
+            android:background="@drawable/custom_button_learn_notes"
             android:gravity="center"
             android:onClick="onClick_OpiNoote"
             android:text="@string/cat_OpiNoote"
             android:textColor="@android:color/background_light"
-            android:textSize="36sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@android:color/holo_orange_light"
+            android:background="@drawable/custom_button_learn_rythms"
             android:gravity="center"
             android:onClick="onClick_LearnRythms"
             android:text="@string/cat_OpiRutme"
             android:textColor="@android:color/background_light"
-            android:textSize="36sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

@@ -45,7 +45,8 @@
                             android:background="@drawable/piano_white_key"
                             android:gravity="bottom|center"
                             android:onClick="onClick_C_3"
-                            android:text="C" />
+                            android:text="C"
+                            android:textColor="@color/my_gray" />
 
                         <Button
                             android:id="@+id/btn_D3"
@@ -55,7 +56,8 @@
                             android:background="@drawable/piano_white_key"
                             android:gravity="bottom|center"
                             android:onClick="onClick_D_3"
-                            android:text="D" />
+                            android:text="D"
+                            android:textColor="@color/my_gray" />
 
                         <Button
                             android:id="@+id/brn_E3"

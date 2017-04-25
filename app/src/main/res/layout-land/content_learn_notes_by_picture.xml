@@ -173,10 +173,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1.25"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/custom_button_learn_rythms"
                 android:gravity="center"
                 android:onClick="onClick_next"
-                android:text="JÄRGMINE" />
+                android:text="JÄRGMINE"
+                android:textColor="@color/white" />
         </LinearLayout>
 
 
