@@ -8,13 +8,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-public class LearnNotesTestsActivity extends AppCompatActivity {
+public class LearnRythmsTestsActivity extends AppCompatActivity {
 
     public static final String PREFERENCES = "Preferences";
 
@@ -22,48 +19,40 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
     private int score;
     private int questionNumber = 0;
 
-    TextView bestScoreNotes;
+    TextView bestScoreRythms;
 
     private ImageView star1, star2, star3, star4, star5, star6, star7, star8;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_notes_tests);
+        setContentView(R.layout.activity_learn_rythms_tests);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        star1= (ImageView) findViewById(R.id.star1);
-        star2= (ImageView) findViewById(R.id.star2);
-        star3= (ImageView) findViewById(R.id.star3);
-        star4= (ImageView) findViewById(R.id.star4);
-        star5= (ImageView) findViewById(R.id.star5);
-        star6= (ImageView) findViewById(R.id.star6);
-        star7= (ImageView) findViewById(R.id.star7);
-        star8= (ImageView) findViewById(R.id.star8);
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
-        int bestScore= preferences.getInt("scoreNotes",0);
 
-        bestScoreNotes = (TextView) findViewById(R.id.bestScoreNotes);
-        bestScoreNotes.setText("PARIM TULEMUS :");
+        star1= (ImageView) findViewById(R.id.RythmStar1);
+        star2= (ImageView) findViewById(R.id.RythmStar2);
+        star3= (ImageView) findViewById(R.id.RythmStar3);
+        star4= (ImageView) findViewById(R.id.RythmStar4);
+        star5= (ImageView) findViewById(R.id.RythmStar5);
+        star6= (ImageView) findViewById(R.id.RythmStar6);
+        star7= (ImageView) findViewById(R.id.RythmStar7);
+        star8= (ImageView) findViewById(R.id.RythmStar8);
+
+        SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
+        int bestScore= preferences.getInt("scoreRythms",0);
+
+        bestScoreRythms = (TextView) findViewById(R.id.bestScoreRythms);
+        bestScoreRythms.setText("PARIM TULEMUS :");
 
         showStars(bestScore);
-        LearnNotesTests2Activity.right=0;
-
+        LearnRythmsTests2Activity.right=0;
     }
-
-    public void onClick_Start_Test_Notes(View v){
-        Intent newActivity = new Intent(this,LearnNotesTests2Activity.class);
-        startActivity(newActivity);
-
-    }
-
     public void showStars(int bestScore){
 
         if (bestScore==1){
@@ -119,18 +108,24 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
 
     }
 
+
+    public void onClick_Start_Test_Rythms(View v){
+        Intent newActivity = new Intent(this,LearnRythmsTests2Activity.class);
+        startActivity(newActivity);
+
+    }
+
     @Override
     protected void onResume(){
         super.onResume();
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
-        int bestScore= preferences.getInt("scoreNotes",0);
+        int bestScore= preferences.getInt("scoreRythms",0);
 
-        bestScoreNotes = (TextView) findViewById(R.id.bestScoreNotes);
-        bestScoreNotes.setText("PARIM TULEMUS : ");
+        bestScoreRythms = (TextView) findViewById(R.id.bestScoreRythms);
+        bestScoreRythms.setText("PARIM TULEMUS : ");
         showStars(bestScore);
 
-        LearnNotesTests2Activity.right=0;
+        LearnRythmsTests2Activity.right=0;
     }
-
 
 }

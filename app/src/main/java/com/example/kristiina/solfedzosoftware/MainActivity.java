@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setTitle("");
 
-        //SharedPreferences preferences= PreferenceManager.getDefaultSharedPreferences(this);
-        //String useraName=preferences.getString("example_text","xxx");
-        //Toast.makeText(this,"Tere "+useraName,Toast.LENGTH_LONG).show();
     }
 
     @Override

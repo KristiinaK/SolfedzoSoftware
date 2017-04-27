@@ -42,14 +42,6 @@
                 android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_seaded"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.kristiina.solfedzosoftware.MainActivity" />
-        </activity>
-        <activity
             android:name=".LearnNotesByPictureActivity"
             android:label="@string/title_activity_learn_notes_by_picture"
             android:parentActivityName=".LearnNotesMainActivity"
@@ -130,11 +122,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.LearnNotesTestsActivity" />
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SettingActivity"
@@ -144,6 +131,33 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LearnRythmsTestsActivity"
+            android:label="@string/title_activity_learn_rythms_tests"
+            android:parentActivityName=".LearnRythmsMainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsMainActivity" />
+        </activity>
+        <activity
+            android:name=".LearnRythmsTests2Activity"
+            android:label="@string/title_activity_learn_rythms_tests2"
+            android:parentActivityName=".LearnNotesTestsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesTestsActivity" />
+        </activity>
+        <activity
+            android:name=".LearnRythmsTests3Activity"
+            android:label="@string/title_activity_learn_rythms_tests3"
+            android:parentActivityName=".LearnRythmsTestsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnRythmsTestsActivity" />
         </activity>
     </application>
 
