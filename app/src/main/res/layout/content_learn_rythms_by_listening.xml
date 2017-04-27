@@ -18,133 +18,194 @@
         android:gravity="center"
         android:text="ARVA ÄRA, MIS RÜTMIGA ON TEGEMIST?" />
 
-
-    <TextView
-        android:id="@+id/numbersTextview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:textColor="?attr/colorPrimaryDark"
-        android:textSize="40sp" />
+        android:orientation="horizontal"
+        >
 
 
+        <ImageView
+            android:id="@+id/img_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/left_hand"
+            android:visibility="gone"
+            />
 
-        <TableLayout
+        <ImageView
+            android:id="@+id/img_animation2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/right_hand"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/numbersTextview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="?attr/colorPrimaryDark"
+            android:textSize="40sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25" />
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:fillViewport="true"
+    >
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:stretchColumns="*"
+
+
+        >
+
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center_horizontal|center"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
             >
 
-            <TableRow
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn__ta"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal">
+                android:background="@drawable/piano_white_key"
+                android:drawableTop="@drawable/ic_ta"
+                android:padding="2dp"
+                android:onClick="onClick_TA"
+                android:text="TA" />
 
-                <Button
-                    android:id="@+id/btn__ta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TA"
-                    android:text="TA" />
-
-                <Button
-                    android:id="@+id/btn__taa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TA_A"
-                    android:text="TA-A" />
-
-                <Button
-                    android:id="@+id/btn__taaa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TA_A_A"
-                    android:text="TA-A-A" />
-
-                <Button
-                    android:id="@+id/btn__taaaa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TA_A_A_A"
-                    android:text="TA-A-A-A" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn__taa"
+                android:drawableTop="@drawable/ic_taa"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal">
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TA_A"
+                android:padding="2dp"
+                android:text="TA-A" />
 
-                <Button
-                    android:id="@+id/btn__titi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TI_TI"
-                    android:text="TI-TI" />
-
-                <Button
-                    android:id="@+id/btn__tiri__tiri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TIRI_TIRI"
-                    android:text="TIRI-TIRI" />
-
-                <Button
-                    android:id="@+id/btn__ti__tiri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TI_TIRI"
-                    android:text="TI-TIRI" />
-
-                <Button
-                    android:id="@+id/btn__tiri__ti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TIRI_TI"
-                    android:text="TIRI-TI" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn__taaa"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal">
+                android:drawableTop="@drawable/ic_taaa"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TA_A_A"
+                android:padding="2dp"
+                android:text="TA-A-A" />
 
-                <Button
-                    android:id="@+id/btn__tai__ri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TAI_RI"
-                    android:text="TAI-RI" />
+            <Button
+                android:id="@+id/btn__taaaa"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_taaaa"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TA_A_A_A"
+                android:padding="2dp"
+                android:text="TA-A-A-A" />
 
-                <Button
-                    android:id="@+id/btn__ta__i__ti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/piano_white_key"
-                    android:onClick="onClick_TA_I_TI"
-                    android:text="TA-I-TI" />
+        </TableRow>
 
-            </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
 
-        </TableLayout>
+            <Button
+                android:id="@+id/btn__titi"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/piano_white_key"
+                android:drawableTop="@drawable/ic_titi"
+                android:onClick="onClick_TI_TI"
+                android:padding="2dp"
+                android:text="TI-TI" />
 
+            <Button
+                android:id="@+id/btn__tiri__tiri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_tiri_tiri"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TIRI_TIRI"
+                android:padding="2dp"
+                android:text="TIRI-TIRI" />
 
+            <Button
+                android:id="@+id/btn__ti__tiri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_ti_tiri"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TI_TIRI"
+                android:padding="2dp"
+                android:text="TI-TIRI" />
+
+            <Button
+                android:id="@+id/btn__tiri__ti"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_tiri_ti"
+                android:padding="2dp"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TIRI_TI"
+                android:text="TIRI-TI" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btn__tai__ri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_tai_ri"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TAI_RI"
+                android:padding="2dp"
+                android:text="TAI-RI" />
+
+            <Button
+                android:id="@+id/btn__ta__i__ti"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_ta_i_ti"
+                android:background="@drawable/piano_white_key"
+                android:onClick="onClick_TA_I_TI"
+                android:padding="2dp"
+                android:text="TA-I-TI" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</ScrollView>
     <TextView
         android:id="@+id/answerTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.75"
         android:gravity="center" />
 
     <LinearLayout

@@ -1,5 +1,6 @@
 package com.example.kristiina.solfedzosoftware;
 
+import android.graphics.Point;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -10,10 +11,16 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -40,8 +47,8 @@ public class LearnRythmsByListening extends AppCompatActivity {
     TextView answer_textview;
     TextView nextbutton;
     LinearLayout playbuttonRythms;
-
-
+    ImageView img_animation;
+    ImageView img_animation2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +72,8 @@ public class LearnRythmsByListening extends AppCompatActivity {
         loadSounds();
 
 
-
+        img_animation = (ImageView) findViewById(R.id.img_animation);
+        img_animation2 = (ImageView) findViewById(R.id.img_animation2);
         answer_textview = (TextView) findViewById(R.id.answerTextView);
         nextbutton= (TextView) findViewById(R.id.ButtonNextRythms);
 
@@ -116,6 +124,19 @@ public class LearnRythmsByListening extends AppCompatActivity {
     int condition_time;
 
     public void onClick_btn_play_rythms(View v){
+
+        numbersTextview.setVisibility(View.VISIBLE);
+        img_animation.setVisibility(View.GONE);
+        img_animation2.setVisibility(View.GONE);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
+        final  int screenWidth= point.x;
+       final float middlescreen = (float)screenWidth/2;
+
+
+
         playbuttonRythms.setEnabled(false);
         playbuttonpressed=true;
 
@@ -129,8 +150,6 @@ public class LearnRythmsByListening extends AppCompatActivity {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                Log.d("VIVZ","RUN WAS CALLED");
-
                 time = time + add_time;
                 if(time <= 4000){
 
@@ -150,28 +169,140 @@ public class LearnRythmsByListening extends AppCompatActivity {
 
 
                 }else if(time < condition_time){
+                    numbersTextview.setVisibility(View.GONE);
+                    img_animation.setVisibility(View.VISIBLE);
+                    img_animation2.setVisibility(View.VISIBLE);
 
-                    Log.d("VIVZ",time+"");
                     if(right_aswer == 1){
                         //TA
                         soundPool2.play(voice, 1, 1, 0, 0, 1);
                     }else if(right_aswer == 2){
                         //TI-TI
                         soundPool2.play(voice, 1, 1, 0, 0, 1);
+
+                        TranslateAnimation animation = new TranslateAnimation(
+                                Animation.RELATIVE_TO_SELF, 0.4f,
+                                Animation.RELATIVE_TO_SELF, 0.0f,
+                                Animation.RELATIVE_TO_PARENT, 0.0f,
+                                Animation.RELATIVE_TO_PARENT, 0.0f);
+                        animation.setDuration(500);
+                        animation.setRepeatCount(0);
+                        animation.setRepeatMode(1);
+
+
+                        TranslateAnimation animation2 = new TranslateAnimation(
+                                Animation.RELATIVE_TO_SELF,-0.4f,
+                                Animation.RELATIVE_TO_SELF, 0.0f,
+                                Animation.RELATIVE_TO_PARENT,0.0f,
+                                Animation.RELATIVE_TO_PARENT, 0.0f);
+                        animation2.setDuration(500);
+                        animation2.setRepeatCount(0);
+                        animation2.setRepeatMode(1);
+
+
+                        img_animation.startAnimation(animation);
+                        img_animation2.startAnimation(animation2);
                         add_time=500;
                     } else if(right_aswer==3){
                         //TIRI-TIRI
                         soundPool2.play(voice, 1, 1, 0, 0, 1);
+                        TranslateAnimation animation = new TranslateAnimation(
+                                Animation.RELATIVE_TO_SELF, 0.4f,
+                                Animation.RELATIVE_TO_SELF, 0.0f,
+                                Animation.RELATIVE_TO_PARENT, 0.0f,
+                                Animation.RELATIVE_TO_PARENT, 0.0f);
+                        animation.setDuration(250);
+                        animation.setRepeatCount(0);
+                        animation.setRepeatMode(1);
+
+
+                        TranslateAnimation animation2 = new TranslateAnimation(
+                                Animation.RELATIVE_TO_SELF,-0.4f,
+                                Animation.RELATIVE_TO_SELF, 0.0f,
+                                Animation.RELATIVE_TO_PARENT,0.0f,
+                                Animation.RELATIVE_TO_PARENT, 0.0f);
+                        animation2.setDuration(250);
+                        animation2.setRepeatCount(0);
+                        animation2.setRepeatMode(1);
+
+
+                        img_animation.startAnimation(animation);
+                        img_animation2.startAnimation(animation2);
                         add_time=250;
+
                     }
                     else if(right_aswer==4){
                         //TI-TIRI
                         if(in_the_loop==0){
                             add_time=500;
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(500);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(500);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
 
                         }else if(in_the_loop==1){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(250);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(250);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=250;
                         }else{
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(250);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(250);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=250;
                         }
                         soundPool2.play(voice, 1, 1, 0, 0, 1);
@@ -180,11 +311,74 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     else if(right_aswer==5){
                         //TIRI-TI
                         if(in_the_loop==0){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(250);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(250);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=250;
 
                         }else if(in_the_loop==1){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(250);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(250);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=250;
                         }else{
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(500);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(500);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=500;
                         }
                         soundPool2.play(voice, 1, 1, 0, 0, 1);
@@ -192,9 +386,51 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     }else if(right_aswer==6){
                         //TAI-RI
                         if(in_the_loop==0){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(750);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(750);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=750;
 
                         }else {
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(250);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(250);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=250;
                         }
                         soundPool2.play(voice, 1, 1, 0, 0, 1);
@@ -203,11 +439,55 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     else if(right_aswer==7){
                         //TA-A
                         if(in_the_loop==0){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                             soundPool2.play(voice, 1, 1, 0, 0, 1);
                             condition_time=7000;
 
+
                         }else {
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                         }
 
@@ -215,11 +495,54 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     }else if(right_aswer==8){
                         //TA-A-A
                         if(in_the_loop==0){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                             soundPool2.play(voice, 1, 1, 0, 0, 1);
                             condition_time=8000;
 
                         }else {
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                         }
 
@@ -227,11 +550,56 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     }else if(right_aswer==9){
                         //TA-A-A-A
                         if(in_the_loop==0){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                             soundPool2.play(voice, 1, 1, 0, 0, 1);
                             condition_time=9000;
 
                         }else {
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                         }
 
@@ -239,13 +607,79 @@ public class LearnRythmsByListening extends AppCompatActivity {
                     }else if(right_aswer==10){
                         //TA-I-TI
                         if(in_the_loop==0){
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(1000);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(0);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, -0.4f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(1000);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(0);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=1000;
                             condition_time=7000;
                             soundPool2.play(voice, 1, 1, 0, 0, 1);
                         }else if(in_the_loop==1) {
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(500);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(500);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=500;
 
                         } else{
+                            TranslateAnimation animation = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF, 0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation.setDuration(500);
+                            animation.setRepeatCount(0);
+                            animation.setRepeatMode(1);
+
+
+                            TranslateAnimation animation2 = new TranslateAnimation(
+                                    Animation.RELATIVE_TO_SELF,-0.4f,
+                                    Animation.RELATIVE_TO_SELF, 0.0f,
+                                    Animation.RELATIVE_TO_PARENT,0.0f,
+                                    Animation.RELATIVE_TO_PARENT, 0.0f);
+                            animation2.setDuration(500);
+                            animation2.setRepeatCount(0);
+                            animation2.setRepeatMode(1);
+
+
+                            img_animation.startAnimation(animation);
+                            img_animation2.startAnimation(animation2);
                             add_time=500;
                             soundPool2.play(voice, 1, 1, 0, 0, 1);
                         }
@@ -273,6 +707,9 @@ public class LearnRythmsByListening extends AppCompatActivity {
     }
 
     public  void onClickButtonNext(final View view){
+        numbersTextview.setVisibility(View.VISIBLE);
+        img_animation.setVisibility(View.GONE);
+        img_animation2.setVisibility(View.GONE);
 
         Random random= new Random();
         right_aswer=random.nextInt(10)+1;
