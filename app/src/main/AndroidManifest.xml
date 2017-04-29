@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".LearnNotesMainActivity"
-            android:label="@string/title_activity_opi_noote"
+            android:label="@string/title_activity_learn_notes_main"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -34,7 +34,7 @@
         </activity>
         <activity
             android:name=".LearnNotesByListeningActivity"
-            android:label="@string/title_activity_opi_noote_kuulmise_jargi"
+            android:label="@string/title_activity_learn_notes_by_listening"
             android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

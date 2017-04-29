@@ -16,7 +16,7 @@ android:weightSum="4">
     android:layout_height="0dp"
     android:layout_weight="1"
     android:gravity="center"
-    android:text="NOODINIMETUSED" />
+    android:text="@string/MainSettings" />
 
 <RadioGroup
     android:id="@+id/settingsRadioGroup"
@@ -31,7 +31,7 @@ android:weightSum="4">
         android:layout_marginLeft="20dp"
         android:layout_weight="1"
         android:checked="true"
-        android:text="C, D, E, F, G, A, H" />
+        android:text="@string/c_d_e_f_g_a_h" />
 
     <RadioButton
         android:id="@+id/CDEB"
@@ -39,7 +39,7 @@ android:weightSum="4">
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_weight="1"
-        android:text="C, D, E, F, G, A, B" />
+        android:text="@string/c_d_e_f_g_a_b" />
 
     <RadioButton
         android:id="@+id/doReMi"
@@ -47,7 +47,7 @@ android:weightSum="4">
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_weight="1"
-        android:text="DO, RE, MI, FA, SOL, LA, SI" />
+        android:text="@string/do_re_mi_fa_sol_la_si" />
 
 </RadioGroup>
 

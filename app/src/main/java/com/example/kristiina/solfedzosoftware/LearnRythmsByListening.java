@@ -1,29 +1,21 @@
 package com.example.kristiina.solfedzosoftware;
 
-import android.graphics.Point;
+
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Display;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.Random;
 
 public class LearnRythmsByListening extends AppCompatActivity {
@@ -128,13 +120,6 @@ public class LearnRythmsByListening extends AppCompatActivity {
         numbersTextview.setVisibility(View.VISIBLE);
         img_animation.setVisibility(View.GONE);
         img_animation2.setVisibility(View.GONE);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point point = new Point();
-        display.getSize(point);
-        final  int screenWidth= point.x;
-        final float middlescreen = (float)screenWidth/2;
-
 
 
         playbuttonRythms.setEnabled(false);

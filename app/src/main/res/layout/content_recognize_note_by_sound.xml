@@ -8,16 +8,13 @@
     tools:context="com.example.kristiina.solfedzosoftware.RecognizeNoteBySound"
     android:orientation="vertical"
     android:weightSum="5">
-
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="KLAVERI NOODITUVASTUS" />
-
+        android:text="@string/klaveri_noodituvastus" />
     <Button
         android:id="@+id/recordBtn"
         android:layout_width="match_parent"
@@ -25,9 +22,8 @@
         android:layout_weight="1"
         android:background="@drawable/custom_button_start"
         android:onClick="startRecording"
-        android:text="START"
+        android:text="@string/start_recording_piano"
         android:textColor="@color/white" />
-
     <Button
         android:id="@+id/button5"
         android:layout_width="match_parent"
@@ -35,9 +31,8 @@
         android:layout_weight="1"
         android:background="@drawable/custom_button_stop"
         android:onClick="stopRecording"
-        android:text="STOP"
+        android:text="@string/stop_recording_piano"
         android:textColor="@color/my_gray" />
-
     <Button
         android:id="@+id/button6"
         android:layout_width="match_parent"
@@ -45,9 +40,8 @@
         android:layout_weight="1"
         android:background="@drawable/custom_button_play"
         android:onClick="playRecording"
-        android:text="PLAY"
+        android:text="@string/play_recording_piano"
         android:textColor="@color/white" />
-
     <TextView
         android:id="@+id/answerTW"
         android:layout_width="match_parent"

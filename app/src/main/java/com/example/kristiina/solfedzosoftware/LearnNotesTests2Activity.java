@@ -3,17 +3,12 @@ package com.example.kristiina.solfedzosoftware;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class LearnNotesTests2Activity extends AppCompatActivity {
 
@@ -66,8 +61,6 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
 
                 if(answer[questionNumber].equals(answerText)){
                     right++;
-                }else{
-
                 }
                 questionNumber++;
 

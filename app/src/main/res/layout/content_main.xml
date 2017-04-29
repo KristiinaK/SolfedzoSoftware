@@ -32,14 +32,14 @@
                 app:srcCompat="@drawable/logo" />
 
             <TextView
+                android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="SOLFEDŽO ÕPITARKVARA"
+                android:text="@string/longAppName"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
         </LinearLayout>
 
 
@@ -51,7 +51,7 @@
             android:background="@drawable/custom_button_learn_notes"
             android:gravity="center"
             android:onClick="onClick_OpiNoote"
-            android:text="@string/cat_OpiNoote"
+            android:text="@string/btn_learn_notes"
             android:textColor="@android:color/background_light"
             android:textSize="14sp" />
 
@@ -63,7 +63,7 @@
             android:background="@drawable/custom_button_learn_rythms"
             android:gravity="center"
             android:onClick="onClick_LearnRythms"
-            android:text="@string/cat_OpiRutme"
+            android:text="@string/btn_learn_rythms"
             android:textColor="@android:color/background_light"
             android:textSize="14sp" />
 

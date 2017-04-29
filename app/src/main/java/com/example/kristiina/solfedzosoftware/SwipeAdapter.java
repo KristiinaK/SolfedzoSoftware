@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class SwipeAdapter extends PagerAdapter{
@@ -28,7 +26,7 @@ public class SwipeAdapter extends PagerAdapter{
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return (view==(FrameLayout)object);
+        return (view==object);
     }
 
     @Override

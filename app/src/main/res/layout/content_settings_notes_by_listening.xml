@@ -9,21 +9,18 @@ tools:context="com.example.kristiina.solfedzosoftware.SettingsNotesByListening"
 tools:showIn="@layout/activity_settings_notes_by_listening"
 android:orientation="vertical"
 android:weightSum="4">
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="VALI OKTAV:" />
-
+        android:text="@string/choose_octav_settings" />
     <RadioGroup
         android:id="@+id/settingsNotesRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
-
             <RadioButton
                 android:id="@+id/firstOctav"
                 android:layout_width="match_parent"
@@ -31,15 +28,14 @@ android:weightSum="4">
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="ESIMENE OKTAV" />
-
+                android:text="@string/esimene_oktav" />
             <RadioButton
                 android:id="@+id/secondOctav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="TEINE OKTAV" />
+                android:text="@string/teine_oktav" />
 
             <RadioButton
                 android:id="@+id/smallOctav"
@@ -47,10 +43,8 @@ android:weightSum="4">
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="VÄIKE OKTAV" />
-
+                android:text="@string/v_ike_oktav" />
     </RadioGroup>
-
 <TextView
     android:id="@+id/textView10"
     android:layout_width="match_parent"

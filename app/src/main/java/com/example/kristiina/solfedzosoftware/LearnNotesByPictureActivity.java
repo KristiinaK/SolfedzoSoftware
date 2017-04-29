@@ -2,7 +2,6 @@ package com.example.kristiina.solfedzosoftware;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -84,8 +83,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         bottom= (LinearLayout) findViewById(R.id.bottom_linearlayout);
         myScroll = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview2);
         pianokey = (ImageView) findViewById(R.id.voti);
-        upperNoteLine = (View) findViewById(R.id.upperNoteLine);
-        bottomNoteLine = (View) findViewById(R.id.bottomNoteLine);
+        upperNoteLine = findViewById(R.id.upperNoteLine);
+        bottomNoteLine = findViewById(R.id.bottomNoteLine);
         nextButton.setEnabled(false);
 
         myScroll.post(new Runnable() {

@@ -9,12 +9,9 @@
     tools:context="com.example.kristiina.solfedzosoftware.LearnRythmsMainActivity"
     tools:showIn="@layout/activity_learn_notes_main"
     >
-
     <ListView
         android:id="@+id/listViewLearnRythms"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
-
-
 </LinearLayout>

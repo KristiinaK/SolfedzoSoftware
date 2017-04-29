@@ -9,15 +9,13 @@
     tools:showIn="@layout/activity_learn_notes_tests"
     android:orientation="vertical"
     android:weightSum="3">
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
-        android:text="TESTI ENDA TEADMISI"
+        android:text="@string/NotesTestsTask"
         android:layout_weight="1"/>
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
@@ -26,10 +24,9 @@
         android:background="@drawable/custom_button_learn_notes"
         android:gravity="center"
         android:onClick="onClick_Start_Test_Notes"
-        android:text="ALUSTA"
+        android:text="@string/btn_start_text"
         android:textColor="@android:color/background_light"
         android:textStyle="bold" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -37,8 +34,6 @@
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="2">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -46,92 +41,76 @@
             android:gravity="center"
             android:orientation="vertical"
             android:weightSum="2">
-
             <TextView
                 android:id="@+id/bestScoreNotes"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="bottom|center"
-                android:text="PARIM TULEMUS: " />
-
+                android:text="@string/best_result_text" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="horizontal">
-
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
-
                 <ImageView
                     android:id="@+id/star1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <ImageView
                     android:id="@+id/star8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/white_star" />
-
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
-
             </LinearLayout>
         </LinearLayout>
-
-
     </LinearLayout>
-
 </LinearLayout>
