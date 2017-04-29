@@ -35,24 +35,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:weightSum="6">
+                android:weightSum="8">
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/table_border">
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border">
+                    android:background="@color/white">
 
                     <Space
                         android:layout_width="wrap_content"
@@ -62,7 +51,23 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:gravity="top|center">
+
+                    <View
+                        android:id="@+id/upperNoteLine"
+                        android:layout_width="40dp"
+                        android:layout_height="1dp"
+                        android:background="@color/noteColor"
+                        android:visibility="invisible"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border">
 
@@ -92,15 +97,40 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
-
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border">
 
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="top|center">
+
+                    <View
+                        android:id="@+id/bottomNoteLine"
+                        android:layout_width="40dp"
+                        android:layout_height="1dp"
+                        android:background="@color/noteColor"
+                        android:visibility="invisible" />
 
                 </TableRow>
 
@@ -110,13 +140,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:weightSum="6">
+                android:weightSum="8">
 
                 <LinearLayout
                     android:id="@+id/upper_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="3"
+                    android:layout_weight="4"
                     android:orientation="vertical" />
 
                 <LinearLayout
@@ -129,7 +159,7 @@
                     <Button
                         android:id="@+id/button7"
 
-                        android:layout_width="20dp"
+                        android:layout_width="18dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/round_note"
                         android:gravity="center" />
@@ -139,7 +169,7 @@
                     android:id="@+id/bottom_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="4"
                     android:gravity="bottom|center"
                     android:orientation="vertical">
 

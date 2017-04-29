@@ -184,5 +184,11 @@ public class RecognizeNoteBySound extends Activity {
             e.printStackTrace();
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 
 }

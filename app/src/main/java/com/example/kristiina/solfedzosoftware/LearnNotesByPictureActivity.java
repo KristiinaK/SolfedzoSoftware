@@ -40,6 +40,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     Button right_btn_id;
     Button clickedButton;
     ImageView pianokey;
+    View upperNoteLine;
+    View bottomNoteLine;
 
     public static final String PREFERENCES = "Preferences";
     private String settings;
@@ -82,6 +84,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         bottom= (LinearLayout) findViewById(R.id.bottom_linearlayout);
         myScroll = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview2);
         pianokey = (ImageView) findViewById(R.id.voti);
+        upperNoteLine = (View) findViewById(R.id.upperNoteLine);
+        bottomNoteLine = (View) findViewById(R.id.bottomNoteLine);
         nextButton.setEnabled(false);
 
         myScroll.post(new Runnable() {
@@ -190,7 +194,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     private void generateRandom(){
-        right_answer= RANDOM.nextInt(11)+2;
+        right_answer= RANDOM.nextInt(14)+1;
     }
 
     private void generateRandomBass(){
@@ -215,33 +219,33 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
         switch (right_answer){
             case 1:
-                /**
+                bottomNoteLine.setVisibility(View.VISIBLE);
                 LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2f
+                        6.5f
                 );
                 upper.setLayoutParams(param);
                 LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3f
+                        1.5f
                 );
                 bottom.setLayoutParams(param2);
 
                 break;
-                 **/
+
             case 2:
                 LinearLayout.LayoutParams param3 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        5f
+                        6f
                 );
                 upper.setLayoutParams(param3);
                 LinearLayout.LayoutParams param4 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        0f
+                        2f
                 );
                 bottom.setLayoutParams(param4);
                 break;
@@ -249,13 +253,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param5 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        4.5f
+                        5.5f
                 );
                 upper.setLayoutParams(param5);
                 LinearLayout.LayoutParams param6 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        0.5f
+                        2.5f
                 );
                 bottom.setLayoutParams(param6);
                 break;
@@ -263,13 +267,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param7 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        4f
+                        5f
                 );
                 upper.setLayoutParams(param7);
                 LinearLayout.LayoutParams param8 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        1f
+                        3f
                 );
                 bottom.setLayoutParams(param8);
                 break;
@@ -277,13 +281,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param9 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3.5f
+                        4.5f
                 );
                 upper.setLayoutParams(param9);
                 LinearLayout.LayoutParams param10 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        1.5f
+                        3.5f
                 );
                 bottom.setLayoutParams(param10);
 
@@ -292,13 +296,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param11 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3f
+                        4f
                 );
                 upper.setLayoutParams(param11);
                 LinearLayout.LayoutParams param12 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2f
+                        4f
                 );
                 bottom.setLayoutParams(param12);
 
@@ -307,13 +311,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param13 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2.5f
+                        3.5f
                 );
                 upper.setLayoutParams(param13);
                 LinearLayout.LayoutParams param14 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2.5f
+                        4.5f
                 );
                 bottom.setLayoutParams(param14);
                 break;
@@ -321,13 +325,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param15 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2f
+                        3f
                 );
                 upper.setLayoutParams(param15);
                 LinearLayout.LayoutParams param16 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3f
+                        5f
                 );
                 bottom.setLayoutParams(param16);
                 break;
@@ -335,13 +339,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param17 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        1.5f
+                        2.5f
                 );
                 upper.setLayoutParams(param17);
                 LinearLayout.LayoutParams param18 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3.5f
+                        5.5f
                 );
                 bottom.setLayoutParams(param18);
                 break;
@@ -349,13 +353,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param19 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        1f
+                        2f
                 );
                 upper.setLayoutParams(param19);
                 LinearLayout.LayoutParams param20 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        4f
+                        6f
                 );
                 bottom.setLayoutParams(param20);
                 break;
@@ -363,13 +367,13 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param21 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        0.5f
+                        1.5f
                 );
                 upper.setLayoutParams(param21);
                 LinearLayout.LayoutParams param22 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        4.5f
+                        6.5f
                 );
                 bottom.setLayoutParams(param22);
                 break;
@@ -377,15 +381,45 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param23 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        0f
+                        1f
                 );
                 upper.setLayoutParams(param23);
                 LinearLayout.LayoutParams param24 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        5f
+                        7f
                 );
                 bottom.setLayoutParams(param24);
+                break;
+            case 13 :
+                upperNoteLine.setVisibility(View.VISIBLE);
+                LinearLayout.LayoutParams param25 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        0.5f
+                );
+                upper.setLayoutParams(param25);
+                LinearLayout.LayoutParams param26 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        7.5f
+                );
+                bottom.setLayoutParams(param26);
+                break;
+            case 14 :
+                upperNoteLine.setVisibility(View.VISIBLE);
+                LinearLayout.LayoutParams param27 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        0f
+                );
+                upper.setLayoutParams(param27);
+                LinearLayout.LayoutParams param28 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        8f
+                );
+                bottom.setLayoutParams(param28);
                 break;
         }
     }
@@ -397,6 +431,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         right_ans_clicked=false;
         right_btn_id.setBackgroundResource(R.drawable.piano_white_key);
         aswer_textview.setBackgroundResource(0);
+        bottomNoteLine.setVisibility(View.INVISIBLE);
+        upperNoteLine.setVisibility(View.INVISIBLE);
     }
 
     public void onClick_C_3(final View view) {
@@ -502,6 +538,14 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_C_4(final View view) {
         soundPool.play(note_C4, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_C4);
+
+        if (settings.equals("VIIULIVÕTI")&&right_answer == 1 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
+
     }
 
     public void onClick_Cis_4(final View view) {
@@ -695,12 +739,29 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
     public void onClick_A_5(final View view) {
         soundPool.play(note_A5, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_A5);
+
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 13 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        }else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Ais_5(final View view) {
         soundPool.play(note_Ais5, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_H_5(final View view) {
         soundPool.play(note_H5, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_H5);
+
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 14 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        }else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
 
     private void rightAnswerClicked(){

@@ -712,7 +712,12 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
 
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 
 
 }
