@@ -133,7 +133,7 @@ public class LearnRythmsByListening extends AppCompatActivity {
         Point point = new Point();
         display.getSize(point);
         final  int screenWidth= point.x;
-       final float middlescreen = (float)screenWidth/2;
+        final float middlescreen = (float)screenWidth/2;
 
 
 

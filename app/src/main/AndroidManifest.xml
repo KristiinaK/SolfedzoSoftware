@@ -43,6 +43,7 @@
         </activity>
         <activity
             android:name=".LearnNotesByPictureActivity"
+            android:noHistory="true"
             android:label="@string/title_activity_learn_notes_by_picture"
             android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -121,7 +122,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.LearnNotesTestsActivity" />
-
         </activity>
         <activity
             android:name=".SettingActivity"
@@ -158,6 +158,24 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.LearnRythmsTestsActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsNotesByListening"
+            android:label="@string/title_activity_settings_notes"
+            android:parentActivityName=".LearnNotesByListeningActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesByListeningActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsNotesByPicture"
+            android:label="@string/title_activity_settings_notes_by_picture"
+            android:parentActivityName=".LearnNotesByPictureActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kristiina.solfedzosoftware.LearnNotesByPictureActivity" />
         </activity>
     </application>
 

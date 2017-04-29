@@ -1,5 +1,7 @@
 package com.example.kristiina.solfedzosoftware;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
@@ -8,13 +10,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+
+
 import java.util.Random;
 
 public class LearnNotesByPictureActivity extends AppCompatActivity {
@@ -34,6 +39,11 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     private boolean right_ans_clicked=false;
     Button right_btn_id;
     Button clickedButton;
+    ImageView pianokey;
+
+    public static final String PREFERENCES = "Preferences";
+    private String settings;
+
 
     int button_voice;
 
@@ -42,6 +52,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     int note_C4, note_Cis4, note_D4, note_Dis4, note_E4, note_F4, note_Fis4, note_G4, note_Gis4, note_A4, note_Ais4, note_H4;
 
     int note_C5, note_Cis5, note_D5, note_Dis5, note_E5, note_F5, note_Fis5, note_G5, note_Gis5, note_A5, note_Ais5, note_H5;
+    public static final Random RANDOM = new Random();
 
 
     @Override
@@ -60,8 +71,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         createSoundPool();
         loadNotes();
         init();
+        right_answer=6;
 
-        right_answer=4;
     }
 
     private void init(){
@@ -70,7 +81,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         upper= (LinearLayout) findViewById(R.id.upper_linearlayout);
         bottom= (LinearLayout) findViewById(R.id.bottom_linearlayout);
         myScroll = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview2);
-
+        pianokey = (ImageView) findViewById(R.id.voti);
         nextButton.setEnabled(false);
 
         myScroll.post(new Runnable() {
@@ -80,6 +91,43 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
             }
         });
+        SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
+
+
+        settings= preferences.getString("settingsNotes","");
+
+        if (settings.equals("VIIULIVÕTI")) {
+            myScroll.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
+                }
+            });
+            pianokey.setImageResource(R.drawable.viiulivoti);
+        }else if(settings.equals("BASSIVÕTI")){
+            myScroll.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScroll.scrollTo(myScroll.getChildAt(0).getRight(),0);
+                }
+            });
+            pianokey.setImageResource(R.drawable.bassivoti);
+
+        }else{
+            settings="VIIULIVÕTI" ;
+            pianokey.setImageResource(R.drawable.viiulivoti);
+
+            myScroll.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
+                }
+            });
+        }
+
     }
 
 
@@ -142,18 +190,32 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     private void generateRandom(){
-        Random random= new Random();
-        right_answer=random.nextInt(7)+1;
+        right_answer= RANDOM.nextInt(11)+2;
+    }
+
+    private void generateRandomBass(){
+        right_answer=RANDOM.nextInt(7)+6;
     }
 
     public void onClick_next(final View view){
         soundPool.play(button_voice, 1, 1, 0, 0, 1);
 
-        generateRandom();
         initNextButton();
+
+        if(settings.equals("VIIULIVÕTI")){
+            generateRandom();
+
+        }else if(settings.equals("BASSIVÕTI")){
+            generateRandomBass();
+        }else{
+            settings="VIIULIVÕTI";
+            generateRandom();
+
+        }
 
         switch (right_answer){
             case 1:
+                /**
                 LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
@@ -168,6 +230,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 bottom.setLayoutParams(param2);
 
                 break;
+                 **/
             case 2:
                 LinearLayout.LayoutParams param3 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
@@ -254,6 +317,76 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 );
                 bottom.setLayoutParams(param14);
                 break;
+            case 8 :
+                LinearLayout.LayoutParams param15 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        2f
+                );
+                upper.setLayoutParams(param15);
+                LinearLayout.LayoutParams param16 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        3f
+                );
+                bottom.setLayoutParams(param16);
+                break;
+            case 9 :
+                LinearLayout.LayoutParams param17 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        1.5f
+                );
+                upper.setLayoutParams(param17);
+                LinearLayout.LayoutParams param18 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        3.5f
+                );
+                bottom.setLayoutParams(param18);
+                break;
+            case 10 :
+                LinearLayout.LayoutParams param19 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        1f
+                );
+                upper.setLayoutParams(param19);
+                LinearLayout.LayoutParams param20 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        4f
+                );
+                bottom.setLayoutParams(param20);
+                break;
+            case 11 :
+                LinearLayout.LayoutParams param21 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        0.5f
+                );
+                upper.setLayoutParams(param21);
+                LinearLayout.LayoutParams param22 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        4.5f
+                );
+                bottom.setLayoutParams(param22);
+                break;
+            case 12 :
+                LinearLayout.LayoutParams param23 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        0f
+                );
+                upper.setLayoutParams(param23);
+                LinearLayout.LayoutParams param24 = new LinearLayout.LayoutParams(
+                        Toolbar.LayoutParams.MATCH_PARENT,
+                        0,
+                        5f
+                );
+                bottom.setLayoutParams(param24);
+                break;
         }
     }
 
@@ -268,39 +401,103 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_C_3(final View view) {
         soundPool.play(note_C3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_C3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 6 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Cis_3(final View view) {
         soundPool.play(note_Cis3, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_D_3(final View view) {
         soundPool.play(note_D3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_D3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 7 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Dis_3(final View view) {
         soundPool.play(note_Dis3, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_E_3(final View view) {
         soundPool.play(note_E3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.brn_E3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 8 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_F_3(final View view) {
         soundPool.play(note_F3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_F3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 9 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Fis_3(final View view) {
         soundPool.play(note_Fis3, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_G_3(final View view) {
         soundPool.play(note_G3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_G3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 10 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Gis_3(final View view) {
         soundPool.play(note_Gis3, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_A_3(final View view) {
         soundPool.play(note_A3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_A3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 11 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Ais_3(final View view) {
         soundPool.play(note_Ais3, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_H_3(final View view) {
         soundPool.play(note_H3, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_H3);
+
+        if (settings.equals("BASSIVÕTI")&&right_answer == 12 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        } else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
 
     public void onClick_C_4(final View view) {
@@ -309,6 +506,9 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_Cis_4(final View view) {
         soundPool.play(note_Cis4, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
 
 
@@ -317,7 +517,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         clickedButton = (Button)findViewById(R.id.btn_D4);
         soundPool.play(note_D4, 1, 1, 0, 0, 1);
 
-        if (right_answer == 2 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&&right_answer == 2 && !(right_ans_clicked)){
             rightAnswerClicked();
         } else if(!(right_ans_clicked)){
             falseAnswerClicked();
@@ -325,14 +525,19 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     }
 
-    public void onClick_Dis_4(final View view) {soundPool.play(note_Dis4, 1, 1, 0, 0, 1);}
+    public void onClick_Dis_4(final View view) {
+        soundPool.play(note_Dis4, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
+    }
 
 
     public void onClick_E_4(final View view) {
         clickedButton = (Button)findViewById(R.id.btn_E4);
         soundPool.play(note_E4, 1, 1, 0, 0, 1);
 
-        if (right_answer == 3 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&&right_answer == 3 && !(right_ans_clicked)){
            rightAnswerClicked();
         }else if(!(right_ans_clicked)){
             falseAnswerClicked();
@@ -343,7 +548,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         clickedButton = (Button)findViewById(R.id.btn_F4);
         soundPool.play(note_F4, 1, 1, 0, 0, 1);
 
-        if (right_answer == 4 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&&right_answer == 4 && !(right_ans_clicked)){
            rightAnswerClicked();
 
         }else if(!(right_ans_clicked)){
@@ -354,13 +559,16 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_Fis_4(final View view) {
         soundPool.play(note_Fis4, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
 
     public void onClick_G_4(final View view) {
         clickedButton  = (Button)findViewById(R.id.btn_G4);
         soundPool.play(note_G4, 1, 1, 0, 0, 1);
 
-        if (right_answer == 5 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&&right_answer == 5 && !(right_ans_clicked)){
             rightAnswerClicked();
 
         }else if(!(right_ans_clicked)){
@@ -370,13 +578,16 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_Gis_4(final View view) {
         soundPool.play(note_Gis4, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
 
     public void onClick_A_4(final View view) {
         clickedButton = (Button)findViewById(R.id.btn_A4);
         soundPool.play(note_A4, 1, 1, 0, 0, 1);
 
-        if (right_answer == 6 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&&right_answer == 6 && !(right_ans_clicked)){
            rightAnswerClicked();
 
         }else if(!(right_ans_clicked)){
@@ -387,13 +598,16 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_Ais_4(final View view) {
         soundPool.play(note_Ais4, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
 
     public void onClick_H_4(final View view) {
         clickedButton = (Button)findViewById(R.id.btn_H4);
         soundPool.play(note_H4, 1, 1, 0, 0, 1);
 
-        if (right_answer == 7 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 7 && !(right_ans_clicked)){
            rightAnswerClicked();
 
         }else if(!(right_ans_clicked)){
@@ -407,7 +621,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         clickedButton = (Button)findViewById(R.id.btn_C5);
         soundPool.play(note_C5, 1, 1, 0, 0, 1);
 
-        if (right_answer == 1 && !(right_ans_clicked)){
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 8 && !(right_ans_clicked)){
             rightAnswerClicked();
         }else if(!(right_ans_clicked)){
            falseAnswerClicked();
@@ -415,27 +629,69 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
     public void onClick_Cis_5(final View view) {
         soundPool.play(note_Cis5, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_D_5(final View view) {
         soundPool.play(note_D5, 1, 1, 0, 0, 1);
+
+        clickedButton = (Button)findViewById(R.id.btn_D5);
+
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 9 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        }else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Dis_5(final View view) {
         soundPool.play(note_Dis5, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_E_5(final View view) {
         soundPool.play(note_E5, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.brn_E5);
+
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 10 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        }else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_F_5(final View view) {
         soundPool.play(note_F5, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_F5);
+
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 11 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        }else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Fis_5(final View view) {
         soundPool.play(note_Fis5, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
+
     }
     public void onClick_G_5(final View view) {
         soundPool.play(note_G5, 1, 1, 0, 0, 1);
+        clickedButton = (Button)findViewById(R.id.btn_G5);
+
+        if (settings.equals("VIIULIVÕTI")&& right_answer == 12 && !(right_ans_clicked)){
+            rightAnswerClicked();
+        }else if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_Gis_5(final View view) {
         soundPool.play(note_Gis5, 1, 1, 0, 0, 1);
+        if(!(right_ans_clicked)){
+            falseAnswerClicked();
+        }
     }
     public void onClick_A_5(final View view) {
         soundPool.play(note_A5, 1, 1, 0, 0, 1);
@@ -460,6 +716,38 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         aswer_textview.setText("PROOVI VEEL");
         aswer_textview.setBackgroundResource(R.color.pink);
     }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.settings).setVisible(false);
+        menu.findItem(R.id.settingsNotes).setVisible(false);
+
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.settingsKey) {
+            Intent intent=new Intent(this,SettingsNotesByPicture.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     protected void onPause(){
         super.onPause();
@@ -467,10 +755,57 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     }
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
+    @Override
     protected void onResume(){
+
         super.onResume();
         createSoundPool();
         loadNotes();
+        SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
+
+
+        settings= preferences.getString("settingsNotesByPicture","");
+
+        if (settings.equals("VIIULIVÕTI")) {
+
+            myScroll.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
+                }
+            });
+            pianokey.setImageResource(R.drawable.viiulivoti);
+        }else if(settings.equals("BASSIVÕTI")){
+            myScroll.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScroll.scrollTo(myScroll.getChildAt(0).getLeft(),0);
+                }
+            });
+            pianokey.setImageResource(R.drawable.bassivoti);
+
+        }else{
+            settings="VIIULIVÕTI" ;
+            pianokey.setImageResource(R.drawable.viiulivoti);
+
+            myScroll.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
+                }
+            });
+        }
+
+
+
     }
 
 }

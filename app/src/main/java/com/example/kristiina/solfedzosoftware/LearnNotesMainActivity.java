@@ -63,6 +63,12 @@ public class LearnNotesMainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+    }
+
     private class CustomAdapter extends BaseAdapter{
 
         @Override

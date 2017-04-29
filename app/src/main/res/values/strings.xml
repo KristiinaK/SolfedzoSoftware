@@ -2,9 +2,9 @@
     <string name="app_name">SOLFEDŽO ÕPITARKVARA</string>
     <string name="action_settings">SEADED</string>
     <string name="title_activity_opi_noote">ÕPI NOOTE</string>
-    <string name="title_activity_opi_noote_kuulmise_jargi">ÕPI NOOTE</string>
-    <string name="title_activity_learn_notes_by_picture">ÕPI NOOTE</string>
-    <string name="title_activity_recognize_note_by_sound">ÕPI NOOTE</string>
+    <string name="title_activity_opi_noote_kuulmise_jargi"></string>
+    <string name="title_activity_learn_notes_by_picture"></string>
+    <string name="title_activity_recognize_note_by_sound"></string>
     <string name="title_activity_seaded">SEADED</string>
     <string name="cat_OpiNoote">ÕPI NOOTE</string>
     <string name="cat_OpiRutme">ÕPI RÜTME</string>
@@ -27,6 +27,8 @@
     <string name="title_activity_learn_rythms_tests">ÕPI RÜTME</string>
     <string name="title_activity_learn_rythms_tests2">TEST</string>
     <string name="title_activity_learn_rythms_tests3">TEST</string>
+    <string name="title_activity_settings_notes">SettingsNotes</string>
+    <string name="title_activity_settings_notes_by_picture">SettingsNotesByPicture</string>
 
 
 </resources>

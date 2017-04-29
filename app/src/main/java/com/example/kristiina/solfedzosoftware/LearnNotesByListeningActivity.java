@@ -1,6 +1,8 @@
 package com.example.kristiina.solfedzosoftware;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -8,11 +10,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import java.util.Random;
 
 
@@ -34,6 +39,10 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     private boolean right_ans_clicked=false;
     Button right_btn_id;
     Button userClickedButton;
+
+    public static final String PREFERENCES = "Preferences";
+
+    private String settings;
 
     int button_voice;
 
@@ -60,6 +69,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         init();
 
         right_aswer=1;
+
     }
 
     private void init(){
@@ -67,16 +77,53 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         playbutton = (LinearLayout) findViewById(R.id.playButton);
         nextbutton= (TextView) findViewById(R.id.ButtonNext);
         myScrollView = (HorizontalScrollView) findViewById(R.id.horizontal_scrollview2);
+
         playbutton.setVisibility(View.VISIBLE);
         nextbutton.setVisibility(View.GONE);
-        myScrollView.post(new Runnable() {
+        SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
 
-            @Override
-            public void run() {
-                myScrollView.scrollTo((myScrollView.getChildAt(0).getLeft()+myScrollView.getChildAt(0).getRight()-myScrollView.getWidth())/2,0);
-            }
-        });
+
+        settings= preferences.getString("settingsNotes","");
+
+        if (settings.equals("ESIMENE OKTAV")) {
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo((myScrollView.getChildAt(0).getLeft()+myScrollView.getChildAt(0).getRight()-myScrollView.getWidth())/2,0);
+                }
+            });
+        }else if(settings.equals("TEINE OKTAV")){
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo(myScrollView.getChildAt(0).getRight(),0);
+                }
+            });
+        } else if (settings.equals("VÄIKE OKTAV")) {
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    myScrollView.scrollTo(myScrollView.getChildAt(0).getLeft(),0);
+                }
+            });
+        }else{
+            settings="ESIMENE OKTAV" ;
+
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo((myScrollView.getChildAt(0).getLeft()+myScrollView.getChildAt(0).getRight()-myScrollView.getWidth())/2,0);
+                }
+            });
+        }
+
     }
+
 
     protected void createSoundPool(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
@@ -142,25 +189,93 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     public void onClick_btn_play(final View view){
         playbuttonpressed=true;
 
-        switch (right_aswer){
-            case 1: soundPool.play(note_C4, 1, 1, 0, 0, 1);
+        if (settings.equals("ESIMENE OKTAV")) {
+            switch (right_aswer){
+                case 1: soundPool.play(note_C4, 1, 1, 0, 0, 1);
                     break;
-            case 2: soundPool.play(note_D4, 1, 1, 0, 0, 1);
+                case 2: soundPool.play(note_D4, 1, 1, 0, 0, 1);
                     break;
-            case 3: soundPool.play(note_E4, 1, 1, 0, 0, 1);
+                case 3: soundPool.play(note_E4, 1, 1, 0, 0, 1);
                     break;
-            case 4: soundPool.play(note_F4, 1, 1, 0, 0, 1);
+                case 4: soundPool.play(note_F4, 1, 1, 0, 0, 1);
                     break;
-            case 5: soundPool.play(note_G4, 1, 1, 0, 0, 1);
+                case 5: soundPool.play(note_G4, 1, 1, 0, 0, 1);
                     break;
-            case 6 : soundPool.play(note_A4, 1, 1, 0, 0, 1);
+                case 6 : soundPool.play(note_A4, 1, 1, 0, 0, 1);
                     break;
-            case 7 : soundPool.play(note_H4, 1, 1, 0, 0, 1);
+                case 7 : soundPool.play(note_H4, 1, 1, 0, 0, 1);
                     break;
-            default: soundPool.play(note_C4, 1, 1, 0, 0, 1);
+                default: soundPool.play(note_C4, 1, 1, 0, 0, 1);
                     break;
+            }
+        }else if(settings.equals("TEINE OKTAV")){
+            switch (right_aswer){
+                case 1: soundPool.play(note_C5, 1, 1, 0, 0, 1);
+                    break;
+                case 2: soundPool.play(note_D5, 1, 1, 0, 0, 1);
+                    break;
+                case 3: soundPool.play(note_E5, 1, 1, 0, 0, 1);
+                    break;
+                case 4: soundPool.play(note_F5, 1, 1, 0, 0, 1);
+                    break;
+                case 5: soundPool.play(note_G5, 1, 1, 0, 0, 1);
+                    break;
+                case 6 : soundPool.play(note_A5, 1, 1, 0, 0, 1);
+                    break;
+                case 7 : soundPool.play(note_H5, 1, 1, 0, 0, 1);
+                    break;
+                default: soundPool.play(note_C5, 1, 1, 0, 0, 1);
+                    break;
+            }
+        } else if (settings.equals("VÄIKE OKTAV")) {
+            switch (right_aswer){
+                case 1: soundPool.play(note_C3, 1, 1, 0, 0, 1);
+                    break;
+                case 2: soundPool.play(note_D3, 1, 1, 0, 0, 1);
+                    break;
+                case 3: soundPool.play(note_E3, 1, 1, 0, 0, 1);
+                    break;
+                case 4: soundPool.play(note_F3, 1, 1, 0, 0, 1);
+                    break;
+                case 5: soundPool.play(note_G3, 1, 1, 0, 0, 1);
+                    break;
+                case 6 : soundPool.play(note_A3, 1, 1, 0, 0, 1);
+                    break;
+                case 7 : soundPool.play(note_H3, 1, 1, 0, 0, 1);
+                    break;
+                default: soundPool.play(note_C3, 1, 1, 0, 0, 1);
+                    break;
+            }
+        }else{
+            settings="ESIMENE OKTAV" ;
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo((myScrollView.getChildAt(0).getLeft()+myScrollView.getChildAt(0).getRight()-myScrollView.getWidth())/2,0);
+                }
+            });           switch (right_aswer){
+                case 1: soundPool.play(note_C4, 1, 1, 0, 0, 1);
+                    break;
+                case 2: soundPool.play(note_D4, 1, 1, 0, 0, 1);
+                    break;
+                case 3: soundPool.play(note_E4, 1, 1, 0, 0, 1);
+                    break;
+                case 4: soundPool.play(note_F4, 1, 1, 0, 0, 1);
+                    break;
+                case 5: soundPool.play(note_G4, 1, 1, 0, 0, 1);
+                    break;
+                case 6 : soundPool.play(note_A4, 1, 1, 0, 0, 1);
+                    break;
+                case 7 : soundPool.play(note_H4, 1, 1, 0, 0, 1);
+                    break;
+                default: soundPool.play(note_C4, 1, 1, 0, 0, 1);
+                    break;
+            }
         }
+
     }
+
 
     public  void onClickButtonNext(final View view){
         soundPool.play(button_voice, 1, 1, 0, 0, 1);
@@ -186,39 +301,103 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     public void onClick_C_3(final View view) {
         soundPool.play(note_C3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_C3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==1 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Cis_3(final View view) {
         soundPool.play(note_Cis3, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_D_3(final View view) {
         soundPool.play(note_D3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_D3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==2 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Dis_3(final View view) {
         soundPool.play(note_Dis3, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_E_3(final View view) {
         soundPool.play(note_E3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.brn_E3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==3 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_F_3(final View view) {
         soundPool.play(note_F3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_F3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==4 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Fis_3(final View view) {
         soundPool.play(note_Fis3, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_G_3(final View view) {
         soundPool.play(note_G3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_G3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==5 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Gis_3(final View view) {
         soundPool.play(note_Gis3, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_A_3(final View view) {
         soundPool.play(note_A3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_A3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==6 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Ais_3(final View view) {
         soundPool.play(note_Ais3, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_H_3(final View view) {
         soundPool.play(note_H3, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_H3);
+
+        if(settings.equals("VÄIKE OKTAV")&&right_aswer==7 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
 
@@ -226,7 +405,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         userClickedButton = (Button)findViewById(R.id.btn_C4);
         soundPool.play(note_C4, 1, 1, 0, 0, 1);
 
-        if(right_aswer==1 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==1 && playbuttonpressed && !(right_ans_clicked)){
            rightAnswer();
         } else if (playbuttonpressed && !(right_ans_clicked)){
            falseAnswer();
@@ -235,13 +414,16 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     public void onClick_Cis_4(final View view) {
         soundPool.play(note_Cis4, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
     public void onClick_D_4(final View view) {
         userClickedButton = (Button)findViewById(R.id.btn_D4);
         soundPool.play(note_D4, 1, 1, 0, 0, 1);
 
-        if(right_aswer==2 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==2 && playbuttonpressed && !(right_ans_clicked)){
            rightAnswer();
         } else if (playbuttonpressed && !(right_ans_clicked)){
             falseAnswer();
@@ -250,13 +432,16 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     public void onClick_Dis_4(final View view) {
         soundPool.play(note_Dis4, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
     public void onClick_E_4(final View view) {
         soundPool.play(note_E4, 1, 1, 0, 0, 1);
         userClickedButton = (Button)findViewById(R.id.btn_E4);
 
-        if(right_aswer==3 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==3 && playbuttonpressed && !(right_ans_clicked)){
             rightAnswer();
         } else if (playbuttonpressed && !(right_ans_clicked)){
             falseAnswer();
@@ -266,7 +451,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         userClickedButton= (Button)findViewById(R.id.btn_F4);
         soundPool.play(note_F4, 1, 1, 0, 0, 1);
 
-        if(right_aswer==4 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==4 && playbuttonpressed && !(right_ans_clicked)){
             rightAnswer();
         } else if (playbuttonpressed && !(right_ans_clicked)){
             falseAnswer();
@@ -275,13 +460,16 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     public void onClick_Fis_4(final View view) {
         soundPool.play(note_Fis4, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
     public void onClick_G_4(final View view) {
         userClickedButton = (Button)findViewById(R.id.btn_G4);
         soundPool.play(note_G4, 1, 1, 0, 0, 1);
 
-        if(right_aswer==5 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==5 && playbuttonpressed && !(right_ans_clicked)){
            rightAnswer();
         } else if (playbuttonpressed && !(right_ans_clicked)){
             falseAnswer();
@@ -289,13 +477,16 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     }
     public void onClick_Gis_4(final View view) {
         soundPool.play(note_Gis4, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
     public void onClick_A_4(final View view) {
         userClickedButton = (Button)findViewById(R.id.btn_A4);
         soundPool.play(note_A4, 1, 1, 0, 0, 1);
 
-        if(right_aswer==6 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==6 && playbuttonpressed && !(right_ans_clicked)){
             rightAnswer();
 
         } else if (playbuttonpressed && !(right_ans_clicked)){
@@ -305,13 +496,16 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     public void onClick_Ais_4(final View view) {
         soundPool.play(note_Ais4, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
     public void onClick_H_4(final View view) {
         userClickedButton = (Button)findViewById(R.id.btn_H4);
         soundPool.play(note_H4, 1, 1, 0, 0, 1);
 
-        if(right_aswer==7 && playbuttonpressed && !(right_ans_clicked)){
+        if(settings.equals("ESIMENE OKTAV")&&right_aswer==7 && playbuttonpressed && !(right_ans_clicked)){
            rightAnswer();
         } else if (playbuttonpressed && !(right_ans_clicked)){
             falseAnswer();
@@ -320,39 +514,103 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     public void onClick_C_5(final View view) {
         soundPool.play(note_C5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_C5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==1 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Cis_5(final View view) {
         soundPool.play(note_Cis5, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_D_5(final View view) {
         soundPool.play(note_D5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_D5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==2 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Dis_5(final View view) {
         soundPool.play(note_Dis5, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_E_5(final View view) {
         soundPool.play(note_E5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.brn_E5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==3 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_F_5(final View view) {
         soundPool.play(note_F5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_F5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==4 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Fis_5(final View view) {
         soundPool.play(note_Fis5, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_G_5(final View view) {
         soundPool.play(note_G5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_G5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==5 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Gis_5(final View view) {
         soundPool.play(note_Gis5, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_A_5(final View view) {
         soundPool.play(note_A5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_A5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==6 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_Ais_5(final View view) {
         soundPool.play(note_Ais5, 1, 1, 0, 0, 1);
+        if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
     public void onClick_H_5(final View view) {
         soundPool.play(note_H5, 1, 1, 0, 0, 1);
+        userClickedButton = (Button)findViewById(R.id.btn_H5);
+
+        if(settings.equals("TEINE OKTAV")&&right_aswer==7 && playbuttonpressed && !(right_ans_clicked)){
+            rightAnswer();
+        } else if (playbuttonpressed && !(right_ans_clicked)){
+            falseAnswer();
+        }
     }
 
     private void rightAnswer(){
@@ -371,6 +629,37 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.settings).setVisible(false);
+        menu.findItem(R.id.settingsKey).setVisible(false);
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.settingsNotes) {
+            Intent intent=new Intent(this,SettingsNotesByListening.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onPause(){
         super.onPause();
         soundPool.release();
@@ -381,6 +670,47 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         super.onResume();
         createSoundPool();
         loadNotes();
+        SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
+
+
+        settings= preferences.getString("settingsNotes","");
+
+        if (settings.equals("ESIMENE OKTAV")) {
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo((myScrollView.getChildAt(0).getLeft()+myScrollView.getChildAt(0).getRight()-myScrollView.getWidth())/2,0);
+                }
+            });
+        }else if(settings.equals("TEINE OKTAV")){
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo(myScrollView.getChildAt(0).getRight(),0);
+                }
+            });
+        } else if (settings.equals("VÄIKE OKTAV")) {
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    myScrollView.scrollTo(myScrollView.getChildAt(0).getLeft(),0);
+                }
+            });
+        }else{
+            myScrollView.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    myScrollView.scrollTo((myScrollView.getChildAt(0).getLeft()+myScrollView.getChildAt(0).getRight()-myScrollView.getWidth())/2,0);
+                }
+            });
+        }
+
+
     }
 
 

@@ -7,4 +7,12 @@
         android:title=""
         android:icon="@drawable/ic_settings"
         app:showAsAction="always" />
+    <item android:id="@+id/settingsNotes"
+        android:orderInCategory="200"
+        android:title="VALI OKTAV"
+        app:showAsAction="always" />
+    <item android:id="@+id/settingsKey"
+        android:orderInCategory="200"
+        android:title="VALI NOODIVÕTI"
+        app:showAsAction="always" />
 </menu>

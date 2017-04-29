@@ -20,6 +20,19 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
 
     }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.settingsNotes).setVisible(false);
+        menu.findItem(R.id.settingsKey).setVisible(false);
+        return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
