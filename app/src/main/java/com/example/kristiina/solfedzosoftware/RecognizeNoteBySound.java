@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioRecord;
@@ -23,9 +24,10 @@ import org.jtransforms.fft.DoubleFFT_1D;
 
 public class RecognizeNoteBySound extends Activity {
 
-
+    public static final String PREFERENCES = "Preferences";
     Boolean isRecording;
     TextView answerTW;
+    String settings;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,12 @@ public class RecognizeNoteBySound extends Activity {
         setContentView(R.layout.activity_recognize_note_by_sound);
 
         answerTW = (TextView) findViewById(R.id.answerTW);
+
+        SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
+
+        settings= preferences.getString("settings","");
+
+
     }
 
     public void startRecording(final View view){
@@ -153,7 +161,44 @@ public class RecognizeNoteBySound extends Activity {
             //for(double d : fft){
             //    Log.d("VIVZ", ""+d);
             //}
-            answerTW.setText(""+(max_ind*44100/audioData.length));
+
+            int frequency = max_ind * 44100 / audioData.length;
+            String result_note="";
+
+            if (settings.equals("C, D, E, F, G, A, H")) {
+                if (522 <= frequency && frequency <= 524) {
+                    result_note="C";
+                }else if(586 <= frequency && frequency <= 588){
+                    result_note="D";
+                }else if(658 <= frequency && frequency <= 660){
+                    result_note="E";
+                }else if(697 <= frequency && frequency <= 699){
+                    result_note="F";
+                }else if(782 <= frequency && frequency <= 785){
+                    result_note="G";
+                }else if(879 <= frequency && frequency <= 881){
+                    result_note="A";
+                }else if(986 <= frequency && frequency <= 989){
+                    result_note="H";
+                }else if(1045 <= frequency && frequency <= 1048){
+                    result_note="C";
+                }
+
+            }else if(settings.equals("C, D, E, F, G, A, B")){
+
+            } else if (settings.equals("DO, RE, MI, FA, SOL, LA, SI")) {
+
+            }else{
+
+            }
+
+
+
+
+
+
+            answerTW.setText(""+frequency+ (" Hz \n") + "NOOT: "+ result_note);
+
 
 
             AudioTrack audioTrack = new AudioTrack(
@@ -178,7 +223,7 @@ public class RecognizeNoteBySound extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         Runtime.getRuntime().gc();
-        finish();
+
     }
 
 }
