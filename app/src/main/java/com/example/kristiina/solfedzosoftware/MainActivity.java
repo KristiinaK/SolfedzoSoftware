@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.settings) {
-            Intent intent=new Intent(this,SettingActivity.class);
+            Intent intent=new Intent(this,SettingsMain.class);
             startActivity(intent);
         }
 

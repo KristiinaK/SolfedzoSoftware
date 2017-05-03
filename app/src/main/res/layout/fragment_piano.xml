@@ -21,7 +21,7 @@
                     android:layout_width="300dp"
                     android:layout_height="0dp"
                     android:layout_weight="3"
-                    android:background="@color/my_gray">
+                    android:background="@color/gray">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -36,7 +36,7 @@
                             android:gravity="bottom|center"
                             android:onClick="onClick_C_3"
                             android:text="@string/c"
-                            android:textColor="@color/my_gray" />
+                            android:textColor="@color/gray" />
                         <Button
                             android:id="@+id/btn_D3"
                             android:layout_width="0dp"
@@ -46,7 +46,7 @@
                             android:gravity="bottom|center"
                             android:onClick="onClick_D_3"
                             android:text="@string/d"
-                            android:textColor="@color/my_gray" />
+                            android:textColor="@color/gray" />
                         <Button
                             android:id="@+id/brn_E3"
                             android:layout_width="0dp"
@@ -193,7 +193,7 @@
                     android:layout_width="300dp"
                     android:layout_height="0dp"
                     android:layout_weight="3"
-                    android:background="@color/my_gray">
+                    android:background="@color/gray">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -363,7 +363,7 @@
                     android:layout_width="300dp"
                     android:layout_height="0dp"
                     android:layout_weight="3"
-                    android:background="@color/my_gray">
+                    android:background="@color/gray">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

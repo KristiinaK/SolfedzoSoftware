@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.TextView;
 import org.jtransforms.fft.DoubleFFT_1D;
 
-public class RecognizeNoteBySound extends Activity {
+public class LearnNotesRecognizerActivity extends Activity {
 
     public static final String PREFERENCES = "Preferences";
     Boolean isRecording;
@@ -33,7 +33,7 @@ public class RecognizeNoteBySound extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recognize_note_by_sound);
+        setContentView(R.layout.activity_learn_notes_recognizer);
 
         answerTW = (TextView) findViewById(R.id.answerTW);
 

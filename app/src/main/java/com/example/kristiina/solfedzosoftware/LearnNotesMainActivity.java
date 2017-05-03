@@ -47,7 +47,7 @@ public class LearnNotesMainActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), LearnNotesByListeningActivity.class);
                     startActivity(intent);
                 } else if (position==2){
-                    Intent intent= new Intent(view.getContext(), RecognizeNoteBySound.class);
+                    Intent intent= new Intent(view.getContext(), LearnNotesRecognizerActivity.class);
                     startActivity(intent);
                 } else if (position==3){
                     Intent intent= new Intent(view.getContext(), LearnNotesTheoryActivity.class);

@@ -13,8 +13,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical"
         android:weightSum="5.5">
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
@@ -23,111 +25,135 @@
             android:background="@color/white"
             android:gravity="center"
             android:text="@string/NotesByPictureQuestion" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="40dp"
             android:layout_weight="1">
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 android:weightSum="8">
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/white">
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
                     android:gravity="top|center">
+
                     <View
                         android:id="@+id/upperNoteLine"
                         android:layout_width="40dp"
                         android:layout_height="1dp"
-                        android:background="@color/noteColor"
-                        android:visibility="invisible"/>
+                        android:background="@color/blue_darker"
+                        android:visibility="invisible" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border">
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border">
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/table_border">
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/table_border">
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center">
+
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="top|center">
+
                     <View
                         android:id="@+id/bottomNoteLine"
                         android:layout_width="40dp"
                         android:layout_height="1dp"
-                        android:background="@color/noteColor"
+                        android:background="@color/blue_darker"
                         android:visibility="invisible" />
                 </TableRow>
             </TableLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:weightSum="8">
+
                 <LinearLayout
                     android:id="@+id/upper_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
                     android:orientation="vertical" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
+
                     <Button
                         android:id="@+id/button7"
                         android:layout_width="18dp"
@@ -135,15 +161,16 @@
                         android:background="@drawable/round_note"
                         android:gravity="center" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/bottom_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="4"
                     android:gravity="bottom|center"
-                    android:orientation="vertical">
-                </LinearLayout>
+                    android:orientation="vertical"></LinearLayout>
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/voti"
                 android:layout_width="wrap_content"
@@ -151,20 +178,23 @@
                 android:layout_gravity="left"
                 app:srcCompat="@drawable/viiulivoti" />
         </FrameLayout>
+
         <fragment
             android:id="@+id/pianoFragmentNotes"
             android:name="com.example.kristiina.solfedzosoftware.PianoFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="40dp"
             android:layout_weight="2"
             tools:layout="@layout/fragment_piano" />
+
         <TextView
             android:id="@+id/answer_textview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
+            android:background="@android:color/white"
             android:gravity="center" />
+
         <TextView
             android:id="@+id/nextbutton"
             android:layout_width="match_parent"

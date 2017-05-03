@@ -52,7 +52,7 @@
                 android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
         </activity>
         <activity
-            android:name=".RecognizeNoteBySound"
+            android:name=".LearnNotesRecognizerActivity"
             android:label="@string/title_activity_recognize_note_by_sound"
             android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -124,7 +124,7 @@
                 android:value="com.example.kristiina.solfedzosoftware.LearnNotesTestsActivity" />
         </activity>
         <activity
-            android:name=".SettingActivity"
+            android:name=".SettingsMain"
             android:label="@string/title_activity_setting"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

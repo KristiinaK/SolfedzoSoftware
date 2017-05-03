@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@color/my_gray"
+            android:background="@color/gray"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -39,7 +39,8 @@
                 android:gravity="center"
                 android:text="@string/longAppName"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
 
@@ -52,8 +53,9 @@
             android:gravity="center"
             android:onClick="onClick_OpiNoote"
             android:text="@string/btn_learn_notes"
-            android:textColor="@android:color/background_light"
-            android:textSize="14sp" />
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView2"
@@ -65,7 +67,8 @@
             android:onClick="onClick_LearnRythms"
             android:text="@string/btn_learn_rythms"
             android:textColor="@android:color/background_light"
-            android:textSize="14sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -9,12 +9,15 @@
     tools:context="com.example.kristiina.solfedzosoftware.LearnNotesByListeningActivity"
     tools:showIn="@layout/activity_learn_notes_by_listening"
     android:fillViewport="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="5">
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
@@ -22,6 +25,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/NotesByListeningQuestion" />
+
         <fragment
             android:id="@+id/fragment"
             android:name="com.example.kristiina.solfedzosoftware.PianoFragment"
@@ -30,12 +34,14 @@
             android:layout_gravity="bottom"
             android:layout_weight="2"
             tools:layout="@layout/fragment_piano" />
+
         <TextView
             android:id="@+id/answerTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center" />
+
         <LinearLayout
             android:id="@+id/playButton"
             android:layout_width="match_parent"
@@ -46,11 +52,13 @@
             android:onClick="onClick_btn_play"
             android:paddingBottom="20dp"
             android:paddingTop="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_play_arrow_img" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/ButtonNext"
             android:layout_width="match_parent"

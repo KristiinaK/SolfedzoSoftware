@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:weightSum="4"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kristiina.solfedzosoftware.SettingsNotesByListening"
-    tools:showIn="@layout/activity_settings_notes_by_listening">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context="com.example.kristiina.solfedzosoftware.SettingsMain"
+tools:showIn="@layout/activity_settings_main"
+android:orientation="vertical"
+android:weightSum="4">
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/white"
         android:gravity="center"
-        android:text="@string/choose_octav_settings" />
+        android:text="@string/MainSettings"
+        android:textSize="16sp" />
 
     <RadioGroup
-        android:id="@+id/settingsNotesRadioGroup"
+        android:id="@+id/settingsRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:background="@color/white">
 
         <RadioButton
-            android:id="@+id/firstOctav"
+            android:id="@+id/CDEH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:checked="true"
-            android:text="@string/esimene_oktav" />
+            android:text="@string/c_d_e_f_g_a_h"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/secondOctav"
+            android:id="@+id/CDEB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="@string/teine_oktav" />
+            android:text="@string/c_d_e_f_g_a_b"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/smallOctav"
+            android:id="@+id/doReMi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
-            android:text="@string/v_ike_oktav" />
+            android:text="@string/do_re_mi_fa_sol_la_si"
+            android:textSize="16sp" />
+
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@color/white" />
 
 </LinearLayout>
-
