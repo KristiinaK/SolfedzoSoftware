@@ -17,7 +17,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +28,8 @@
         <activity
             android:name=".LearnNotesMainActivity"
             android:label="@string/title_activity_learn_notes_main"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.MainActivity" />
@@ -36,7 +38,8 @@
             android:name=".LearnNotesByListeningActivity"
             android:label="@string/title_activity_learn_notes_by_listening"
             android:parentActivityName=".LearnNotesMainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.kristiina.solfedzosoftware.LearnNotesMainActivity" />
@@ -46,6 +49,7 @@
             android:noHistory="true"
             android:label="@string/title_activity_learn_notes_by_picture"
             android:parentActivityName=".LearnNotesMainActivity"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -54,6 +58,7 @@
         <activity
             android:name=".LearnNotesRecognizerActivity"
             android:label="@string/title_activity_recognize_note_by_sound"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -63,6 +68,7 @@
         <activity
             android:name=".LearnRythmsMainActivity"
             android:label="@string/title_activity_learn_rythms"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -72,6 +78,7 @@
         <activity
             android:name=".LearnRythmsByListening"
             android:label="@string/title_activity_learn_rythms_by_listening"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnRythmsMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -81,6 +88,7 @@
         <activity
             android:name=".LearnRythmsByPicture"
             android:label="@string/title_activity_learn_rythms_by_picture"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnRythmsMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -90,6 +98,7 @@
         <activity
             android:name=".LearnNotesTheoryActivity"
             android:label="@string/title_activity_learn_notes_theory"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -99,6 +108,7 @@
         <activity
             android:name=".LearnNotesTestsActivity"
             android:label="@string/title_activity_learn_notes_tests"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -108,6 +118,7 @@
         <activity
             android:name=".LearnNotesTests2Activity"
             android:label="@string/title_activity_learn_notes_tests2"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesTestsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -117,6 +128,7 @@
         <activity
             android:name=".LearnNotesTests3Activity"
             android:label="@string/title_activity_learn_notes_tests3"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesTestsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -126,6 +138,7 @@
         <activity
             android:name=".SettingsMain"
             android:label="@string/title_activity_setting"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -135,6 +148,7 @@
         <activity
             android:name=".LearnRythmsTestsActivity"
             android:label="@string/title_activity_learn_rythms_tests"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnRythmsMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -144,6 +158,7 @@
         <activity
             android:name=".LearnRythmsTests2Activity"
             android:label="@string/title_activity_learn_rythms_tests2"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesTestsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -153,6 +168,7 @@
         <activity
             android:name=".LearnRythmsTests3Activity"
             android:label="@string/title_activity_learn_rythms_tests3"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnRythmsTestsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -162,6 +178,7 @@
         <activity
             android:name=".SettingsNotesByListening"
             android:label="@string/title_activity_settings_notes"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesByListeningActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -171,6 +188,7 @@
         <activity
             android:name=".SettingsNotesByPicture"
             android:label="@string/title_activity_settings_notes_by_picture"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".LearnNotesByPictureActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

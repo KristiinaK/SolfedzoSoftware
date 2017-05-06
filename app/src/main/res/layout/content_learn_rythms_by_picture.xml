@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-app:layout_behavior="@string/appbar_scrolling_view_behavior"
-tools:context="com.example.kristiina.solfedzosoftware.LearnRythmsByPicture"
-tools:showIn="@layout/activity_learn_rythms_by_picture"
-android:fillViewport="true">
 
-    <LinearLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.kristiina.solfedzosoftware.LearnRythmsByPicture"
+        tools:showIn="@layout/activity_learn_rythms_by_picture"
         android:background="@color/white"
         android:orientation="vertical"
-        android:weightSum="6">
+        android:weightSum="7.5">
 
         <TextView
             android:id="@+id/textView5"
@@ -31,105 +28,112 @@ android:fillViewport="true">
             android:layout_weight="1"
             app:srcCompat="@drawable/titi" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"/>
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:gravity="center_horizontal|center">
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal">
 
                 <Button
                     android:id="@+id/btn_ta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TA"
                     android:text="@string/ta" />
 
                 <Button
                     android:id="@+id/btn_taa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TA_A"
                     android:text="@string/ta_a" />
 
                 <Button
                     android:id="@+id/btn_taaa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TA_A_A"
                     android:text="@string/ta_a_a" />
 
                 <Button
                     android:id="@+id/btn_taaaa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TA_A_A_A"
                     android:text="@string/ta_a_a_a" />
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal">
 
                 <Button
                     android:id="@+id/btn_titi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TI_TI"
                     android:text="@string/ti_ti" />
 
                 <Button
                     android:id="@+id/btn_tiri_tiri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TIRI_TIRI"
                     android:text="@string/tiri_tiri" />
 
                 <Button
                     android:id="@+id/btn_ti_tiri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TI_TIRI"
                     android:text="@string/ti_tiri" />
 
                 <Button
                     android:id="@+id/btn_tiri_ti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TIRI_TI"
                     android:text="@string/tiri_ti" />
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal">
 
                 <Button
                     android:id="@+id/btn_tai_ri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TAI_RI"
                     android:text="@string/tai_ri" />
 
                 <Button
                     android:id="@+id/btn_ta_i_ti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/piano_white_key"
                     android:onClick="onClick_TA_I_TI"
                     android:text="@string/ta_i_ti" />
@@ -155,5 +159,5 @@ android:fillViewport="true">
             android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
-</ScrollView>
+
 
