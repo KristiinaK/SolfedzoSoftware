@@ -117,5 +117,10 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
         LearnNotesTests2Activity.right=0;
 
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 }

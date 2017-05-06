@@ -822,4 +822,10 @@ public class LearnRythmsByListening extends AppCompatActivity {
         loadSounds();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 }

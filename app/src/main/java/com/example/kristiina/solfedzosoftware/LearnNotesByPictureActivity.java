@@ -818,6 +818,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Runtime.getRuntime().gc();
+        finish();
+
     }
     @Override
     protected void onResume(){

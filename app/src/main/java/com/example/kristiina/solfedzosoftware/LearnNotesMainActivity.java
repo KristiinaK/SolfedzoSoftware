@@ -67,6 +67,8 @@ public class LearnNotesMainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Runtime.getRuntime().gc();
+        finish();
+
     }
 
     private class CustomAdapter extends BaseAdapter{

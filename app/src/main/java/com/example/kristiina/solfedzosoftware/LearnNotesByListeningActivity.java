@@ -715,6 +715,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        finish();
         Runtime.getRuntime().gc();
     }
 

@@ -113,6 +113,11 @@ public class LearnRythmsTests3Activity extends AppCompatActivity {
         LearnRythmsTests2Activity.right=0;
 
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 
 }

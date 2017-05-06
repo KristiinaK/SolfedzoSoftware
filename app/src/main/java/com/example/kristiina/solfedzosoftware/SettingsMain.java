@@ -73,6 +73,7 @@ public class SettingsMain extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Runtime.getRuntime().gc();
+        finish();
     }
 
 

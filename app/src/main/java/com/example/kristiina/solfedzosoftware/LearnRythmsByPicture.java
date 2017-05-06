@@ -193,4 +193,11 @@ public class LearnRythmsByPicture extends AppCompatActivity {
         answer_textview.setText("PROOVI VEEL");
         answer_textview.setBackgroundResource(R.color.pink);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 }

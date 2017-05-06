@@ -66,5 +66,11 @@ public class SettingsNotesByPicture extends AppCompatActivity {
         startActivity(intent);
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
 
 }

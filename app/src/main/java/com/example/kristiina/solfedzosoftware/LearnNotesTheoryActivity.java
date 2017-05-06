@@ -53,4 +53,9 @@ public class LearnNotesTheoryActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();    }
 }

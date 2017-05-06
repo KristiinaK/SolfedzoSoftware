@@ -24,13 +24,15 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import org.jtransforms.fft.DoubleFFT_1D;
 
-public class LearnNotesRecognizerActivity extends Activity {
+public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
     public static final String PREFERENCES = "Preferences";
     Boolean isRecording;
@@ -51,7 +53,12 @@ public class LearnNotesRecognizerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_notes_recognizer);
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         answerTW = (TextView) findViewById(R.id.answerTW);
         recordBtn= (Button) findViewById(R.id.recordBtn);
@@ -327,6 +334,7 @@ public class LearnNotesRecognizerActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        finish();
         Runtime.getRuntime().gc();
 
     }

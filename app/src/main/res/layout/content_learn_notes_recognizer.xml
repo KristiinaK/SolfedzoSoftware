@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:weightSum="5"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kristiina.solfedzosoftware.LearnNotesRecognizerActivity">
+    tools:context="com.example.kristiina.solfedzosoftware.LearnNotesRecognizerActivity"
+    tools:showIn="@layout/activity_learn_notes_recognizer">
 
     <TextView
         android:id="@+id/textView3"
