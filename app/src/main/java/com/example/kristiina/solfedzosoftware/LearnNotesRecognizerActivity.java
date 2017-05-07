@@ -328,6 +328,7 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
             }
 
 
+
             AudioTrack audioTrack = new AudioTrack(
                     AudioManager.STREAM_MUSIC,
                     44100,
