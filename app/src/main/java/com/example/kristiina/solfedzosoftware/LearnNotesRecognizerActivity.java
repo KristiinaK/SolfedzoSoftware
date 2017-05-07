@@ -259,39 +259,73 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
 
             if (settings.equals("C, D, E, F, G, A, H")) {
-                if (522 <= frequency && frequency <= 524) {
+                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
                     result_note="C";
-                }else if(586 <= frequency && frequency <= 588){
+                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
                     result_note="D";
-                }else if(658 <= frequency && frequency <= 660){
+                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
                     result_note="E";
-                }else if(697 <= frequency && frequency <= 699){
+                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
                     result_note="F";
-                }else if(782 <= frequency && frequency <= 785){
+                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
                     result_note="G";
-                }else if(879 <= frequency && frequency <= 881){
+                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
                     result_note="A";
-                }else if(986 <= frequency && frequency <= 989){
+                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
                     result_note="H";
-                }else if(1045 <= frequency && frequency <= 1048){
-                    result_note="C";
                 }
 
             }else if(settings.equals("C, D, E, F, G, A, B")){
 
-            } else if (settings.equals("DO, RE, MI, FA, SOL, LA, SI")) {
+                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                    result_note="C";
+                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                    result_note="D";
+                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                    result_note="E";
+                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                    result_note="F";
+                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                    result_note="G";
+                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                    result_note="A";
+                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                    result_note="B";
+                }
 
-            }else{
-
+            }else if (settings.equals("DO, RE, MI, FA, SOL, LA, SI")) {
+                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                    result_note="DO";
+                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                    result_note="RE";
+                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                    result_note="MI";
+                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                    result_note="FA";
+                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                    result_note="SOL";
+                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                    result_note="LA";
+                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                    result_note="SI";
+                }
+            } else{
+                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                    result_note="C";
+                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                    result_note="D";
+                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                    result_note="E";
+                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                    result_note="F";
+                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                    result_note="G";
+                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                    result_note="A";
+                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                    result_note="H";
+                }
             }
-
-
-
-
-
-
-
-
 
 
             AudioTrack audioTrack = new AudioTrack(
