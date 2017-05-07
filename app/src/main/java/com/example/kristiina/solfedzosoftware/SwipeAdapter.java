@@ -41,13 +41,14 @@ public class SwipeAdapter extends PagerAdapter{
         ImageView swipeLeftArrow = (ImageView) view.findViewById(R.id.swipeLeftArrow);
         ImageView swipeRightArrow = (ImageView) view.findViewById(R.id.swipeRightArrow);
 
+
         imageView.setImageResource(images[position]);
         if(position==0) {
-            textView.setText("MUUSIKA koosneb helidest, mida kirjutatakse nootidena.");
+            textView.setText("MUUSIKA KOOSNEB \n HELIDEST,\n MIDA KIRJUTATAKSE \n NOOTIDENA");
         }else if (position== 1){
-            textView.setText("NOOT KOOSNEB noodipeast, noodivarrest ja lipukesest.");
+            textView.setText("NOOT KOOSNEB: \n NOODIPEAST,\n NOODIVARREST\n JA LIPUKESEST.");
         }else if(position== 2) {
-            textView.setText("PAUS on vaikuse märk.");
+            textView.setText("NOODIJOONESTIK KOOSNEB \n 5 JOONEST \n JA \n 4 JOONEVAHEST.");
         } else{
             textView.setText("Image : " + position);
         }

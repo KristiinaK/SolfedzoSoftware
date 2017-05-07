@@ -14,34 +14,34 @@
     <string name="c_d_e_f_g_a_b">C, D, E, F, G, A, B</string>
     <string name="do_re_mi_fa_sol_la_si">DO, RE, MI, FA, SOL, LA, SI</string>
 
-    <string name="title_activity_learn_notes_by_picture"/>
+    <string name="title_activity_learn_notes_by_picture" />
     <string name="NotesByPictureQuestion">MIS NOOT ON PILDIL?</string>
 
-    <string name="title_activity_settings_notes_by_picture"/>
+    <string name="title_activity_settings_notes_by_picture" />
     <string name="choose_keys">VALI NOODIVÕTI:</string>
     <string name="viiuliv_ti">VIIULIVÕTI</string>
     <string name="bassiv_ti">BASSIVÕTI</string>
 
-    <string name="title_activity_learn_notes_by_listening"/>
+    <string name="title_activity_learn_notes_by_listening" />
     <string name="NotesByListeningQuestion">ARVA ÄRA, MIS NOOT KÕLAB?</string>
     <string name="next_btn">JÄRGMINE</string>
 
-    <string name="title_activity_settings_notes"/>
+    <string name="title_activity_settings_notes" />
     <string name="choose_octav_settings">VALI OKTAV:</string>
     <string name="esimene_oktav">ESIMENE OKTAV</string>
     <string name="teine_oktav">TEINE OKTAV</string>
     <string name="v_ike_oktav">VÄIKE OKTAV</string>
 
-    <string name="title_activity_recognize_note_by_sound"/>
+    <string name="title_activity_recognize_note_by_sound" />
     <string name="klaveri_noodituvastus">KLAVERI NOODITUVASTUS</string>
     <string name="start_recording_piano">START</string>
     <string name="stop_recording_piano">STOP</string>
     <string name="play_recording_piano">PLAY</string>
 
-    <string name="title_activity_learn_notes_theory"/>
+    <string name="title_activity_learn_notes_theory" />
 
-    <string name="title_activity_learn_notes_tests"/>
-    <string name="title_activity_test__learn_notes"/>
+    <string name="title_activity_learn_notes_tests" />
+    <string name="title_activity_test__learn_notes" />
     <string name="title_activity_learn_notes_tests2">TEST</string>
     <string name="title_activity_learn_notes_tests3">TEST</string>
     <string name="NotesTestsTask">TESTI ENDA TEADMISI</string>
@@ -84,5 +84,7 @@
     <string name="g">G</string>
     <string name="a">A</string>
     <string name="h">H</string>
+
+    <string name="title_activity_learn_rythms_theory"/>
 
 </resources>

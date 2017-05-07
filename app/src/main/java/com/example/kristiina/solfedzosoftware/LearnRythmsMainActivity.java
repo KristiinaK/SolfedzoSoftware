@@ -45,7 +45,7 @@ public class LearnRythmsMainActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), LearnRythmsByListening.class);
                     startActivity(intent);
                 } else if (position==2){
-                    Intent intent= new Intent(view.getContext(), LearnNotesTheoryActivity.class);
+                    Intent intent= new Intent(view.getContext(), LearnRythmsTheoryActivity.class);
                     startActivity(intent);
                 } else if (position==3){
                     Intent intent= new Intent(view.getContext(), LearnRythmsTestsActivity.class);

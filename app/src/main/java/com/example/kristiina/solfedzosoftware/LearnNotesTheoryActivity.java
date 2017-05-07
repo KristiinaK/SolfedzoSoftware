@@ -9,8 +9,8 @@ import android.view.View;
 
 public class LearnNotesTheoryActivity extends AppCompatActivity {
 
-    ViewPager viewPager;
-    SwipeAdapter swipeAdapter;
+    private ViewPager viewPager;
+    private SwipeAdapter swipeAdapter;
 
 
 
