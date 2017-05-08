@@ -51,7 +51,6 @@ public class LearnRythmsMainActivity extends AppCompatActivity {
                     Intent intent= new Intent(view.getContext(), LearnRythmsTestsActivity.class);
                     startActivity(intent);
                 }
-
             }
 
         });
