@@ -228,7 +228,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        1.5f
+                        0.5f
                 );
                 bottom.setLayoutParams(param2);
 
@@ -244,7 +244,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param4 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2f
+                        1f
                 );
                 bottom.setLayoutParams(param4);
                 break;
@@ -258,7 +258,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param6 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        2.5f
+                        1.5f
                 );
                 bottom.setLayoutParams(param6);
                 break;
@@ -272,7 +272,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param8 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3f
+                        2f
                 );
                 bottom.setLayoutParams(param8);
                 break;
@@ -286,7 +286,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param10 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        3.5f
+                        2.5f
                 );
                 bottom.setLayoutParams(param10);
 
@@ -301,7 +301,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param12 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        4f
+                        3f
                 );
                 bottom.setLayoutParams(param12);
 
@@ -316,7 +316,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param14 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        4.5f
+                        3.5f
                 );
                 bottom.setLayoutParams(param14);
                 break;
@@ -330,7 +330,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param16 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        5f
+                        4f
                 );
                 bottom.setLayoutParams(param16);
                 break;
@@ -344,7 +344,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param18 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        5.5f
+                        4.5f
                 );
                 bottom.setLayoutParams(param18);
                 break;
@@ -358,7 +358,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param20 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        6f
+                        5f
                 );
                 bottom.setLayoutParams(param20);
                 break;
@@ -372,7 +372,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param22 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        6.5f
+                        5.5f
                 );
                 bottom.setLayoutParams(param22);
                 break;
@@ -386,7 +386,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param24 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        7f
+                        6f
                 );
                 bottom.setLayoutParams(param24);
                 break;
@@ -401,7 +401,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param26 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        7.5f
+                        6.5f
                 );
                 bottom.setLayoutParams(param26);
                 break;
@@ -416,7 +416,7 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams param28 = new LinearLayout.LayoutParams(
                         Toolbar.LayoutParams.MATCH_PARENT,
                         0,
-                        8f
+                        7f
                 );
                 bottom.setLayoutParams(param28);
                 break;

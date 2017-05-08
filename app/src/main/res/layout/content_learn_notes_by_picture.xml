@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kristiina.solfedzosoftware.LearnNotesByPictureActivity"
-    tools:showIn="@layout/activity_learn_notes_by_picture"
-    android:fillViewport="true">
-
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.kristiina.solfedzosoftware.LearnNotesByPictureActivity"
+        tools:showIn="@layout/activity_learn_notes_by_picture"
         android:background="@color/white"
         android:orientation="vertical"
-        android:weightSum="5.5">
+        android:weightSum="6">
 
         <TextView
             android:id="@+id/textView5"
@@ -29,7 +23,6 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="40dp"
             android:layout_weight="1">
 
             <TableLayout
@@ -44,9 +37,6 @@
                     android:layout_weight="1"
                     android:background="@color/white">
 
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
                 </TableRow>
 
                 <TableRow
@@ -56,70 +46,90 @@
                     android:background="@drawable/table_border"
                     android:gravity="top|center">
 
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border">
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border">
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border">
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border">
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="top|center">
+
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="top|center">
+
                     <View
                         android:id="@+id/upperNoteLine"
                         android:layout_width="40dp"
                         android:layout_height="1dp"
                         android:background="@color/blue_darker"
                         android:visibility="invisible" />
-                </TableRow>
 
-                <TableRow
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border">
+                    android:layout_weight="5" />
 
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border">
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border">
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border">
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center">
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-
-                <TableRow
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -131,9 +141,10 @@
                         android:layout_height="1dp"
                         android:background="@color/blue_darker"
                         android:visibility="invisible" />
-                </TableRow>
-            </TableLayout>
 
+                </LinearLayout>
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -166,9 +177,9 @@
                     android:id="@+id/bottom_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="4"
+                    android:layout_weight="3"
                     android:gravity="bottom|center"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical"/>
             </LinearLayout>
 
             <ImageView
@@ -178,7 +189,10 @@
                 android:layout_gravity="left"
                 app:srcCompat="@drawable/viiulivoti" />
         </FrameLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
         <fragment
             android:id="@+id/pianoFragmentNotes"
             android:name="com.example.kristiina.solfedzosoftware.PianoFragment"
@@ -205,5 +219,5 @@
             android:onClick="onClick_next"
             android:text="JÄRGMINE"
             android:textColor="@color/white" />
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
+

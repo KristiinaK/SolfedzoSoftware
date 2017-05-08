@@ -354,7 +354,12 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                answerTW.setText(""+ finalFrequency + (" Hz \n") + "NOOT: "+ finalResult_note);
+                if(finalResult_note.equals("")){
+                    answerTW.setText(""+ finalFrequency + (" Hz \n") + "EI SUUTNUD NOOTI TUVASTADA");
+                }else{
+                    answerTW.setText(""+ finalFrequency + (" Hz \n") + "NOOT: "+ finalResult_note);
+
+                }
 
                 recordBtn.setEnabled(true);
                 stopBtn.setEnabled(false);
