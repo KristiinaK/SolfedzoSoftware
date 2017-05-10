@@ -140,25 +140,16 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
 
 
+    //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     private void startRecord(){
         File file = new File(Environment.getExternalStorageDirectory(), "recordedFile.pcm");
 
         try {
-            file.createNewFile();
-        } catch (IOException e) {
-            Log.d("record:", "couldnt make new file");
-            e.printStackTrace();
-        }
+            DataOutputStream dataOutputStream = new DataOutputStream(
+                    new BufferedOutputStream(new FileOutputStream(file)));
 
-        DataOutputStream dataOutputStream = null;
-        try {
-            dataOutputStream = new DataOutputStream(
-                        new BufferedOutputStream(new FileOutputStream(file)));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
-        int bufferSize = AudioRecord.getMinBufferSize(
+            int bufferSize = AudioRecord.getMinBufferSize(
                     44100,
                     AudioFormat.CHANNEL_IN_MONO,
                     AudioFormat.ENCODING_PCM_16BIT);
@@ -174,9 +165,9 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
             short[] audioData = new short[bufferSize];
 
-            while(isRecording){
+            while (isRecording) {
                 int numberOfShort = audioRecord.read(audioData, 0, bufferSize);
-                for(int i = 0; i < numberOfShort; i++){
+                for (int i = 0; i < numberOfShort; i++) {
                     try {
                         dataOutputStream.writeShort(audioData[i]);
                     } catch (IOException e) {
@@ -185,22 +176,21 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
                 }
             }
             audioRecord.stop();
-        try {
+
             dataOutputStream.close();
-        } catch (IOException e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 answerTW.setText("");
-
-
             }
         });
 
     }
 
+    //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     private void playRecord(){
 
 
@@ -231,100 +221,100 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
             dataInputStream.close();
 
+            //https://gist.github.com/jongukim/4037243
             DoubleFFT_1D doubleFFT_1D = new DoubleFFT_1D(dataForFFT.length);
             double[] fft = new double[dataForFFT.length * 2];
             System.arraycopy(dataForFFT, 0, fft, 0, dataForFFT.length);
             doubleFFT_1D.complexForward(fft);
 
-            double [] magnitude=new double[dataForPlayback.length/2];
-
-            for(int j=0; j< (dataForPlayback.length/2-1);j++){
+            //http://stackoverflow.com/a/7675171
+            double [] magnitude=new double[dataForFFT.length/2];
+            for(int j=0; j< (dataForFFT.length/2-1);j++){
                 double re = fft[2*j];
                 double im = fft [2*j+1];
                 magnitude[j] =Math.sqrt (re*re + im*im);
             }
-
             double max_mag= Double.NEGATIVE_INFINITY;
             int max_ind= -1;
-            for(int k=0; k< (dataForPlayback.length/2-1);k++){
+            for(int k=0; k< (dataForFFT.length/2-1);k++){
                 if(magnitude[k]>max_mag){
-
                     max_mag=magnitude[k];
                     max_ind=k;
                 }
             }
-
-
-             frequency = max_ind * 44100 / dataForPlayback.length;
+            frequency = max_ind * 44100 / dataForFFT.length;
 
 
             if (settings.equals("C, D, E, F, G, A, H")) {
-                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
                     result_note="C";
-                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
                     result_note="D";
-                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
                     result_note="E";
-                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
                     result_note="F";
-                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
                     result_note="G";
-                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
                     result_note="A";
-                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
                     result_note="H";
                 }
 
+
             }else if(settings.equals("C, D, E, F, G, A, B")){
 
-                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
                     result_note="C";
-                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
                     result_note="D";
-                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
                     result_note="E";
-                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
                     result_note="F";
-                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
                     result_note="G";
-                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
                     result_note="A";
-                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
                     result_note="B";
                 }
 
             }else if (settings.equals("DO, RE, MI, FA, SOL, LA, SI")) {
-                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
                     result_note="DO";
-                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
                     result_note="RE";
-                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
                     result_note="MI";
-                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
                     result_note="FA";
-                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
                     result_note="SOL";
-                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
                     result_note="LA";
-                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
                     result_note="SI";
                 }
+
             } else{
-                if (522 <= frequency && frequency <= 524 || 1045 <= frequency && frequency <= 1048 || 260 <= frequency && frequency <= 263 || 2092 <= frequency && frequency <= 2094 ) {
+                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
                     result_note="C";
-                }else if(586 <= frequency && frequency <= 588 || 1173 <= frequency && frequency <= 1176 || 292 <= frequency && frequency <= 295){
+                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
                     result_note="D";
-                }else if(658 <= frequency && frequency <= 660 || 1317 <= frequency && frequency <= 1320 || 328 <= frequency && frequency <= 331){
+                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
                     result_note="E";
-                }else if(697 <= frequency && frequency <= 699 || 1395 <= frequency && frequency <= 1398 || 348 <= frequency && frequency <= 351){
+                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
                     result_note="F";
-                }else if(782 <= frequency && frequency <= 785 || 1567 <= frequency && frequency <= 1569 || 391 <= frequency && frequency <= 393){
+                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
                     result_note="G";
-                }else if(879 <= frequency && frequency <= 881 || 1759 <= frequency && frequency <= 1761 || 439 <= frequency && frequency <= 441){
+                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
                     result_note="A";
-                }else if(986 <= frequency && frequency <= 989 || 1974 <= frequency && frequency <= 1977 || 492 <= frequency && frequency <= 495){
+                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
                     result_note="H";
                 }
+
             }
 
 
@@ -338,9 +328,6 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
             audioTrack.play();
             audioTrack.write(dataForPlayback, 0, bufferSizeInBytes);
-
-
-
 
 
         } catch (FileNotFoundException e) {
