@@ -19,7 +19,7 @@ public class LearnRythmsTestsActivity extends AppCompatActivity {
 
     TextView bestScoreRythms;
 
-    private ImageView star1, star2, star3, star4, star5, star6, star7, star8;
+    private ImageView star1, star2, star3, star4, star5, star6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,7 @@ public class LearnRythmsTestsActivity extends AppCompatActivity {
         star4= (ImageView) findViewById(R.id.RythmStar4);
         star5= (ImageView) findViewById(R.id.RythmStar5);
         star6= (ImageView) findViewById(R.id.RythmStar6);
-        star7= (ImageView) findViewById(R.id.RythmStar7);
-        star8= (ImageView) findViewById(R.id.RythmStar8);
+
 
         //Shared preferences:
         //https://developer.android.com/training/basics/data-storage/shared-preferences.html
@@ -77,32 +76,13 @@ public class LearnRythmsTestsActivity extends AppCompatActivity {
             star4.setImageResource(R.drawable.yellow_star);
             star5.setImageResource(R.drawable.yellow_star);
 
-        }else if(bestScore==6){
+        }else if(bestScore==6) {
             star1.setImageResource(R.drawable.yellow_star);
             star2.setImageResource(R.drawable.yellow_star);
             star3.setImageResource(R.drawable.yellow_star);
             star4.setImageResource(R.drawable.yellow_star);
             star5.setImageResource(R.drawable.yellow_star);
             star6.setImageResource(R.drawable.yellow_star);
-
-        }else if(bestScore==7){
-            star1.setImageResource(R.drawable.yellow_star);
-            star2.setImageResource(R.drawable.yellow_star);
-            star3.setImageResource(R.drawable.yellow_star);
-            star4.setImageResource(R.drawable.yellow_star);
-            star5.setImageResource(R.drawable.yellow_star);
-            star6.setImageResource(R.drawable.yellow_star);
-            star7.setImageResource(R.drawable.yellow_star);
-
-        }else if(bestScore==8){
-            star1.setImageResource(R.drawable.yellow_star);
-            star2.setImageResource(R.drawable.yellow_star);
-            star3.setImageResource(R.drawable.yellow_star);
-            star4.setImageResource(R.drawable.yellow_star);
-            star5.setImageResource(R.drawable.yellow_star);
-            star6.setImageResource(R.drawable.yellow_star);
-            star7.setImageResource(R.drawable.yellow_star);
-            star8.setImageResource(R.drawable.yellow_star);
 
         }
 

@@ -27,9 +27,9 @@ public class LearnRythmsTests2Activity extends AppCompatActivity {
     private RadioButton radioButton2;
     private RadioButton radioButton3;
     private RadioGroup radioGroup;
-    String questions [] = { "NOODIJOONESTIK KOOSNEB ..... JOONEST.", "............ NÄITAB, MITU LÖÖKI ON ÜHES TAKTIS."};
-    String options [][] = {{"4", "5","6"},{"TAKTIMÕÕT", "PAUS", "VIIULIVÕTI"}};
-    String answer [] = {"5", "TAKTIMÕÕT"};
+    String questions [] = { ".......... ON LÜHEMATE \n JA PIKEMATE HELIDE JÄRGNEVUS.","1", "RÜTMISILBID ON ........", "2", "NOODIPIKKUST EHK VÄLTUST \nMÄÄRAME ........", "3"};
+    String options [][] = {{"RÜTM", "PAUS","TI-TI"},{"TI-TI", "TA", "TA-A"},{"TA, TI-TI, TA-A", "C, D, E", "DO, RE, MI"},{"TI-TI", "TIRI-TIRI", "TA-A"}, {"TAKTIDES", "PAUSIDES", "LÖÖKIDES"}, {"TAI-RI", "TA", "TA-A"}};
+    String answer [] = {"RÜTM", "TA", "TA, TI-TI, TA-A", "TIRI-TIRI", "LÖÖKIDES", "TAI-RI"};
     private int questionNumber=0;
     public static int right;
 
@@ -80,7 +80,20 @@ public class LearnRythmsTests2Activity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    question.setText(questions[questionNumber]);
+                    if (questions[questionNumber].equals("1")){
+                        question.setText("MIS RÜTM ON PIDIL?");
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.ic_ta);
+                    }else if(questions[questionNumber].equals("2")){
+                        question.setText("MIS RÜTM ON PIDIL?");
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.ic_tiri_tiri);
+                    }else if(questions[questionNumber].equals("3")){
+                        question.setText("MIS RÜTM ON PIDIL?");
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.ic_tai_ri);
+                    }
+                    else{
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+                        question.setText(questions[questionNumber]);
+                    }
                     radioButton1.setText(options[questionNumber][0]);
                     radioButton2.setText(options[questionNumber][1]);
                     radioButton3.setText(options[questionNumber][2]);
@@ -93,7 +106,7 @@ public class LearnRythmsTests2Activity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Runtime.getRuntime().gc();
+
         finish();
     }
 

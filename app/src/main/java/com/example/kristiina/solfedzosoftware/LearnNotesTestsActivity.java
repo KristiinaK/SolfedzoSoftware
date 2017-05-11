@@ -20,7 +20,7 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
 
     TextView bestScoreNotes;
 
-    private ImageView star1, star2, star3, star4, star5, star6, star7, star8;
+    private ImageView star1, star2, star3, star4, star5, star6;
 
 
     @Override
@@ -36,8 +36,7 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
         star4= (ImageView) findViewById(R.id.star4);
         star5= (ImageView) findViewById(R.id.star5);
         star6= (ImageView) findViewById(R.id.star6);
-        star7= (ImageView) findViewById(R.id.star7);
-        star8= (ImageView) findViewById(R.id.star8);
+
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -92,25 +91,6 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
             star4.setImageResource(R.drawable.yellow_star);
             star5.setImageResource(R.drawable.yellow_star);
             star6.setImageResource(R.drawable.yellow_star);
-
-        }else if(bestScore==7){
-            star1.setImageResource(R.drawable.yellow_star);
-            star2.setImageResource(R.drawable.yellow_star);
-            star3.setImageResource(R.drawable.yellow_star);
-            star4.setImageResource(R.drawable.yellow_star);
-            star5.setImageResource(R.drawable.yellow_star);
-            star6.setImageResource(R.drawable.yellow_star);
-            star7.setImageResource(R.drawable.yellow_star);
-
-        }else if(bestScore==8){
-            star1.setImageResource(R.drawable.yellow_star);
-            star2.setImageResource(R.drawable.yellow_star);
-            star3.setImageResource(R.drawable.yellow_star);
-            star4.setImageResource(R.drawable.yellow_star);
-            star5.setImageResource(R.drawable.yellow_star);
-            star6.setImageResource(R.drawable.yellow_star);
-            star7.setImageResource(R.drawable.yellow_star);
-            star8.setImageResource(R.drawable.yellow_star);
 
         }
 

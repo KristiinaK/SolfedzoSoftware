@@ -514,6 +514,7 @@
                             android:orientation="horizontal"/>
                     </LinearLayout>
                 </FrameLayout>
+
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
@@ -521,7 +522,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/table_borders"
                     android:gravity="center"
-                    android:text="@string/v_ike_oktav" />
+                    android:text="@string/teine_oktav" />
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>

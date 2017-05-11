@@ -19,7 +19,7 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
 
     TextView resultTextView;
     public static final String PREFERENCES = "Preferences";
-    private ImageView star1, star2, star3, star4, star5, star6, star7, star8;
+    private ImageView star1, star2, star3, star4, star5, star6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
         //https://www.youtube.com/watch?v=3sDo9afuPOI
         //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
         resultTextView = (TextView) findViewById(R.id.resultN);
-        resultTextView.setText("ÕIGETE VASTUSTE ARV: " + LearnNotesTests2Activity.right + "\n VALEDE VASTUSTE ARV: "+ (2-LearnNotesTests2Activity.right)) ;
+        resultTextView.setText("ÕIGETE VASTUSTE ARV: " + LearnNotesTests2Activity.right + "\n VALEDE VASTUSTE ARV: "+ (6-LearnNotesTests2Activity.right)) ;
 
         star1= (ImageView) findViewById(R.id.star1R);
         star2= (ImageView) findViewById(R.id.star2R);
@@ -48,8 +48,7 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
         star4= (ImageView) findViewById(R.id.star4R);
         star5= (ImageView) findViewById(R.id.star5R);
         star6= (ImageView) findViewById(R.id.star6R);
-        star7= (ImageView) findViewById(R.id.star7R);
-        star8= (ImageView) findViewById(R.id.star8R);
+
         showStars(bestScore);
 
 
@@ -86,25 +85,6 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
             star4.setImageResource(R.drawable.yellow_star);
             star5.setImageResource(R.drawable.yellow_star);
             star6.setImageResource(R.drawable.yellow_star);
-
-        }else if(bestScore==7){
-            star1.setImageResource(R.drawable.yellow_star);
-            star2.setImageResource(R.drawable.yellow_star);
-            star3.setImageResource(R.drawable.yellow_star);
-            star4.setImageResource(R.drawable.yellow_star);
-            star5.setImageResource(R.drawable.yellow_star);
-            star6.setImageResource(R.drawable.yellow_star);
-            star7.setImageResource(R.drawable.yellow_star);
-
-        }else if(bestScore==8){
-            star1.setImageResource(R.drawable.yellow_star);
-            star2.setImageResource(R.drawable.yellow_star);
-            star3.setImageResource(R.drawable.yellow_star);
-            star4.setImageResource(R.drawable.yellow_star);
-            star5.setImageResource(R.drawable.yellow_star);
-            star6.setImageResource(R.drawable.yellow_star);
-            star7.setImageResource(R.drawable.yellow_star);
-            star8.setImageResource(R.drawable.yellow_star);
 
         }
 

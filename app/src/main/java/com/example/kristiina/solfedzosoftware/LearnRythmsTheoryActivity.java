@@ -70,7 +70,7 @@ public class LearnRythmsTheoryActivity extends AppCompatActivity {
     //https://www.youtube.com/watch?v=nL0k2usU7I8
     private class MySwipeAdapter extends PagerAdapter {
 
-        private int[] images = {R.drawable.ic_left_arrow_img, R.drawable.ic_play_arrow_img};
+        private int[] images = {R.drawable.ic_left_arrow_img, R.drawable.ic_play_arrow_img, R.drawable.ic_play_arrow_img};
         private Context context;
         LayoutInflater layoutInflater;
 
@@ -103,10 +103,14 @@ public class LearnRythmsTheoryActivity extends AppCompatActivity {
 
             imageView.setImageResource(images[position]);
             if(position==0) {
-                textView.setText("MÕISTED RÜTMIDE KOHTA...");
+                textView.setText("RÜTM ON\nPIKEMATE JA\nLÜHEMATE HELIDE\n JÄRGNEVUS");
+                textView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
             }else if (position== 1){
-                textView.setText("...");
-            } else{
+                textView.setText("NOODIPIKKUST\nEHK VÄLTUST\nMÄÄRAME LÖÖKIDES");
+            }else if(position== 2) {
+                textView.setText("RÜTMISILBID ON:\nTA\nTI-TI\nTIRI-TIRI\nTI-TIRI\nTIRI-TI\nTAI-RI\nTA-I-TI\nTA-A\nTA-A-A\nTA-A-A-A.");
+                textView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+            }else{
                 textView.setText("Image : " + position);
             }
 
@@ -116,7 +120,7 @@ public class LearnRythmsTheoryActivity extends AppCompatActivity {
                 swipeLeftArrow.setVisibility(View.VISIBLE);
             }
 
-            if(position==2){
+            if(position==3){
                 swipeRightArrow.setVisibility(View.INVISIBLE);
             }else{
                 swipeRightArrow.setVisibility(View.VISIBLE);

@@ -48,11 +48,6 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
     Button stopBtn;
     Button playBtn;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -257,72 +252,71 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
 
             if (settings.equals("C, D, E, F, G, A, H")) {
-                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
+                if (127 <= frequency && frequency <= 138.591 || 255.285 <= frequency && frequency <= 277.183 || 508.568 <= frequency && frequency <= 554.365 || 1017.1336 <= frequency && frequency <= 1108.73 || 2034.266 <= frequency && frequency <= 2217.46) {
                     result_note="C";
-                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
+                }else if(138.592 <= frequency && frequency <= 155.563 || 277.184 <= frequency && frequency <= 311.127 || 554.366 <= frequency && frequency <= 622.254|| 1108.74 <= frequency && frequency <= 1244.51|| 2217.47 <= frequency && frequency <= 2489.02){
                     result_note="D";
-                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
+                }else if(155.564 <= frequency && frequency <= 169.714 || 311.128 <= frequency && frequency <= 339.428 || 622.255 <= frequency && frequency <= 678.855 || 1244.52 <= frequency && frequency <= 1357.71|| 2489.03 <= frequency && frequency <= 2715.425){
                     result_note="E";
-                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
+                }else if(169.714 <= frequency && frequency <= 184.997 || 339.429 <= frequency && frequency <= 369.994 || 678.886 <= frequency && frequency <= 739.989 || 1357.72 <= frequency && frequency <= 1479.98|| 2715.426 <= frequency && frequency <= 2959.96){
                     result_note="F";
-                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
+                }else if(184.998 <= frequency && frequency <= 207.652 || 369.995 <= frequency && frequency <= 415.305 || 739.990 <= frequency && frequency <= 830.609 || 1479.99 <= frequency && frequency <= 1661.22|| 2959.97 <= frequency && frequency <= 3322.44){
                     result_note="G";
-                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
+                }else if(207.653 <= frequency && frequency <= 233.082 || 415.306 <= frequency && frequency <= 466.164 || 830.610 <= frequency && frequency <= 932.328 || 1611.23 <= frequency && frequency <= 1864.66|| 3322.45 <= frequency && frequency <= 3729.31){
                     result_note="A";
-                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
+                }else if(233.083 <= frequency && frequency <= 255.284 || 466.165 <= frequency && frequency <= 508.567 || 932.329 <= frequency && frequency <= 1017.1335 || 1864.67 <= frequency && frequency <= 2034.265|| 3729.32 <= frequency && frequency <= 4068.54){
                     result_note="H";
                 }
 
 
             }else if(settings.equals("C, D, E, F, G, A, B")){
 
-                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
+                if (127 <= frequency && frequency <= 138.591 || 255.285 <= frequency && frequency <= 277.183 || 508.568 <= frequency && frequency <= 554.365 || 1017.1336 <= frequency && frequency <= 1108.73 || 2034.266 <= frequency && frequency <= 2217.46) {
                     result_note="C";
-                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
+                }else if(138.592 <= frequency && frequency <= 155.563 || 277.184 <= frequency && frequency <= 311.127 || 554.366 <= frequency && frequency <= 622.254|| 1108.74 <= frequency && frequency <= 1244.51|| 2217.47 <= frequency && frequency <= 2489.02){
                     result_note="D";
-                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
+                }else if(155.564 <= frequency && frequency <= 169.714 || 311.128 <= frequency && frequency <= 339.428 || 622.255 <= frequency && frequency <= 678.855 || 1244.52 <= frequency && frequency <= 1357.71|| 2489.03 <= frequency && frequency <= 2715.425){
                     result_note="E";
-                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
+                }else if(169.714 <= frequency && frequency <= 184.997 || 339.429 <= frequency && frequency <= 369.994 || 678.886 <= frequency && frequency <= 739.989 || 1357.72 <= frequency && frequency <= 1479.98|| 2715.426 <= frequency && frequency <= 2959.96){
                     result_note="F";
-                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
+                }else if(184.998 <= frequency && frequency <= 207.652 || 369.995 <= frequency && frequency <= 415.305 || 739.990 <= frequency && frequency <= 830.609 || 1479.99 <= frequency && frequency <= 1661.22|| 2959.97 <= frequency && frequency <= 3322.44){
                     result_note="G";
-                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
+                }else if(207.653 <= frequency && frequency <= 233.082 || 415.306 <= frequency && frequency <= 466.164 || 830.610 <= frequency && frequency <= 932.328 || 1611.23 <= frequency && frequency <= 1864.66|| 3322.45 <= frequency && frequency <= 3729.31){
                     result_note="A";
-                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
+                }else if(233.083 <= frequency && frequency <= 255.284 || 466.165 <= frequency && frequency <= 508.567 || 932.329 <= frequency && frequency <= 1017.1335 || 1864.67 <= frequency && frequency <= 2034.265|| 3729.32 <= frequency && frequency <= 4068.54){
                     result_note="B";
                 }
 
             }else if (settings.equals("DO, RE, MI, FA, SOL, LA, SI")) {
-                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
+                if (127 <= frequency && frequency <= 138.591 || 255.285 <= frequency && frequency <= 277.183 || 508.568 <= frequency && frequency <= 554.365 || 1017.1336 <= frequency && frequency <= 1108.73 || 2034.266 <= frequency && frequency <= 2217.46) {
                     result_note="DO";
-                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
+                }else if(138.592 <= frequency && frequency <= 155.563 || 277.184 <= frequency && frequency <= 311.127 || 554.366 <= frequency && frequency <= 622.254|| 1108.74 <= frequency && frequency <= 1244.51|| 2217.47 <= frequency && frequency <= 2489.02){
                     result_note="RE";
-                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
+                }else if(155.564 <= frequency && frequency <= 169.714 || 311.128 <= frequency && frequency <= 339.428 || 622.255 <= frequency && frequency <= 678.855 || 1244.52 <= frequency && frequency <= 1357.71|| 2489.03 <= frequency && frequency <= 2715.425){
                     result_note="MI";
-                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
+                }else if(169.714 <= frequency && frequency <= 184.997 || 339.429 <= frequency && frequency <= 369.994 || 678.886 <= frequency && frequency <= 739.989 || 1357.72 <= frequency && frequency <= 1479.98|| 2715.426 <= frequency && frequency <= 2959.96){
                     result_note="FA";
-                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
+                }else if(184.998 <= frequency && frequency <= 207.652 || 369.995 <= frequency && frequency <= 415.305 || 739.990 <= frequency && frequency <= 830.609 || 1479.99 <= frequency && frequency <= 1661.22|| 2959.97 <= frequency && frequency <= 3322.44){
                     result_note="SOL";
-                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
+                }else if(207.653 <= frequency && frequency <= 233.082 || 415.306 <= frequency && frequency <= 466.164 || 830.610 <= frequency && frequency <= 932.328 || 1611.23 <= frequency && frequency <= 1864.66|| 3322.45 <= frequency && frequency <= 3729.31){
                     result_note="LA";
-                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
+                }else if(233.083 <= frequency && frequency <= 255.284 || 466.165 <= frequency && frequency <= 508.567 || 932.329 <= frequency && frequency <= 1017.1335 || 1864.67 <= frequency && frequency <= 2034.265|| 3729.32 <= frequency && frequency <= 4068.54){
                     result_note="SI";
                 }
-
             } else{
-                if (251.626 <= frequency && frequency <= 271.626 || 513.251 <= frequency && frequency <= 533.251 || 1036.50 <= frequency && frequency <= 1056.50 || 2073 <= frequency && frequency <= 2813.83) {
+                if (127 <= frequency && frequency <= 138.591 || 255.285 <= frequency && frequency <= 277.183 || 508.568 <= frequency && frequency <= 554.365 || 1017.1336 <= frequency && frequency <= 1108.73 || 2034.266 <= frequency && frequency <= 2217.46) {
                     result_note="C";
-                }else if(283.665 <= frequency && frequency <= 303.665 || 587.330 <= frequency && frequency <= 597.330 || 1164.66 <= frequency && frequency <= 1184.66 || 2329.32 <= frequency && frequency <= 2369.32){
+                }else if(138.592 <= frequency && frequency <= 155.563 || 277.184 <= frequency && frequency <= 311.127 || 554.366 <= frequency && frequency <= 622.254|| 1108.74 <= frequency && frequency <= 1244.51|| 2217.47 <= frequency && frequency <= 2489.02){
                     result_note="D";
-                }else if(319.628 <= frequency && frequency <= 339 || 649.255 <= frequency && frequency <= 669.255 || 1308.51 <= frequency && frequency <= 1328.51 || 2617.02 <= frequency && frequency <= 2657.02){
+                }else if(155.564 <= frequency && frequency <= 169.714 || 311.128 <= frequency && frequency <= 339.428 || 622.255 <= frequency && frequency <= 678.855 || 1244.52 <= frequency && frequency <= 1357.71|| 2489.03 <= frequency && frequency <= 2715.425){
                     result_note="E";
-                }else if(339.228 <= frequency && frequency <= 359.228 || 688.456 <= frequency && frequency <= 708.456 || 1386.91 <= frequency && frequency <= 1406.91 || 2773.83 <= frequency && frequency <= 2813.83){
+                }else if(169.714 <= frequency && frequency <= 184.997 || 339.429 <= frequency && frequency <= 369.994 || 678.886 <= frequency && frequency <= 739.989 || 1357.72 <= frequency && frequency <= 1479.98|| 2715.426 <= frequency && frequency <= 2959.96){
                     result_note="F";
-                }else if(381.995 <= frequency && frequency <= 401.885 || 773.991 <= frequency && frequency <= 793.991 || 1557.98 <= frequency && frequency <= 1577.98 || 3115.96 <= frequency && frequency <= 3155.96){
+                }else if(184.998 <= frequency && frequency <= 207.652 || 369.995 <= frequency && frequency <= 415.305 || 739.990 <= frequency && frequency <= 830.609 || 1479.99 <= frequency && frequency <= 1661.22|| 2959.97 <= frequency && frequency <= 3322.44){
                     result_note="G";
-                }else if(430 <= frequency && frequency <= 450 || 870 <= frequency && frequency <= 880 || 1750 <= frequency && frequency <= 1772 || 3500 <= frequency && frequency <= 3540){
+                }else if(207.653 <= frequency && frequency <= 233.082 || 415.306 <= frequency && frequency <= 466.164 || 830.610 <= frequency && frequency <= 932.328 || 1611.23 <= frequency && frequency <= 1864.66|| 3322.45 <= frequency && frequency <= 3729.31){
                     result_note="A";
-                }else if(483.883 <= frequency && frequency <= 503.883 || 977.767 <= frequency && frequency <= 997.767 || 1965.53 <= frequency && frequency <= 1985.53 || 3931.07 <= frequency && frequency <= 3971.07){
+                }else if(233.083 <= frequency && frequency <= 255.284 || 466.165 <= frequency && frequency <= 508.567 || 932.329 <= frequency && frequency <= 1017.1335 || 1864.67 <= frequency && frequency <= 2034.265|| 3729.32 <= frequency && frequency <= 4068.54){
                     result_note="H";
                 }
 

@@ -87,20 +87,6 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/white_star" />
 
-            <ImageView
-                android:id="@+id/RythmsStar7R"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/white_star" />
-
-            <ImageView
-                android:id="@+id/RythmsStar8R"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/white_star" />
-
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

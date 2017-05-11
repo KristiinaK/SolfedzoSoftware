@@ -28,9 +28,11 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
     RadioButton radioButton2;
     RadioButton radioButton3;
     RadioGroup radioGroup;
-    String questions [] = { "NOODIJOONESTIK KOOSNEB ..... JOONEST.", "............ NÄITAB, MITU LÖÖKI ON ÜHES TAKTIS."};
-    String options [][] = {{"4", "5","6"},{"TAKTIMÕÕT", "PAUS", "VIIULIVÕTI"}};
-    String answer [] = {"5", "TAKTIMÕÕT"};
+    String questions [] = { "NOODIJOONESTIK \n KOOSNEB ..... JOONEST.","1", "NOOT KOOSNEB ....... ", "2", "TÄHTNIMETUSED ON ....", "NOODIVÕTMED ON ......."};
+    String options [][] = {{"4", "5","6"},{"VIIULIVÕTI", "BASSIVÕTI", "PAUS"},{"NOODIPEAST,\nNOODIVARREST JA LIPUKESEST", "TAKTIJOONTEST", "EELTAKTIST"},
+            {"BASSIVÕTI", "VIIULIVÕTI", "PAUS"},{"C, D, E, F, G, A, H", "DO, RE, MI, FA, SOL, LA, SI", "EI TEA"},{"VIIULIVÕTI JA BASSIVÕTI", "TA JA TI-TI", "C, D, E, F, G, A, H"}};
+    String answer [] = {"5", "VIIULIVÕTI", "NOODIPEAST, NOODIVARREST JA LIPUKESEST", "BASSIVÕTI", "C, D, E, F, G, A, H", "VIIULIVÕTI JA BASSIVÕTI"};
+
     int questionNumber=0;
     public static int right;
 
@@ -81,7 +83,17 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    question.setText(questions[questionNumber]);
+                    if (questions[questionNumber].equals("1")){
+                        question.setText("MIS ON PILDIL?");
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.ic_viiulivoti);
+                    }else if(questions[questionNumber].equals("2")){
+                        question.setText("MIS ON PIDIL?");
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.ic_bassivoti);
+                    }
+                    else{
+                        question.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0);
+                        question.setText(questions[questionNumber]);
+                    }
                     radioButton1.setText(options[questionNumber][0]);
                     radioButton2.setText(options[questionNumber][1]);
                     radioButton3.setText(options[questionNumber][2]);
