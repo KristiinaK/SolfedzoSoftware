@@ -30,8 +30,8 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
     RadioGroup radioGroup;
     String questions [] = { "NOODIJOONESTIK \n KOOSNEB ..... JOONEST.","1", "NOOT KOOSNEB ....... ", "2", "TÄHTNIMETUSED ON ....", "NOODIVÕTMED ON ......."};
     String options [][] = {{"4", "5","6"},{"VIIULIVÕTI", "BASSIVÕTI", "PAUS"},{"NOODIPEAST,\nNOODIVARREST JA LIPUKESEST", "TAKTIJOONTEST", "EELTAKTIST"},
-            {"BASSIVÕTI", "VIIULIVÕTI", "PAUS"},{"C, D, E, F, G, A, H", "DO, RE, MI, FA, SOL, LA, SI", "EI TEA"},{"VIIULIVÕTI JA BASSIVÕTI", "TA JA TI-TI", "C, D, E, F, G, A, H"}};
-    String answer [] = {"5", "VIIULIVÕTI", "NOODIPEAST, NOODIVARREST JA LIPUKESEST", "BASSIVÕTI", "C, D, E, F, G, A, H", "VIIULIVÕTI JA BASSIVÕTI"};
+              {"BASSIVÕTI", "VIIULIVÕTI", "PAUS"},{"C, D, E, F, G, A, H (B)", "DO, RE, MI, FA, SOL, LA, SI", "EI TEA"},{"VIIULIVÕTI JA BASSIVÕTI", "TA JA TI-TI", "C, D, E, F, G, A, H"}};
+    String answer [] = {"5", "VIIULIVÕTI", "NOODIPEAST,\nNOODIVARREST JA LIPUKESEST", "BASSIVÕTI", "C, D, E, F, G, A, H (B)", "VIIULIVÕTI JA BASSIVÕTI"};
 
     int questionNumber=0;
     public static int right;
