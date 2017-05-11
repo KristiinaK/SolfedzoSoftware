@@ -300,7 +300,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
 
     public  void onClickButtonNext(final View view){
-        soundPool.play(metronom, 1, 1, 0, 0, 1);
+
         generateRandom();
         initNextButton();
     }

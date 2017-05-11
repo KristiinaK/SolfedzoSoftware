@@ -224,7 +224,6 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     public void onClick_next(final View view){
 
-        soundPool.play(metronom, 1, 1, 0, 0, 1);
 
         initNextButton();
 
