@@ -1,5 +1,6 @@
 package com.example.kristiina.solfedzosoftware;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,13 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+//https://www.youtube.com/watch?v=nOdSARCVYic
 public class LearnRythmsMainActivity extends AppCompatActivity {
 
+    //https://material.io/icons
     private final int[] images ={ R.drawable.ic_note_img,R.drawable.ic_volume_img,R.drawable.ic_book_img, R.drawable.ic_quiz_img,};
 
     private final String[] titles = {"ÕPI RÜTME PILDI JÄRGI","ÕPI RÜTME KUULMISE JÄRGI", "TEOORIA", "TESTI TEADMISI"};
@@ -31,7 +35,7 @@ public class LearnRythmsMainActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.listViewLearnRythms);
 
-        LearnRythmsMainActivity.CustomAdapter customAdapter= new LearnRythmsMainActivity.CustomAdapter();
+        LearnRythmsMainActivity.CustomAdapter customAdapter= new LearnRythmsMainActivity.CustomAdapter(this, titles);
         listView.setAdapter(customAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,20 +60,19 @@ public class LearnRythmsMainActivity extends AppCompatActivity {
         });
 
     }
-    private class CustomAdapter extends BaseAdapter {
 
-        @Override
-        public int getCount() {return images.length;
-        }
 
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+        finish();
+    }
+    //https://www.youtube.com/watch?v=nOdSARCVYic
+    private class CustomAdapter extends ArrayAdapter<String> {
 
-        @Override
-        public long getItemId(int position) {
-            return 0;
+        CustomAdapter(Context context, String[] titles){
+            super(context, R.layout.list_item_opi_noote, titles);
         }
 
         @Override
@@ -83,13 +86,6 @@ public class LearnRythmsMainActivity extends AppCompatActivity {
 
             return convertView;
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Runtime.getRuntime().gc();
-        finish();
     }
 
 }

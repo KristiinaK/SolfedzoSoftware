@@ -41,7 +41,6 @@ public class LearnRythmsByPicture extends AppCompatActivity {
 
     public void onClick_next_Rythms(final View view) {
 
-
         right_ans_clicked=false;
         rightBtnId.setBackgroundResource(R.drawable.piano_white_key);
         answer_textview.setBackgroundResource(0);
@@ -182,7 +181,10 @@ public class LearnRythmsByPicture extends AppCompatActivity {
 
     private void rightAnswerClicked(){
         nextButton.setEnabled(true);
+
+        //http://stackoverflow.com/a/26894146
         answer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+
         right_ans_clicked=true;
         rightBtnId=clickedBtnId;
         clickedBtnId.setBackgroundResource(R.drawable.piano_green_key);

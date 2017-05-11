@@ -8,14 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+//Quiz:
+//https://www.youtube.com/watch?v=3sDo9afuPOI
+//https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
 public class LearnRythmsTestsActivity extends AppCompatActivity {
 
     public static final String PREFERENCES = "Preferences";
-
-    private String answer;
-    private int score;
-    private int questionNumber = 0;
 
     TextView bestScoreRythms;
 
@@ -42,6 +42,8 @@ public class LearnRythmsTestsActivity extends AppCompatActivity {
         star7= (ImageView) findViewById(R.id.RythmStar7);
         star8= (ImageView) findViewById(R.id.RythmStar8);
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         int bestScore= preferences.getInt("scoreRythms",0);
 
@@ -116,6 +118,8 @@ public class LearnRythmsTestsActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         int bestScore= preferences.getInt("scoreRythms",0);
 

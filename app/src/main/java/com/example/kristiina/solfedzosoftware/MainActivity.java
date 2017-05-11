@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
 
     }
+
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public void onClick_OpiNoote(View view){
         Intent newActivity = new Intent(this,LearnNotesMainActivity.class);
         startActivity(newActivity);

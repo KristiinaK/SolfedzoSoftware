@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//Quiz:
+//https://www.youtube.com/watch?v=3sDo9afuPOI
+//https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
 public class LearnNotesTestsActivity extends AppCompatActivity {
 
     public static final String PREFERENCES = "Preferences";
-
-    private String answer;
-    private int score;
-    private int questionNumber = 0;
 
     TextView bestScoreNotes;
 
@@ -41,7 +42,8 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         int bestScore= preferences.getInt("scoreNotes",0);
 
@@ -117,6 +119,8 @@ public class LearnNotesTestsActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         int bestScore= preferences.getInt("scoreNotes",0);
 

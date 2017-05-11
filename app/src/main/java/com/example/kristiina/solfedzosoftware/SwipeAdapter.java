@@ -9,6 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+//ViewPager:
+//https://www.youtube.com/watch?v=nL0k2usU7I8
 public class SwipeAdapter extends PagerAdapter{
 
     private int[] images = {R.drawable.ic_left_arrow_img, R.drawable.ic_play_arrow_img,R.drawable.ic_play_arrow_img};

@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+//ViewPager:
+//https://www.youtube.com/watch?v=nL0k2usU7I8
+//http://stackoverflow.com/a/35253674
 public class LearnRythmsTheoryActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
@@ -36,7 +38,7 @@ public class LearnRythmsTheoryActivity extends AppCompatActivity {
     }
 
 
-
+    //http://stackoverflow.com/a/35253674
     public void onClick_rightArrow(View v){
         int pagenumber= viewPager.getCurrentItem();
         pagenumber++;
@@ -45,6 +47,7 @@ public class LearnRythmsTheoryActivity extends AppCompatActivity {
 
     }
 
+    //http://stackoverflow.com/a/35253674
     public void onClick_leftArrow(View v){
         int pagenumber= viewPager.getCurrentItem();
         if(pagenumber==0){
@@ -63,7 +66,8 @@ public class LearnRythmsTheoryActivity extends AppCompatActivity {
         finish();    }
 
 
-
+    //ViewPager:
+    //https://www.youtube.com/watch?v=nL0k2usU7I8
     private class MySwipeAdapter extends PagerAdapter {
 
         private int[] images = {R.drawable.ic_left_arrow_img, R.drawable.ic_play_arrow_img};

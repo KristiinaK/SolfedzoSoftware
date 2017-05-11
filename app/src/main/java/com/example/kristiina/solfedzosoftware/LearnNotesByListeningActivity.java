@@ -1,6 +1,5 @@
 package com.example.kristiina.solfedzosoftware;
 
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioAttributes;
@@ -17,15 +16,24 @@ import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.Random;
 
-
+//Soundpool:
+//https://www.youtube.com/watch?v=wQ2DKxNtrT4
+//https://www.youtube.com/watch?v=byNOLwmzNz0
+//https://www.youtube.com/watch?v=bslTj2zDARc
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
+//Menus:
+//https://developer.android.com/guide/topics/ui/menus.html
 public class LearnNotesByListeningActivity extends AppCompatActivity {
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     SoundPool soundPool;
     SoundPool.Builder soundPoolBuilder;
-
     AudioAttributes attributes;
     AudioAttributes.Builder attributeBuilder;
 
@@ -39,12 +47,12 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     private boolean right_ans_clicked=false;
     Button right_btn_id;
     Button userClickedButton;
+    int metronom;
+
 
     public static final String PREFERENCES = "Preferences";
 
     private String settings;
-
-    int button_voice;
 
     int note_C3, note_Cis3, note_D3, note_Dis3, note_E3, note_F3, note_Fis3, note_G3, note_Gis3, note_A3, note_Ais3, note_H3;
 
@@ -61,11 +69,16 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         if(getSupportActionBar()!=null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        //To connect mobile volume button with app
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
+        //Soundpool:
+        //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+        //https://www.youtube.com/watch?v=byNOLwmzNz0
+        //https://www.youtube.com/watch?v=bslTj2zDARc
         createSoundPool();
         loadNotes();
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+
         init();
 
         right_aswer=1;
@@ -80,9 +93,10 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
         playbutton.setVisibility(View.VISIBLE);
         nextbutton.setVisibility(View.GONE);
+
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
-
-
         settings= preferences.getString("settingsNotes","");
 
         if (settings.equals("ESIMENE OKTAV")) {
@@ -124,7 +138,10 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     }
 
-
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     protected void createSoundPool(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
             attributeBuilder= new AudioAttributes.Builder();
@@ -141,10 +158,15 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         }
     }
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     protected void loadNotes(){
 
-        button_voice = soundPool.load(this, R.raw.rythm_button,1);
-
+        // Sound downloaded from: https://www.soundjay.com/button-sounds-5.html
+        metronom = soundPool.load(this, R.raw.rythm_button, 1);
+        //https://www.freesound.org/people/jobro/packs/2489/?page=2#sound
         note_C3 = soundPool.load(this, R.raw.c_3,1);
         note_Cis3 = soundPool.load(this, R.raw.cis_3,1);
         note_D3 = soundPool.load(this, R.raw.d_3,1);
@@ -278,8 +300,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
 
     public  void onClickButtonNext(final View view){
-        soundPool.play(button_voice, 1, 1, 0, 0, 1);
-
+        soundPool.play(metronom, 1, 1, 0, 0, 1);
         generateRandom();
         initNextButton();
     }
@@ -615,7 +636,9 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
 
     private void rightAnswer(){
         right_ans_clicked=true;
+        //http://stackoverflow.com/a/26894146
         answer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+
         playbutton.setVisibility(View.GONE);
         nextbutton.setVisibility(View.VISIBLE);
         userClickedButton.setBackgroundResource(R.drawable.piano_green_key);
@@ -628,6 +651,7 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         answer_textview.setBackgroundResource(R.color.pink);
     }
 
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
@@ -635,14 +659,14 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         menu.findItem(R.id.settingsKey).setVisible(false);
         return true;
     }
-
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -659,12 +683,20 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     @Override
     protected void onPause(){
         super.onPause();
         soundPool.release();
 
     }
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     @Override
     protected void onResume(){
         super.onResume();
@@ -715,8 +747,8 @@ public class LearnNotesByListeningActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        finish();
         Runtime.getRuntime().gc();
+        finish();
     }
 
 

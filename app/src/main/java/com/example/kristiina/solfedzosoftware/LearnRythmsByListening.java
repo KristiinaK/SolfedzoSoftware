@@ -18,13 +18,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.Random;
 
+//Soundpool:
+//https://www.youtube.com/watch?v=wQ2DKxNtrT4
+//https://www.youtube.com/watch?v=byNOLwmzNz0
+//https://www.youtube.com/watch?v=bslTj2zDARc
+
 public class LearnRythmsByListening extends AppCompatActivity {
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     SoundPool soundPool;
     SoundPool soundPool2;
     SoundPool.Builder soundPoolBuilder;
     SoundPool.Builder soundPoolBuilder2;
-
     AudioAttributes attributes;
     AudioAttributes.Builder attributeBuilder;
 
@@ -56,10 +64,13 @@ public class LearnRythmsByListening extends AppCompatActivity {
         playbuttonRythms = (LinearLayout) findViewById(R.id.playButtonRythms);
         numbersTextview = (TextView) findViewById(R.id.numbersTextview);
 
-
         //To connect mobile volume button with app
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
+        //Soundpool:
+        //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+        //https://www.youtube.com/watch?v=byNOLwmzNz0
+        //https://www.youtube.com/watch?v=bslTj2zDARc
         createSoundPool();
         loadSounds();
 
@@ -75,7 +86,6 @@ public class LearnRythmsByListening extends AppCompatActivity {
         playbuttonRythms.setVisibility(View.VISIBLE);
         nextbutton.setVisibility(View.GONE);
 
-
         right_aswer=2;
 
     }
@@ -83,6 +93,10 @@ public class LearnRythmsByListening extends AppCompatActivity {
     int right_aswer;
     private boolean playbuttonpressed;
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     protected void createSoundPool(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
             attributeBuilder= new AudioAttributes.Builder();
@@ -104,9 +118,14 @@ public class LearnRythmsByListening extends AppCompatActivity {
         }
     }
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     protected void loadSounds() {
-
+        //Sound downloaded from: https://www.soundjay.com/button-sounds-2.html
         voice = soundPool2.load(this, R.raw.button_voice, 1);
+        // Sound downloaded from: https://www.soundjay.com/button-sounds-5.html
         metronom = soundPool.load(this, R.raw.rythm_button, 1);
     }
 
@@ -115,12 +134,14 @@ public class LearnRythmsByListening extends AppCompatActivity {
     int in_the_loop;
     int condition_time;
 
+    //https://developer.android.com/reference/android/view/animation/TranslateAnimation.html
+    //https://www.youtube.com/watch?v=oCRNaYaEzqE
     public void onClick_btn_play_rythms(View v){
 
         numbersTextview.setVisibility(View.VISIBLE);
+        //Hand image from https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy4JZuZF2e7MSxop71U3dkSr3--Qhw8z8lzveMAYf6WKsfSZ4z
         img_animation.setVisibility(View.GONE);
         img_animation2.setVisibility(View.GONE);
-
 
         playbuttonRythms.setEnabled(false);
         playbuttonpressed=true;
@@ -797,7 +818,10 @@ public class LearnRythmsByListening extends AppCompatActivity {
 
     private void rightAnswer(){
         right_ans_clicked=true;
+
+        //http://stackoverflow.com/a/26894146
         answer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+
         playbuttonRythms.setVisibility(View.GONE);
         nextbutton.setVisibility(View.VISIBLE);
         userClickedButtonId.setBackgroundResource(R.drawable.piano_green_key);
@@ -818,6 +842,10 @@ public class LearnRythmsByListening extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        //Soundpool:
+        //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+        //https://www.youtube.com/watch?v=byNOLwmzNz0
+        //https://www.youtube.com/watch?v=bslTj2zDARc
         createSoundPool();
         loadSounds();
     }

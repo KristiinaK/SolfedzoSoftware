@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//Quiz:
+//https://www.youtube.com/watch?v=3sDo9afuPOI
+//https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
 public class LearnRythmsTests3Activity extends AppCompatActivity {
 
     private TextView resultTextView;
@@ -27,13 +32,16 @@ public class LearnRythmsTests3Activity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         int bestScore= preferences.getInt("scoreRythms",0);
 
+        //Quiz:
+        //https://www.youtube.com/watch?v=3sDo9afuPOI
+        //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
         resultTextView = (TextView) findViewById(R.id.resultRythms);
         resultTextView.setText("ÕIGETE VASTUSTE ARV: " + LearnRythmsTests2Activity.right + "\n VALEDE VASTUSTE ARV: "+ (2-LearnRythmsTests2Activity.right)) ;
-
-
 
         star1= (ImageView) findViewById(R.id.RythmsStar1R);
         star2= (ImageView) findViewById(R.id.RythmsStar2R);
@@ -62,14 +70,12 @@ public class LearnRythmsTests3Activity extends AppCompatActivity {
             star2.setImageResource(R.drawable.yellow_star);
             star3.setImageResource(R.drawable.yellow_star);
             star4.setImageResource(R.drawable.yellow_star);
-
         }else if(bestScore==5){
             star1.setImageResource(R.drawable.yellow_star);
             star2.setImageResource(R.drawable.yellow_star);
             star3.setImageResource(R.drawable.yellow_star);
             star4.setImageResource(R.drawable.yellow_star);
             star5.setImageResource(R.drawable.yellow_star);
-
         }else if(bestScore==6){
             star1.setImageResource(R.drawable.yellow_star);
             star2.setImageResource(R.drawable.yellow_star);
@@ -77,7 +83,6 @@ public class LearnRythmsTests3Activity extends AppCompatActivity {
             star4.setImageResource(R.drawable.yellow_star);
             star5.setImageResource(R.drawable.yellow_star);
             star6.setImageResource(R.drawable.yellow_star);
-
         }else if(bestScore==7){
             star1.setImageResource(R.drawable.yellow_star);
             star2.setImageResource(R.drawable.yellow_star);
@@ -86,7 +91,6 @@ public class LearnRythmsTests3Activity extends AppCompatActivity {
             star5.setImageResource(R.drawable.yellow_star);
             star6.setImageResource(R.drawable.yellow_star);
             star7.setImageResource(R.drawable.yellow_star);
-
         }else if(bestScore==8){
             star1.setImageResource(R.drawable.yellow_star);
             star2.setImageResource(R.drawable.yellow_star);
@@ -96,7 +100,6 @@ public class LearnRythmsTests3Activity extends AppCompatActivity {
             star6.setImageResource(R.drawable.yellow_star);
             star7.setImageResource(R.drawable.yellow_star);
             star8.setImageResource(R.drawable.yellow_star);
-
         }
 
     }

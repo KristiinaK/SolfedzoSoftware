@@ -33,8 +33,9 @@ public class SettingsNotesByListening extends AppCompatActivity {
         secondOctav = (RadioButton) findViewById(R.id.secondOctav);
         smallOctav = (RadioButton) findViewById(R.id.smallOctav);
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
-
         String settings= preferences.getString("settingsNotes","");
 
 
@@ -52,6 +53,8 @@ public class SettingsNotesByListening extends AppCompatActivity {
     protected void onPause(){
         super.onPause();
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         SharedPreferences.Editor editor = preferences.edit();
 

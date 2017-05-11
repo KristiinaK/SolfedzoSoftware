@@ -10,23 +10,29 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+//Quiz:
+//https://www.youtube.com/watch?v=3sDo9afuPOI
+//https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
 public class LearnNotesTests2Activity extends AppCompatActivity {
 
     public static final String PREFERENCES = "Preferences";
 
+    //Quiz:
+    //https://www.youtube.com/watch?v=3sDo9afuPOI
+    //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
     TextView question;
     TextView nextBtn;
     RadioButton radioButton1;
     RadioButton radioButton2;
     RadioButton radioButton3;
     RadioGroup radioGroup;
-
     String questions [] = { "NOODIJOONESTIK KOOSNEB ..... JOONEST.", "............ NÄITAB, MITU LÖÖKI ON ÜHES TAKTIS."};
     String options [][] = {{"4", "5","6"},{"TAKTIMÕÕT", "PAUS", "VIIULIVÕTI"}};
     String answer [] = {"5", "TAKTIMÕÕT"};
-
     int questionNumber=0;
-   public static int right;
+    public static int right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,42 +45,38 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        //Quiz:
+        //https://www.youtube.com/watch?v=3sDo9afuPOI
+        //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
         question = (TextView) findViewById(R.id.questionN);
         nextBtn= (TextView) findViewById(R.id.nextBtnN);
         radioButton1= (RadioButton) findViewById(R.id.radioButton1);
         radioButton2= (RadioButton) findViewById(R.id.radioButton2);
         radioButton3= (RadioButton) findViewById(R.id.radioButton3);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupN);
-
         question.setText(questions[questionNumber]);
         radioButton1.setText(options[questionNumber][0]);
         radioButton2.setText(options[questionNumber][1]);
         radioButton3.setText(options[questionNumber][2]);
-
         right=0;
-
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RadioButton clickedAnswer = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
                 String answerText = clickedAnswer.getText().toString();
-
                 if(answer[questionNumber].equals(answerText)){
                     right++;
                 }
                 questionNumber++;
-
                 if(questionNumber>=questions.length){
-
-
+                    //Shared preferences:
+                    //https://developer.android.com/training/basics/data-storage/shared-preferences.html
                     SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
                     SharedPreferences.Editor editor = preferences.edit();
-
                     int lastScore= preferences.getInt("scoreNotes",0);
                     int maximum= Math.max(lastScore,right);
                     editor.putInt("scoreNotes",maximum);
                     editor.commit();
-
                     Intent intent= new Intent(getApplicationContext(), LearnNotesTests3Activity.class);
                     startActivity(intent);
                     finish();
@@ -90,12 +92,6 @@ public class LearnNotesTests2Activity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause(){
-        super.onPause();
-
-
-    }
 
     @Override
     protected void onDestroy() {

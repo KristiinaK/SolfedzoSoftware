@@ -9,10 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
-
 import android.Manifest;
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
@@ -32,6 +29,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import org.jtransforms.fft.DoubleFFT_1D;
 
+//Permissions:
+//https://developer.android.com/guide/topics/media/mediarecorder.html
+//Audiorecording and playback
+//http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
+//FFT:
+//https://gist.github.com/jongukim/4037243
+//http://stackoverflow.com/a/7675171
 public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
     public static final String PREFERENCES = "Preferences";
@@ -72,13 +78,14 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
     }
 
+    //Permissions:
+    //https://developer.android.com/guide/topics/media/mediarecorder.html
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
-
     private boolean permissionToRecordAccepted = false;
     private boolean permissionToWriteExternalStorage = false;
-
     private String [] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
+    //https://developer.android.com/guide/topics/media/mediarecorder.html
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -92,7 +99,8 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
 
     }
-
+    //Audiorecording and playback
+    //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     public void onClick_start(final View view){
 
         recordBtn.setEnabled(false);
@@ -110,14 +118,16 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
         });
         thread.start();
     }
-
+    //Audiorecording and playback
+    //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     public void onClick_stop(final View view){
         isRecording=false;
         recordBtn.setEnabled(true);
         stopBtn.setEnabled(false);
         playBtn.setEnabled(true);
     }
-
+    //Audiorecording and playback
+    //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     public void onClick_play(final View view){
 
         recordBtn.setEnabled(false);
@@ -140,6 +150,7 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
 
 
+    //Audiorecording and playback
     //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     private void startRecord(){
         File file = new File(Environment.getExternalStorageDirectory(), "recordedFile.pcm");
@@ -187,9 +198,9 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
                 answerTW.setText("");
             }
         });
-
     }
 
+    //Audiorecording and playback
     //http://android-er.blogspot.com.ee/2014/04/audiorecord-and-audiotrack-and-to.html
     private void playRecord(){
 
@@ -317,7 +328,6 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
 
             }
 
-
             AudioTrack audioTrack = new AudioTrack(
                     AudioManager.STREAM_MUSIC,
                     44100,
@@ -360,9 +370,8 @@ public class LearnNotesRecognizerActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        finish();
         Runtime.getRuntime().gc();
-
+        finish();
     }
 
 }

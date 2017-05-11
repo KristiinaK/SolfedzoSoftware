@@ -21,11 +21,22 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+//Soundpool:
+//https://www.youtube.com/watch?v=wQ2DKxNtrT4
+//https://www.youtube.com/watch?v=byNOLwmzNz0
+//https://www.youtube.com/watch?v=bslTj2zDARc
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
+//Menus:
+//https://developer.android.com/guide/topics/ui/menus.html
 public class LearnNotesByPictureActivity extends AppCompatActivity {
 
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     SoundPool soundPool;
     SoundPool.Builder soundPoolBuilder;
-
     AudioAttributes attributes;
     AudioAttributes.Builder attributeBuilder;
 
@@ -41,12 +52,12 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     ImageView pianokey;
     View upperNoteLine;
     View bottomNoteLine;
+    int metronom;
+
 
     public static final String PREFERENCES = "Preferences";
     private String settings;
 
-
-    int button_voice;
 
     int note_C3, note_Cis3, note_D3, note_Dis3, note_E3, note_F3, note_Fis3, note_G3, note_Gis3, note_A3, note_Ais3, note_H3;
 
@@ -67,10 +78,14 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
-
+        //Soundpool:
+        //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+        //https://www.youtube.com/watch?v=byNOLwmzNz0
+        //https://www.youtube.com/watch?v=bslTj2zDARc
         createSoundPool();
         loadNotes();
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
         init();
         right_answer=6;
 
@@ -94,9 +109,9 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
                 myScroll.scrollTo((myScroll.getChildAt(0).getLeft()+myScroll.getChildAt(0).getRight()-myScroll.getWidth())/2,0);
             }
         });
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
-
-
         settings= preferences.getString("settingsNotes","");
 
         if (settings.equals("VIIULIVÕTI")) {
@@ -133,7 +148,10 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     }
 
-
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     protected void createSoundPool(){
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
             attributeBuilder= new AudioAttributes.Builder();
@@ -148,10 +166,14 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
             soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC,0);
         }
     }
-
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     protected void loadNotes(){
-        button_voice = soundPool.load(this, R.raw.rythm_button,1);
-
+        // Sound downloaded from: https://www.soundjay.com/button-sounds-5.html
+        metronom = soundPool.load(this, R.raw.rythm_button, 1);
+        //https://www.freesound.org/people/jobro/packs/2489/?page=2#sound
         note_C3 = soundPool.load(this, R.raw.c_3,1);
         note_Cis3 = soundPool.load(this, R.raw.cis_3,1);
         note_D3 = soundPool.load(this, R.raw.d_3,1);
@@ -201,7 +223,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
     }
 
     public void onClick_next(final View view){
-        soundPool.play(button_voice, 1, 1, 0, 0, 1);
+
+        soundPool.play(metronom, 1, 1, 0, 0, 1);
 
         initNextButton();
 
@@ -765,7 +788,10 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
     private void rightAnswerClicked(){
         nextButton.setEnabled(true);
+
+        //http://stackoverflow.com/a/26894146
         aswer_textview.setText("ÕIGE VASTUS "+ new String(Character.toChars(0x1F60A)));
+
         right_ans_clicked=true;
         right_btn_id=clickedButton;
         clickedButton.setBackgroundResource(R.drawable.piano_green_key);
@@ -777,6 +803,8 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         aswer_textview.setBackgroundResource(R.color.pink);
     }
 
+    //Menus:
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
@@ -786,13 +814,16 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
         return true;
     }
 
+    //Menus:
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
+    //Menus:
+    //https://developer.android.com/guide/topics/ui/menus.html
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -808,19 +839,32 @@ public class LearnNotesByPictureActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
     @Override
     protected void onPause(){
         super.onPause();
         soundPool.release();
 
     }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Runtime.getRuntime().gc();
         finish();
 
     }
+
+    //Soundpool:
+    //https://www.youtube.com/watch?v=wQ2DKxNtrT4
+    //https://www.youtube.com/watch?v=byNOLwmzNz0
+    //https://www.youtube.com/watch?v=bslTj2zDARc
+    //Shared preferences:
+    //https://developer.android.com/training/basics/data-storage/shared-preferences.html
     @Override
     protected void onResume(){
 

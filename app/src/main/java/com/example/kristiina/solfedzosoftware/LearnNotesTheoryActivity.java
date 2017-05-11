@@ -6,13 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-
+//ViewPager:
+//https://www.youtube.com/watch?v=nL0k2usU7I8
+//http://stackoverflow.com/a/35253674
 public class LearnNotesTheoryActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private SwipeAdapter swipeAdapter;
-
-
 
 
     @Override
@@ -33,7 +33,7 @@ public class LearnNotesTheoryActivity extends AppCompatActivity {
 
 
     }
-
+    //http://stackoverflow.com/a/35253674
     public void onClick_rightArrow(View v){
         int pagenumber= viewPager.getCurrentItem();
         pagenumber++;
@@ -41,7 +41,7 @@ public class LearnNotesTheoryActivity extends AppCompatActivity {
 
 
     }
-
+    //http://stackoverflow.com/a/35253674
     public void onClick_leftArrow(View v){
         int pagenumber= viewPager.getCurrentItem();
         if(pagenumber==0){

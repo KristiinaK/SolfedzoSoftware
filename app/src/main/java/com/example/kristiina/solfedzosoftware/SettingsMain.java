@@ -35,10 +35,10 @@ public class SettingsMain extends AppCompatActivity {
         CDEB = (RadioButton) findViewById(R.id.CDEB);
         DOREMI = (RadioButton) findViewById(R.id.doReMi);
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
-
         String settings= preferences.getString("settings","");
-
 
         if (settings.equals("C, D, E, F, G, A, H")) {
             CDEH.setChecked(true);
@@ -49,20 +49,19 @@ public class SettingsMain extends AppCompatActivity {
         }else{
             CDEH.setChecked(true);
         }
-
     }
-
 
     @Override
     protected void onPause(){
         super.onPause();
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         SharedPreferences.Editor editor = preferences.edit();
 
         int selectedItem= radioGroup.getCheckedRadioButtonId();
         checkedRadioButton = (RadioButton) findViewById(selectedItem);
-
 
         editor.putString("settings", checkedRadioButton.getText().toString());
         editor.commit();

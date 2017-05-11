@@ -32,10 +32,10 @@ public class SettingsNotesByPicture extends AppCompatActivity {
         viiulivoti = (RadioButton) findViewById(R.id.viiulivotiRadio);
         bassivoti = (RadioButton) findViewById(R.id.bassivotiRadio);
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences  = getSharedPreferences(PREFERENCES,0);
-
         String settings= preferences.getString("settingsNotesByPicture","");
-
 
         if (settings.equals("VIIULIVÕTI")) {
             viiulivoti.setChecked(true);
@@ -45,19 +45,19 @@ public class SettingsNotesByPicture extends AppCompatActivity {
             viiulivoti.setChecked(true);
         }
 
-
     }
 
     @Override
     protected void onPause(){
         super.onPause();
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         SharedPreferences.Editor editor = preferences.edit();
 
         int selectedItem= radioGroup.getCheckedRadioButtonId();
         checkedRadioButton = (RadioButton) findViewById(selectedItem);
-
 
         editor.putString("settingsNotesByPicture", checkedRadioButton.getText().toString());
         editor.commit();

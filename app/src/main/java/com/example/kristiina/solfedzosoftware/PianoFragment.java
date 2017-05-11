@@ -49,13 +49,12 @@ public class PianoFragment extends Fragment{
         btn_H5 = (Button) view.findViewById(R.id.btn_H5);
 
 
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences  = this.getActivity().getSharedPreferences(PREFERENCES,0);
-
         String settings= preferences.getString("settings","");
 
-
         if (settings.equals("C, D, E, F, G, A, H")) {
-
             btn_C3.setText("C");
             btn_C4.setText("C");
             btn_C5.setText("C");
@@ -79,7 +78,6 @@ public class PianoFragment extends Fragment{
             btn_H5.setText("H");
 
         }else if(settings.equals("C, D, E, F, G, A, B")){
-
             btn_C3.setText("C");
             btn_C4.setText("C");
             btn_C5.setText("C");
@@ -126,7 +124,6 @@ public class PianoFragment extends Fragment{
             btn_H5.setText("SI");
 
         }else{
-
             btn_C3.setText("C");
             btn_C4.setText("C");
             btn_C5.setText("C");
@@ -149,9 +146,6 @@ public class PianoFragment extends Fragment{
             btn_H4.setText("H");
             btn_H5.setText("H");
         }
-
-
-
 
         return view;
     }

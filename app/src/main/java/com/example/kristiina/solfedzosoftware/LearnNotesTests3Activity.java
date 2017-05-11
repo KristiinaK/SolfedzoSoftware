@@ -9,13 +9,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//Quiz:
+//https://www.youtube.com/watch?v=3sDo9afuPOI
+//https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
+//Shared preferences:
+//https://developer.android.com/training/basics/data-storage/shared-preferences.html
 public class LearnNotesTests3Activity extends AppCompatActivity {
+
 
     TextView resultTextView;
     public static final String PREFERENCES = "Preferences";
     private ImageView star1, star2, star3, star4, star5, star6, star7, star8;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +31,16 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
+        //Shared preferences:
+        //https://developer.android.com/training/basics/data-storage/shared-preferences.html
         SharedPreferences preferences = getSharedPreferences(PREFERENCES,0);
         int bestScore= preferences.getInt("scoreNotes",0);
 
+        //Quiz:
+        //https://www.youtube.com/watch?v=3sDo9afuPOI
+        //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
         resultTextView = (TextView) findViewById(R.id.resultN);
         resultTextView.setText("ÕIGETE VASTUSTE ARV: " + LearnNotesTests2Activity.right + "\n VALEDE VASTUSTE ARV: "+ (2-LearnNotesTests2Activity.right)) ;
-
-
 
         star1= (ImageView) findViewById(R.id.star1R);
         star2= (ImageView) findViewById(R.id.star2R);
@@ -104,13 +110,18 @@ public class LearnNotesTests3Activity extends AppCompatActivity {
 
     }
 
-
+    //Quiz:
+    //https://www.youtube.com/watch?v=3sDo9afuPOI
+    //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
     public void onClick_Start_Test_N(View v){
         Intent intent= new Intent(v.getContext(), LearnNotesTests2Activity.class);
         startActivity(intent);
         finish();
     }
 
+    //Quiz:
+    //https://www.youtube.com/watch?v=3sDo9afuPOI
+    //https://drive.google.com/file/d/0B7WV-6S7pAvVcmRWaU1UWVYzNUk/view
     @Override
     protected void onPause(){
         super.onPause();
